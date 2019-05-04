@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Stateless from './components/stateless/stateless.jsx';
+import App from './components/app/app.jsx';
 
 const init = () => {
   ReactDOM.render(
-      <Stateless/>,
+      <App/>,
       document.getElementById(`root`)
   );
 };
