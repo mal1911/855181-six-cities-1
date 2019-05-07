@@ -9,6 +9,9 @@
     "test": "npm run eslint && jest",
     "start": "webpack-dev-server --open"
   },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js"
+  },
   "devDependencies": {
     "@babel/core": "7.4.4",
     "@babel/preset-env": "7.4.4",
