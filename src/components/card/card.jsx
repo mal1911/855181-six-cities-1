@@ -28,7 +28,7 @@ const Card = (props) => (
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#">{props.title}</a>
+        <a href="#" onClick={props.onClick}>{props.title}</a>
       </h2>
       <p className="place-card__type">Private room</p>
     </div>
@@ -37,6 +37,7 @@ const Card = (props) => (
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default Card;
