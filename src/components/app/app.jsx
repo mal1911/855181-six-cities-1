@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import Card from '../card/card';
 
 const App = (props) => {
+
+  const titleClickHandler = (evt) => {
+    evt.preventDefault();
+  };
+
   const cards = props.titles.map((title, index) => {
-    return <Card key={index} title={title}/>;
+    return <Card key={index} title={title} onClick={titleClickHandler}/>;
   });
 
   return <div>
@@ -103,6 +108,7 @@ const App = (props) => {
 
 App.propTypes = {
   titles: PropTypes.array.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default App;
