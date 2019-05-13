@@ -10,7 +10,7 @@
     "start": "webpack-dev-server --open"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js"
+    "setupFilesAfterEnv": ["<rootDir>src/jestSetup.js"]
   },
   "devDependencies": {
     "@babel/core": "7.4.4",
