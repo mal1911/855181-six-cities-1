@@ -1,18 +1,21 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Card from './card';
+import {offers} from "../../mocks/offers";
 
-
-it(`Simulating button click`, () => {
-  const clickHandler = jest.fn();
+it(`Simulating card title click`, () => {
+  const handlerClick = jest.fn();
 
   const card = shallow(<Card
-    title={``}
-    onClick={clickHandler}
+    offer={offers[0]}
+    onClick={handlerClick}
   />);
 
   const titleLink = card.find(`.place-card__name a`);
   titleLink.simulate(`click`, {preventDefault() {}});
-  expect(clickHandler).toHaveBeenCalledTimes(1);
+  expect(handlerClick).toHaveBeenCalledTimes(1);
 });
 
+/*  expect(output.state().clicked).toEqual(false);
+  output.simulate('click');
+  expect(output.state().clicked).toEqual(true);*/

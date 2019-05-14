@@ -1,13 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Card from './card';
-
-const mock = `Beautiful & luxurious apartment at great location`;
+import {offers} from "../../mocks/offers";
 
 it(`Card correctly renders`, () => {
+  const handlerClick = jest.fn();
   const tree = renderer
     .create(<Card
-      title={mock}
+      offer={offers[0]}
+      onClick={handlerClick}
     />).toJSON();
   expect(tree).toMatchSnapshot();
 });
