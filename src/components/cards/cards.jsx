@@ -9,17 +9,17 @@ export default class Cards extends PureComponent {
     this.state = {
       activeCardId: 0,
     };
-    this._handlerChangeCardId = this._handlerChangeCardId.bind(this);
+    this._handlerChange = this._handlerChange.bind(this);
   }
 
-  _handlerChangeCardId(evt, id) {
+  _handlerChange(evt, id) {
     this.setState({activeCardId: id});
     evt.preventDefault();
   }
 
   render() {
     const cards = this.props.offers.map((offer, index) => {
-      return <Card key={index} offer={offer} onChangeCardId={this._handlerChangeCardId}/>;
+      return <Card key={index} offer={offer} onChange={this._handlerChange}/>;
     });
 
     return <div className="cities__places-list places__list tabs__content">

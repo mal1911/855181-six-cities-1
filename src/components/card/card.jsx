@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Card = (props) => {
-  const handlerImageEnter = (evt) => {
-    props.onChangeCardId(evt, props.offer.id);
+  const handlerChange = (evt) => {
+    props.onChange(evt, props.offer.id);
   };
 
   return <article className="cities__place-card place-card">
     <div className="cities__image-wrapper place-card__image-wrapper">
-      <a href="#" onMouseEnter={handlerImageEnter}>
+      <a href="#" onMouseEnter={handlerChange}>
         <img className="place-card__image" src={props.offer.imgSrc} width="260" height="200" alt="Place image"/>
       </a>
     </div>
@@ -32,7 +32,7 @@ const Card = (props) => {
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#" onClick={handlerImageEnter}>{props.offer.title}</a>
+        <a href="#" onClick={handlerChange}>{props.offer.title}</a>
       </h2>
       <p className="place-card__type">{props.offer.type}</p>
     </div>
@@ -48,7 +48,7 @@ Card.propTypes = {
     type: PropTypes.oneOf([`Apartment`, `Private room`]).isRequired,
     imgSrc: PropTypes.string.isRequired,
   }).isRequired,
-  onChangeCardId: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 export default Card;
