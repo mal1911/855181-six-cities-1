@@ -4,11 +4,11 @@ import Card from './card';
 import {offers} from "../../mocks/offers";
 
 it(`Card correctly renders`, () => {
-  const handlerClick = jest.fn();
+  const handlerChangeCardId = jest.fn();
   const tree = renderer
     .create(<Card
       offer={offers[0]}
-      onClick={handlerClick}
+      onChangeCardId={handlerChangeCardId}
     />).toJSON();
   expect(tree).toMatchSnapshot();
 });

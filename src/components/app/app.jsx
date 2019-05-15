@@ -3,11 +3,6 @@ import PropTypes from 'prop-types';
 import Cards from '../cards/cards';
 
 const App = (props) => {
-
-  const handlerTitleClick = (evt) => {
-    evt.preventDefault();
-  };
-
   return <div>
     <header className="header">
       <div className="container">
@@ -91,7 +86,6 @@ const App = (props) => {
             </form>
             <Cards
               offers={props.offers}
-              onClick={handlerTitleClick}
             />
           </section>
           <div className="cities__right-section">
@@ -105,7 +99,6 @@ const App = (props) => {
 
 App.propTypes = {
   offers: PropTypes.array.isRequired,
-  onClick: PropTypes.func,
 };
 
 export default App;

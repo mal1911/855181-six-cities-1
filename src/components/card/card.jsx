@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = (props) => (
-  <article className="cities__place-card place-card">
+const Card = (props) => {
+  const handlerImageEnter = (evt) => {
+    props.onChangeCardId(evt, props.offer.id);
+  };
+
+  return <article className="cities__place-card place-card">
     <div className="cities__image-wrapper place-card__image-wrapper">
-      <a href="#">
+      <a href="#" onMouseEnter={handlerImageEnter}>
         <img className="place-card__image" src={props.offer.imgSrc} width="260" height="200" alt="Place image"/>
       </a>
     </div>
@@ -28,22 +32,23 @@ const Card = (props) => (
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#" onClick={props.onClick}>{props.offer.title}</a>
+        <a href="#" onClick={handlerImageEnter}>{props.offer.title}</a>
       </h2>
       <p className="place-card__type">{props.offer.type}</p>
     </div>
-  </article>
-);
+  </article>;
+};
 
 Card.propTypes = {
   offer: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.oneOf([1, 2, 3, 4, 5]).isRequired,
     type: PropTypes.oneOf([`Apartment`, `Private room`]).isRequired,
     imgSrc: PropTypes.string.isRequired,
   }).isRequired,
-  onClick: PropTypes.func,
+  onChangeCardId: PropTypes.func,
 };
 
 export default Card;
