@@ -1,17 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../card/card';
+import Cards from '../cards/cards';
 
 const App = (props) => {
-
-  const titleClickHandler = (evt) => {
-    evt.preventDefault();
-  };
-
-  const cards = props.titles.map((title, index) => {
-    return <Card key={index} title={title} onClick={titleClickHandler}/>;
-  });
-
   return <div>
     <header className="header">
       <div className="container">
@@ -93,9 +84,9 @@ const App = (props) => {
                 <li className="places__option" tabIndex="0">Top rated first</li>
               </ul>
             </form>
-            <div className="cities__places-list places__list tabs__content">
-              {cards}
-            </div>
+            <Cards
+              offers={props.offers}
+            />
           </section>
           <div className="cities__right-section">
             <section className="cities__map map"></section>
@@ -107,8 +98,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  titles: PropTypes.array.isRequired,
-  onClick: PropTypes.func,
+  offers: PropTypes.array.isRequired,
 };
 
 export default App;
