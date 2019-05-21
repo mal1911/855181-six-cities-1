@@ -4,10 +4,7 @@ import Cards from '../cards/cards';
 import Map from '../map/map';
 
 const App = (props) => {
-  const offersCoordinates = props.offers.map((offer) => {
-    return offer.coordinates;
-  });
-
+  const offersCoordinates = props.offers.map((offer) => offer.coordinates);
   return <div>
     <header className="header">
       <div className="container">
