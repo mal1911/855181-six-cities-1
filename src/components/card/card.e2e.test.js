@@ -1,13 +1,13 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Card from './card';
-import {offers} from "../../mocks/offers";
+import {offersMock} from "../../mocks/offers-mock";
 
 it(`Simulating card title click`, () => {
   const handlerChange = jest.fn();
 
   const card = shallow(<Card
-    offer={offers[0]}
+    offer={offersMock[0]}
     onChange={handlerChange}
   />);
 
@@ -20,7 +20,7 @@ it(`Simulating card image mouseEnter`, () => {
   const handlerChange = jest.fn();
 
   const card = shallow(<Card
-    offer={offers[0]}
+    offer={offersMock[0]}
     onChange={handlerChange}
   />);
 

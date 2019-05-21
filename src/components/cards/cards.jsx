@@ -12,15 +12,15 @@ export default class Cards extends PureComponent {
     this._handlerChange = this._handlerChange.bind(this);
   }
 
-  _handlerChange(evt, id) {
-    this.setState({activeCardId: id});
+  _handlerChange(evt, cardObj) {
+    this.setState({activeCardId: cardObj.id});
     evt.preventDefault();
   }
 
   render() {
-    const cards = this.props.offers.map((offer, index) => {
-      return <Card key={index} offer={offer} onChange={this._handlerChange}/>;
-    });
+    const cards = this.props.offersData.map((offerObj, index) =>
+      <Card key={index} offerObj={offerObj} onChange={this._handlerChange}/>
+    );
 
     return <div className="cities__places-list places__list tabs__content">
       {cards}
@@ -29,8 +29,9 @@ export default class Cards extends PureComponent {
 }
 
 Cards.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
+  offersData: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
+    idCity: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.oneOf([1, 2, 3, 4, 5]).isRequired,

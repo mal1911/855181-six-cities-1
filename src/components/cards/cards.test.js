@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Cards from './cards';
-import {offers} from "../../mocks/offers";
+import {offersMock} from "../../mocks/offers-mock";
 
 it(`Cards correctly renders`, () => {
   const tree = renderer
     .create(<Cards
-      offers={offers}
+      offersData={offersMock}
     />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 
 const Card = (props) => {
   const handlerChange = (evt) => {
-    props.onChange(evt, props.offer.id);
+    props.onChange(evt, props.offerObj);
   };
 
   return <article className="cities__place-card place-card">
     <div className="cities__image-wrapper place-card__image-wrapper">
       <a href="#" onMouseEnter={handlerChange}>
-        <img className="place-card__image" src={props.offer.imgSrc} width="260" height="200" alt="Place image"/>
+        <img className="place-card__image" src={props.offerObj.imgSrc} width="260" height="200" alt="Place image"/>
       </a>
     </div>
     <div className="place-card__info">
       <div className="place-card__price-wrapper">
         <div className="place-card__price">
-          <b className="place-card__price-value">&euro;{props.offer.price}</b>
+          <b className="place-card__price-value">&euro;{props.offerObj.price}</b>
           <span className="place-card__price-text">&#47;&nbsp;night</span>
         </div>
         <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
@@ -27,21 +27,22 @@ const Card = (props) => {
       </div>
       <div className="place-card__rating rating">
         <div className="place-card__stars rating__stars">
-          <span style={{width: `${props.offer.rating * 20}%`}}></span>
+          <span style={{width: `${props.offerObj.rating * 20}%`}}></span>
           <span className="visually-hidden">Rating</span>
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#" onClick={handlerChange}>{props.offer.title}</a>
+        <a href="#" onClick={handlerChange}>{props.offerObj.title}</a>
       </h2>
-      <p className="place-card__type">{props.offer.type}</p>
+      <p className="place-card__type">{props.offerObj.type}</p>
     </div>
   </article>;
 };
 
 Card.propTypes = {
-  offer: PropTypes.shape({
+  offerObj: PropTypes.shape({
     id: PropTypes.number.isRequired,
+    idCity: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.oneOf([1, 2, 3, 4, 5]).isRequired,

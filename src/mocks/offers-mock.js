@@ -1,6 +1,7 @@
-export const offers = [
+export const offersMock = [
   {
     id: 1,
+    idCity: 1,
     title: `Beautiful & luxurious apartment at great location`,
     price: 10,
     rating: 1,
@@ -10,6 +11,7 @@ export const offers = [
   },
   {
     id: 2,
+    idCity: 1,
     title: `Wood and stone place`,
     price: 20,
     rating: 2,
@@ -19,6 +21,7 @@ export const offers = [
   },
   {
     id: 3,
+    idCity: 2,
     title: `Canal View Prinsengracht`,
     price: 50,
     rating: 4,
@@ -28,6 +31,7 @@ export const offers = [
   },
   {
     id: 4,
+    idCity: 2,
     title: `Nice, cozy, warm big bed apartment`,
     price: 100,
     rating: 5,
