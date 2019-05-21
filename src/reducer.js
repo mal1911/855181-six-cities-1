@@ -1,5 +1,22 @@
+import {offersData} from "./mocks/offers";
+
+const getCitiesData = () => {
+  const data = [];
+  offersData.forEach((offerObj) => {
+    if (data.indexOf(offerObj.city) === -1) {
+      data.push(offerObj.city);
+    }
+  });
+  return data;
+};
+
+const citiesData = getCitiesData();
+const getFilteredOffersData = (city) => offersData.filter((offer) => offer.city === city);
+
 const initialState = {
-  activeCityId: 1,
+  activeCity: citiesData[0],
+  filteredOffersData: getFilteredOffersData(citiesData[0]),
+  citiesData,
 };
 /*
 const isArtistAnswerCorrect = (userAnswer, question) =>
@@ -12,9 +29,9 @@ const isGenreAnswerCorrect = (userAnswer, question) =>
 */
 
 const ActionCreator = {
-  changeActiveCity: (activeCityObj) => ({
+  changeActiveCity: (activeCity) => ({
     type: `CHANGE_ACTIVE_CITY`,
-    payload: activeCityObj.id,
+    payload: activeCity,
   }),
 
   /*
@@ -51,7 +68,8 @@ const ActionCreator = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case `CHANGE_ACTIVE_CITY`: return Object.assign({}, state, {
-      activeCityId: action.payload,
+      activeCity: action.payload,
+      filteredOffersData: getFilteredOffersData(action.payload),
     });
 /*
     case `INCREMENT_MISTAKES`: return Object.assign({}, state, {

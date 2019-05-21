@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import City from '../city/city';
 
 const Cities = (props) => {
-  const isActiveItem = (cityObj) => (cityObj.id === props.activeCityId);
+  const isActiveItem = (city) => (city === props.activeCity);
 
-  const cities = props.citiesData.map((cityObj, index) =>
+  const cities = props.citiesData.map((city, index) =>
     <City
       key={index}
-      cityObj={cityObj}
-      isActive={isActiveItem(cityObj)}
+      city={city}
+      isActive={isActiveItem(city)}
       onClick={props.onCityClick}
     />
   );
@@ -20,11 +20,8 @@ const Cities = (props) => {
 };
 
 Cities.propTypes = {
-  citiesData: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-  }).isRequired),
-  activeCityId: PropTypes.number.isRequired,
+  citiesData: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  activeCity: PropTypes.string.isRequired,
   onCityClick: PropTypes.func.isRequired,
 };
 

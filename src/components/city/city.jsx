@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const City = (props) => {
   const handlerClick = (evt) => {
-    props.onClick(evt, props.cityObj);
+    props.onClick(evt, props.city);
   };
 
   const classList = [`locations__item-link`, `tabs__item`];
@@ -13,16 +13,13 @@ const City = (props) => {
 
   return <li className="locations__item">
     <a className={classList.join(` `)} href="#" onClick={handlerClick}>
-      <span>{props.cityObj.name}</span>
+      <span>{props.city}</span>
     </a>
   </li>;
 };
 
 City.propTypes = {
-  cityObj: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-  }).isRequired,
+  city: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   isActive: PropTypes.bool,
 };

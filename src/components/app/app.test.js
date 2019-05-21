@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import App from './app';
-import {offersMock} from '../../mocks/offers-mock';
+import {offersMock} from '../../mocks/offers';
 import {citiesMock} from '../../mocks/cities-mock';
 
 it(`App correctly renders`, () => {

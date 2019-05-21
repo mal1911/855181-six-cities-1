@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Card from './card';
-import {offersMock} from "../../mocks/offers-mock";
+import {offersMock} from "../../mocks/offers";
 
 it(`Simulating card title click`, () => {
   const handlerChange = jest.fn();

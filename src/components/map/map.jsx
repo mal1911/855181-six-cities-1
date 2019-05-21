@@ -10,17 +10,28 @@ export default class Map extends PureComponent {
     };
   }
 
-  componentDidMount() {
-    try {
+  componentDidUpdate() {
+    console.log(this.props.offersCoordinatesData);
+    //try {
       this._initMap();
-    } catch (err) {
-      this.setState({error: err});
-    }
+    //} catch (err) {
+    //  console.log(err);
+     // this.setState({error: err});
+   // }
   }
 
   render() {
+    console.log(`render`);
+
+    /*try {
+      this._initMap();
+    } catch (err) {
+      //this.setState({error: err});
+    }*/
+
+
     return (
-      <section className="cities__map map" id="map"></section>
+      <section className="cities__map map" id="map"/>
     );
   }
 
@@ -41,20 +52,21 @@ export default class Map extends PureComponent {
     });
     map.setView(city, zoom);
 
+
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
       .addTo(map);
 
-    this.props.offersCoordinates.forEach((coordinates) => {
+    this.props.offersCoordinatesData.forEach((coordinates) => {
       leaflet.marker(coordinates, {icon}).addTo(map);
     });
   }
 }
 
 Map.propTypes = {
-  offersCoordinates: PropTypes.arrayOf(PropTypes.array.isRequired).isRequired
+  offersCoordinatesData: PropTypes.arrayOf(PropTypes.array.isRequired).isRequired
 };
 
 

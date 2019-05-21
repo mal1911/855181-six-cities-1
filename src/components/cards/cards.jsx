@@ -31,7 +31,7 @@ export default class Cards extends PureComponent {
 Cards.propTypes = {
   offersData: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    idCity: PropTypes.number.isRequired,
+    city: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.oneOf([1, 2, 3, 4, 5]).isRequired,

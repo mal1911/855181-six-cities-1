@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Map from './map';
-import {offersMock} from "../../mocks/offers-mock";
+import {offersMock} from "../../mocks/offers";
 
 const mock = offersMock.map((offer) => {
   return offer.coordinates;

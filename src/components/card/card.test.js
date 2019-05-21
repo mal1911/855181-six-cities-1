@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Card from './card';
-import {offersMock} from "../../mocks/offers-mock";
+import {offersMock} from "../../mocks/offers";
 
 it(`Card correctly renders`, () => {
   const handlerChange = jest.fn();
