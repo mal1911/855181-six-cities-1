@@ -5,7 +5,8 @@ export const offers = [
     price: 10,
     rating: 1,
     type: `Apartment`,
-    imgSrc: `img/apartment-01.jpg`
+    imgSrc: `img/apartment-01.jpg`,
+    coordinates: [52.3909553943508, 4.85309666406198],
   },
   {
     id: 2,
@@ -13,7 +14,8 @@ export const offers = [
     price: 20,
     rating: 2,
     type: `Apartment`,
-    imgSrc: `img/apartment-02.jpg`
+    imgSrc: `img/apartment-02.jpg`,
+    coordinates: [52.369553943508, 4.85309666406198],
   },
   {
     id: 3,
@@ -21,7 +23,8 @@ export const offers = [
     price: 50,
     rating: 4,
     type: `Apartment`,
-    imgSrc: `img/apartment-03.jpg`
+    imgSrc: `img/apartment-03.jpg`,
+    coordinates: [52.3909553943508, 4.929309666406198],
   },
   {
     id: 4,
@@ -29,6 +32,7 @@ export const offers = [
     price: 100,
     rating: 5,
     type: `Private room`,
-    imgSrc: `img/room.jpg`
+    imgSrc: `img/room.jpg`,
+    coordinates: [52.3809553943508, 4.939309666406198],
   },
 ];

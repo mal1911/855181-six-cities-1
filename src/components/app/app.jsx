@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Cards from '../cards/cards';
+import Map from '../map/map';
 
 const App = (props) => {
+  const offersCoordinates = props.offers.map((offer) => offer.coordinates);
   return <div>
     <header className="header">
       <div className="container">
@@ -89,7 +91,9 @@ const App = (props) => {
             />
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <Map
+              offersCoordinates={offersCoordinates}
+            />
           </div>
         </div>
       </div>
