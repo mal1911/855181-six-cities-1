@@ -75,8 +75,9 @@ exports[`App correctly renders 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              className="locations__item-link tabs__item tabs__item--active"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Paris
@@ -89,6 +90,7 @@ exports[`App correctly renders 1`] = `
             <a
               className="locations__item-link tabs__item"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Cologne
@@ -101,6 +103,7 @@ exports[`App correctly renders 1`] = `
             <a
               className="locations__item-link tabs__item"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Brussels
@@ -111,7 +114,9 @@ exports[`App correctly renders 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item tabs__item--active"
+              className="locations__item-link tabs__item"
+              href="#"
+              onClick={[Function]}
             >
               <span>
                 Amsterdam
@@ -124,6 +129,7 @@ exports[`App correctly renders 1`] = `
             <a
               className="locations__item-link tabs__item"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Hamburg
@@ -136,6 +142,7 @@ exports[`App correctly renders 1`] = `
             <a
               className="locations__item-link tabs__item"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Dusseldorf
@@ -162,7 +169,9 @@ exports[`App correctly renders 1`] = `
           <b
             className="places__found"
           >
-            312 places to stay in Amsterdam
+            4
+             places to stay in 
+            Paris
           </b>
           <form
             action="#"
@@ -308,7 +317,7 @@ exports[`App correctly renders 1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Beautiful & luxurious apartment at great location
+                    Paris Beautiful & luxurious apartment at great location
                   </a>
                 </h2>
                 <p
@@ -405,7 +414,7 @@ exports[`App correctly renders 1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Wood and stone place
+                    Paris Wood and stone place
                   </a>
                 </h2>
                 <p
@@ -502,7 +511,7 @@ exports[`App correctly renders 1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Canal View Prinsengracht
+                    Paris Canal View Prinsengracht
                   </a>
                 </h2>
                 <p
@@ -599,7 +608,7 @@ exports[`App correctly renders 1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Nice, cozy, warm big bed apartment
+                    Paris Nice, cozy, warm big bed apartment
                   </a>
                 </h2>
                 <p

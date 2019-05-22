@@ -42,13 +42,15 @@ const Card = (props) => {
 Card.propTypes = {
   offerObj: PropTypes.shape({
     id: PropTypes.number.isRequired,
+    isPremium: PropTypes.bool.isRequired,
     city: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.oneOf([1, 2, 3, 4, 5]).isRequired,
     type: PropTypes.oneOf([`Apartment`, `Private room`]).isRequired,
     imgSrc: PropTypes.string.isRequired,
-  }).isRequired,
+    coordinates: PropTypes.array.isRequired,
+  }),
   onChange: PropTypes.func,
 };
 

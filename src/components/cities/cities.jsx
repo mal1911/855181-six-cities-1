@@ -5,11 +5,11 @@ import City from '../city/city';
 const Cities = (props) => {
   const isActiveItem = (city) => (city === props.activeCity);
 
-  const cities = props.citiesData.map((city, index) =>
+  const cities = props.citiesData.map((cityObj, index) =>
     <City
       key={index}
-      city={city}
-      isActive={isActiveItem(city)}
+      city={cityObj.name}
+      isActive={isActiveItem(cityObj.name)}
       onClick={props.onCityClick}
     />
   );
@@ -20,7 +20,9 @@ const Cities = (props) => {
 };
 
 Cities.propTypes = {
-  citiesData: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  citiesData: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    coordinates: PropTypes.array.isRequired.isRequired}).isRequired).isRequired,
   activeCity: PropTypes.string.isRequired,
   onCityClick: PropTypes.func.isRequired,
 };

@@ -88,7 +88,7 @@ exports[`Card correctly renders 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Beautiful & luxurious apartment at great location
+        Paris Beautiful & luxurious apartment at great location
       </a>
     </h2>
     <p
