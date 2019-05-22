@@ -1,14 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Card from './card';
-import {offers} from "../../mocks/offers";
+import {offersData} from '../../mocks/mocks';
 
 it(`Card correctly renders`, () => {
-  const handlerChange = jest.fn();
   const tree = renderer
     .create(<Card
-      offer={offers[0]}
-      onChangeCardId={handlerChange}
+      offerObj={offersData[0]}
+      onChange={jest.fn()}
     />).toJSON();
   expect(tree).toMatchSnapshot();
 });

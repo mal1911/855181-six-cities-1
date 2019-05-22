@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
+import {ActionCreator} from "../../reducer";
 import Cards from '../cards/cards';
+import Cities from '../cities/cities';
 import Map from '../map/map';
 
 const App = (props) => {
-  const offersCoordinates = props.offers.map((offer) => offer.coordinates);
+  const offersCoordinatesData = props.filteredOffersData.map((offerObj) => offerObj.coordinates);
+  const cityCoordinates = props.citiesData.find((cityObj) => cityObj.name === props.activeCity).coordinates;
   return <div>
     <header className="header">
       <div className="container">
@@ -32,45 +36,18 @@ const App = (props) => {
       <h1 className="visually-hidden">Cities</h1>
       <div className="cities tabs">
         <section className="locations container">
-          <ul className="locations__list tabs__list">
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Paris</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Cologne</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Brussels</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item tabs__item--active">
-                <span>Amsterdam</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Hamburg</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Dusseldorf</span>
-              </a>
-            </li>
-          </ul>
+          <Cities
+            citiesData={props.citiesData}
+            activeCity={props.activeCity}
+            onCityClick={props.onCityClick}
+          />
         </section>
       </div>
       <div className="cities__places-wrapper">
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">312 places to stay in Amsterdam</b>
+            <b className="places__found">{props.filteredOffersData.length} places to stay in {props.activeCity}</b>
             <form className="places__sorting" action="#" method="get">
               <span className="places__sorting-caption">Sort by</span>
               <span className="places__sorting-type" tabIndex="0">
@@ -86,13 +63,12 @@ const App = (props) => {
                 <li className="places__option" tabIndex="0">Top rated first</li>
               </ul>
             </form>
-            <Cards
-              offers={props.offers}
-            />
+            <Cards offersData={props.filteredOffersData}/>
           </section>
           <div className="cities__right-section">
             <Map
-              offersCoordinates={offersCoordinates}
+              offersCoordinatesData={offersCoordinatesData}
+              cityCoordinates={cityCoordinates}
             />
           </div>
         </div>
@@ -102,7 +78,34 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  offers: PropTypes.array.isRequired,
+  activeCity: PropTypes.string.isRequired,
+  filteredOffersData: PropTypes.array.isRequired,
+  citiesData: PropTypes.array.isRequired,
+  onCityClick: PropTypes.func.isRequired,
 };
 
-export default App;
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  activeCity: state.activeCity,
+  filteredOffersData: state.filteredOffersData,
+  citiesData: state.citiesData,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+
+  onCityClick: (evt, activeCity) => {
+    dispatch(ActionCreator.changeActiveCity(activeCity));
+  },
+
+  /*
+  onWelcomeScreenClick: () => dispatch(ActionCreator.incrementStep()),
+
+  onUserAnswer: (userAnswer, question, mistakes, maxMistakes) => {
+    dispatch(ActionCreator.incrementStep());
+    dispatch(ActionCreator.incrementMistake(userAnswer, question, mistakes, maxMistakes));
+  }*/
+});
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+

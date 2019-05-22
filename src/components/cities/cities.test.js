@@ -1,13 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Cards from './cards';
+import Cities from './cities';
 import {citiesData} from '../../mocks/mocks';
-import {getFilteredOffersData} from '../../reducer';
 
-it(`Cards correctly renders`, () => {
+it(`Cities correctly renders`, () => {
   const tree = renderer
-    .create(<Cards
-      offersData={getFilteredOffersData(citiesData[0])}
+    .create(<Cities
+      citiesData={citiesData}
+      activeCity={citiesData[0].name}
+      onCityClick={jest.fn()}
     />).toJSON();
   expect(tree).toMatchSnapshot();
 });
