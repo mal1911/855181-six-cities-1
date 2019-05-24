@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 const City = (props) => {
   const handlerClick = (evt) => {
-    props.onClick(evt, props.city);
+    props.onClick(props.cityObj);
+    evt.preventDefault();
   };
 
   const classList = [`locations__item-link`, `tabs__item`];
@@ -13,13 +14,15 @@ const City = (props) => {
 
   return <li className="locations__item">
     <a className={classList.join(` `)} href="#" onClick={handlerClick}>
-      <span>{props.city}</span>
+      <span>{props.cityObj.name}</span>
     </a>
   </li>;
 };
 
 City.propTypes = {
-  city: PropTypes.string.isRequired,
+  cityObj: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    coordinates: PropTypes.array.isRequired.isRequired}).isRequired,
   onClick: PropTypes.func,
   isActive: PropTypes.bool,
 };

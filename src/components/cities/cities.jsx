@@ -3,14 +3,21 @@ import PropTypes from 'prop-types';
 import City from '../city/city';
 
 const Cities = (props) => {
-  const isActiveItem = (city) => (city === props.activeCity);
+  const isActiveItem = (index) => (index === props.activeItem);
+
+  const handlerChange = (cityObj) => {
+    props.onCityClick(cityObj.name);
+    /*
+    props.setActiveItem(citiesData.indexOf(cityObj));
+    */
+  };
 
   const cities = props.citiesData.map((cityObj, index) =>
     <City
       key={index}
-      city={cityObj.name}
-      isActive={isActiveItem(cityObj.name)}
-      onClick={props.onCityClick}
+      cityObj={cityObj}
+      isActive={isActiveItem(index)}
+      onClick={handlerChange}
     />
   );
 
@@ -23,9 +30,9 @@ Cities.propTypes = {
   citiesData: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     coordinates: PropTypes.array.isRequired.isRequired}).isRequired).isRequired,
-  activeCity: PropTypes.string.isRequired,
   onCityClick: PropTypes.func.isRequired,
+  activeItem: PropTypes.number.isRequired,
+  setActiveItem: PropTypes.func.isRequired,
 };
 
 export default Cities;
-

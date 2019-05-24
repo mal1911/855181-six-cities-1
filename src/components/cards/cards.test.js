@@ -8,6 +8,8 @@ it(`Cards correctly renders`, () => {
   const tree = renderer
     .create(<Cards
       offersData={getFilteredOffersData(citiesData[0])}
+      activeItem={0}
+      setActiveItem={jest.fn()}
     />).toJSON();
   expect(tree).toMatchSnapshot();
 });

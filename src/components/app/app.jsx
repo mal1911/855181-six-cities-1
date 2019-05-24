@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
-import {ActionCreator} from "../../reducer";
+import {ActionCreator} from '../../reducer';
+import withActiveItem from '../../hocs/with-active-item/with-active-item';
+
 import Cards from '../cards/cards';
 import Cities from '../cities/cities';
 import Map from '../map/map';
@@ -9,6 +11,9 @@ import Map from '../map/map';
 const App = (props) => {
   const offersCoordinatesData = props.filteredOffersData.map((offerObj) => offerObj.coordinates);
   const cityCoordinates = props.citiesData.find((cityObj) => cityObj.name === props.activeCity).coordinates;
+  const ActivatedCards = withActiveItem(Cards);
+  const ActivatedCities = withActiveItem(Cities, 1);
+
   return <div>
     <header className="header">
       <div className="container">
@@ -36,9 +41,8 @@ const App = (props) => {
       <h1 className="visually-hidden">Cities</h1>
       <div className="cities tabs">
         <section className="locations container">
-          <Cities
+          <ActivatedCities
             citiesData={props.citiesData}
-            activeCity={props.activeCity}
             onCityClick={props.onCityClick}
           />
         </section>
@@ -63,7 +67,7 @@ const App = (props) => {
                 <li className="places__option" tabIndex="0">Top rated first</li>
               </ul>
             </form>
-            <Cards offersData={props.filteredOffersData}/>
+            <ActivatedCards offersData={props.filteredOffersData}/>
           </section>
           <div className="cities__right-section">
             <Map
@@ -92,17 +96,9 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 
 const mapDispatchToProps = (dispatch) => ({
 
-  onCityClick: (evt, activeCity) => {
+  onCityClick: (activeCity) => {
     dispatch(ActionCreator.changeActiveCity(activeCity));
   },
-
-  /*
-  onWelcomeScreenClick: () => dispatch(ActionCreator.incrementStep()),
-
-  onUserAnswer: (userAnswer, question, mistakes, maxMistakes) => {
-    dispatch(ActionCreator.incrementStep());
-    dispatch(ActionCreator.incrementMistake(userAnswer, question, mistakes, maxMistakes));
-  }*/
 });
 
 export {App};
