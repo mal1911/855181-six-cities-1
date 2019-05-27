@@ -9,7 +9,7 @@ it(`Simulating city title click`, () => {
   const handlerChange = jest.fn();
 
   const city = shallow(<City
-    city={citiesData[0].name}
+    cityObj={citiesData[0]}
     onClick={handlerChange}
     isActive={false}
   />);

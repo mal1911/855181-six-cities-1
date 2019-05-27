@@ -1,8 +1,9 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
+import {connect} from "react-redux";
 
-export default class Map extends PureComponent {
+class Map extends PureComponent {
   componentDidMount() {
     try {
       this._initMap();
@@ -22,6 +23,10 @@ export default class Map extends PureComponent {
     }
   }
   render() {
+
+    this.offersCoordinatesData = this.props.filteredOffersData.map((offerObj) => offerObj.coordinates);
+    this.cityCoordinates = this.props.citiesData.find((cityObj) => cityObj.name === this.props.activeCity).coordinates;
+
     return (
       <section className="cities__map map" id="map"/>
     );
@@ -36,12 +41,12 @@ export default class Map extends PureComponent {
     const zoom = 12;
 
     this.map = leaflet.map(`map`, {
-      center: this.props.cityCoordinates,
+      center: this.cityCoordinates,
       zoom,
       zoomControl: false,
       marker: true
     });
-    this.map.setView(this.props.cityCoordinates, zoom);
+    this.map.setView(this.cityCoordinates, zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
@@ -49,15 +54,23 @@ export default class Map extends PureComponent {
       })
       .addTo(this.map);
 
-    this.props.offersCoordinatesData.forEach((coordinates) => {
+    this.offersCoordinatesData.forEach((coordinates) => {
       leaflet.marker(coordinates, {icon}).addTo(this.map);
     });
   }
 }
 
 Map.propTypes = {
-  offersCoordinatesData: PropTypes.arrayOf(PropTypes.array.isRequired),
-  cityCoordinates: PropTypes.array.isRequired,
+  activeCity: PropTypes.string.isRequired,
+  filteredOffersData: PropTypes.array.isRequired,
+  citiesData: PropTypes.array.isRequired,
 };
 
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  activeCity: state.activeCity,
+  filteredOffersData: state.filteredOffersData,
+  citiesData: state.citiesData,
+});
 
+export {Map};
+export default connect(mapStateToProps)(Map);

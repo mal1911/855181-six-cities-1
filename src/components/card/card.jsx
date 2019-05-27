@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 const Card = (props) => {
   const handlerChange = (evt) => {
-    props.onChange(evt, props.offerObj);
+    props.onChange(props.offerObj);
+    evt.preventDefault();
   };
 
   return <article className="cities__place-card place-card">

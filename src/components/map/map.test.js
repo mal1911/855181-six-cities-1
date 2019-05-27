@@ -1,17 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Map from './map';
-import {citiesData} from '../../mocks/mocks';
-import {getFilteredOffersData} from '../../reducer';
-
-const offersCoordinatesData = getFilteredOffersData(citiesData[0].name).map((offerObj) => offerObj.coordinates);
-const cityCoordinates = citiesData[0].coordinates;
+import {Map} from './map';
+import {citiesData, offersData} from "../../mocks/mocks";
 
 it(`Map correctly renders`, () => {
-  const tree = renderer
-    .create(<Map
-      offersCoordinates={offersCoordinatesData}
-      cityCoordinates={cityCoordinates}
-    />).toJSON();
+  const tree = renderer.create(<Map
+    citiesData={citiesData}
+    filteredOffersData={offersData}
+    activeCity={citiesData[0].name}
+  />).toJSON();
   expect(tree).toMatchSnapshot();
 });
