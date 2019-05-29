@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {offerType} from '../../prop-types';
 
 const Card = (props) => {
   const handlerChange = (evt) => {
@@ -10,7 +11,7 @@ const Card = (props) => {
   return <article className="cities__place-card place-card">
     <div className="cities__image-wrapper place-card__image-wrapper">
       <a href="#" onMouseEnter={handlerChange}>
-        <img className="place-card__image" src={props.offerObj.imgSrc} width="260" height="200" alt="Place image"/>
+        <img className="place-card__image" src={props.offerObj[`preview_image`]} width="260" height="200" alt="Place image"/>
       </a>
     </div>
     <div className="place-card__info">
@@ -41,17 +42,7 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-  offerObj: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    city: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    rating: PropTypes.oneOf([1, 2, 3, 4, 5]).isRequired,
-    type: PropTypes.oneOf([`Apartment`, `Private room`]).isRequired,
-    imgSrc: PropTypes.string.isRequired,
-    coordinates: PropTypes.array.isRequired,
-  }),
+  offerObj: offerType.isRequired,
   onChange: PropTypes.func,
 };
 
