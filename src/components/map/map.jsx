@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
 import {connect} from "react-redux";
+import {getActiveMapObj, getOffersCoordinatesData} from '../../reducer/data/selectors';
 
 class Map extends PureComponent {
   componentDidMount() {
@@ -22,11 +23,8 @@ class Map extends PureComponent {
       //
     }
   }
+
   render() {
-
-    this.offersCoordinatesData = this.props.filteredOffersData.map((offerObj) => offerObj.coordinates);
-    this.cityCoordinates = this.props.citiesData.find((cityObj) => cityObj.name === this.props.activeCity).coordinates;
-
     return (
       <section className="cities__map map" id="map"/>
     );
@@ -38,15 +36,16 @@ class Map extends PureComponent {
       iconSize: [30, 30]
     });
 
-    const zoom = 12;
+    const zoom = this.props.activeMapObj.zoom;
+    const center = this.props.activeMapObj.coordinates;
 
     this.map = leaflet.map(`map`, {
-      center: this.cityCoordinates,
+      center,
       zoom,
       zoomControl: false,
       marker: true
     });
-    this.map.setView(this.cityCoordinates, zoom);
+    this.map.setView(center, zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
@@ -54,22 +53,23 @@ class Map extends PureComponent {
       })
       .addTo(this.map);
 
-    this.offersCoordinatesData.forEach((coordinates) => {
+    this.props.offersCoordinatesData.forEach((coordinates) => {
       leaflet.marker(coordinates, {icon}).addTo(this.map);
     });
   }
 }
 
 Map.propTypes = {
-  activeCity: PropTypes.string.isRequired,
-  filteredOffersData: PropTypes.array.isRequired,
-  citiesData: PropTypes.array.isRequired,
+  offersCoordinatesData: PropTypes.arrayOf(PropTypes.array.isRequired).isRequired,
+  activeMapObj: PropTypes.shape({
+    coordinates: PropTypes.array.isRequired,
+    zoom: PropTypes.number.isRequired,
+  })
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  activeCity: state.activeCity,
-  filteredOffersData: state.filteredOffersData,
-  citiesData: state.citiesData,
+  offersCoordinatesData: getOffersCoordinatesData(state),
+  activeMapObj: getActiveMapObj(state),
 });
 
 export {Map};

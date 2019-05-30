@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {cityType} from '../../prop-types';
 import {connect} from "react-redux";
-import {ActionCreator} from '../../reducer';
+import {ActionCreator} from '../../reducer/data/data';
+import {getCitiesData} from '../../reducer/data/selectors';
 import City from '../city/city';
 
 const Cities = (props) => {
   const isActiveItem = (index) => (index === props.activeItem);
 
   const handlerChange = (cityObj) => {
-    props.onCityClick(cityObj.name);
-    props.setActiveItem(props.citiesData.indexOf(cityObj));
+    const activeCityIndex = props.citiesData.indexOf(cityObj);
+    props.onCityClick(activeCityIndex);
+    props.setActiveItem(activeCityIndex);
   };
 
   const cities = props.citiesData.map((cityObj, index) =>
@@ -27,21 +30,19 @@ const Cities = (props) => {
 };
 
 Cities.propTypes = {
-  citiesData: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    coordinates: PropTypes.array.isRequired.isRequired}).isRequired).isRequired,
+  citiesData: PropTypes.arrayOf(cityType.isRequired).isRequired,
   onCityClick: PropTypes.func.isRequired,
   activeItem: PropTypes.number.isRequired,
   setActiveItem: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  citiesData: state.citiesData,
+  citiesData: getCitiesData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCityClick: (activeCity) => {
-    dispatch(ActionCreator.changeActiveCity(activeCity));
+  onCityClick: (index) => {
+    dispatch(ActionCreator.changeActiveCityIndex(index));
   },
 });
 
