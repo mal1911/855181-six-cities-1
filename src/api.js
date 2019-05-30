@@ -1,27 +1,25 @@
 import axios from 'axios';
 import {ActionCreator} from './reducer/user/user';
+import {BASE_URL, TIMEOUT, HTML_STATUS} from './constants';
 
 export const createAPI = (dispatch) => {
   const api = axios.create({
-    baseURL: `https://es31-server.appspot.com/six-cities`,
-    timeout: 1000 * 5,
+    baseURL: BASE_URL,
+    timeout: TIMEOUT * 5,
     withCredentials: true,
   });
 
   const onSuccess = (response) => {
-    //console.log(response);
     return response;
   };
 
   const onFail = (err) => {
-    /*if (err.response.status === 403) {
+    if (err.response.status === HTML_STATUS.FORBIDDEN) {
       dispatch(ActionCreator.requireAuthorization(true));
-    }*/
-    console.log(err);
+    }
     return err;
   };
 
   api.interceptors.response.use(onSuccess, onFail);
-
   return api;
 };

@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {ESC_KEYCODE, SORTING_TYPES} from '../../constants';
+import {connect} from "react-redux";
+import {ActionCreator} from '../../reducer/data/data';
 
 const PopupSortingElement = (props) => {
 
   const handlerChangeActiveItem = (evt) => {
-    props.setActiveItem(SORTING_TYPES.indexOf(evt.target.textContent));
+    const index = SORTING_TYPES.indexOf(evt.target.textContent);
+    props.onOrderClick(index);
+    props.setActiveItem(index);
     props.onToggle();
     evt.preventDefault();
   };
@@ -37,6 +41,16 @@ PopupSortingElement.propTypes = {
   onToggle: PropTypes.func.isRequired,
   activeItem: PropTypes.number.isRequired,
   setActiveItem: PropTypes.func.isRequired,
+  onOrderClick: PropTypes.func.isRequired,
 };
 
-export default PopupSortingElement;
+const mapDispatchToProps = (dispatch) => ({
+  onOrderClick: (index) => {
+    dispatch(ActionCreator.changeActiveOrderIndex(index));
+  },
+});
+
+export {PopupSortingElement};
+export default connect(null, mapDispatchToProps)(PopupSortingElement);
+
+

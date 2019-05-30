@@ -2,12 +2,12 @@ const initialState = {
   activeCityIndex: 0,
   activeOrderIndex: 0,
   offersData: [],
-  resultOffersData: [],
 };
 
 const ActionType = {
   LOAD_OFFERS_DATA: `LOAD_OFFERS_DATA`,
-  CHANGE_ACTIVE_CITY: `CHANGE_ACTIVE_CITY`,
+  CHANGE_ACTIVE_CITY_INDEX: `CHANGE_ACTIVE_CITY_INDEX`,
+  CHANGE_ACTIVE_ORDER_INDEX: `CHANGE_ACTIVE_ORDER_INDEX`,
 };
 
 const ActionCreator = {
@@ -18,7 +18,11 @@ const ActionCreator = {
     };
   },
   changeActiveCityIndex: (index) => ({
-    type: ActionType.CHANGE_ACTIVE_CITY,
+    type: ActionType.CHANGE_ACTIVE_CITY_INDEX,
+    payload: index,
+  }),
+  changeActiveOrderIndex: (index) => ({
+    type: ActionType.CHANGE_ACTIVE_ORDER_INDEX,
     payload: index,
   }),
 };
@@ -38,9 +42,13 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         offersData: action.payload,
       });
-    case ActionType.CHANGE_ACTIVE_CITY:
+    case ActionType.CHANGE_ACTIVE_CITY_INDEX:
       return Object.assign({}, state, {
         activeCityIndex: action.payload
+      });
+    case ActionType.CHANGE_ACTIVE_ORDER_INDEX:
+      return Object.assign({}, state, {
+        activeOrderIndex: action.payload
       });
   }
   return state;

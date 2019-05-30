@@ -6,7 +6,7 @@ import {getActiveCityName, getCountResultOffers} from '../../reducer/data/select
 const CardsHeader = (props) => {
   return <React.Fragment>
     <h2 className="visually-hidden">Places</h2>
-    <b className="places__found">{{/*props.countResultOffers*/}} places to stay in {{/*props.activeCityName*/}}</b>
+    <b className="places__found">{props.countResultOffers} places to stay in {props.activeCityName}</b>
   </React.Fragment>;
 };
 

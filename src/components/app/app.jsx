@@ -21,9 +21,7 @@ const App = () => {
         <div className="cities__places-container container">
           <CardsWrapper/>
           <div className="cities__right-section">
-{/*
             <Map/>
-*/}
           </div>
         </div>
       </div>

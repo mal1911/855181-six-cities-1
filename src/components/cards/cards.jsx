@@ -10,7 +10,7 @@ const Cards = (props) => {
     props.setActiveItem(cardObj.id);
   };
 
-  const cards = props.filteredOffersData.map((offerObj, index) =>
+  const cards = props.resultOffersData.map((offerObj, index) =>
     <Card key={index} offerObj={offerObj} onChange={handlerChange}/>);
 
   return <div className="cities__places-list places__list tabs__content">
@@ -19,16 +19,13 @@ const Cards = (props) => {
 };
 
 Cards.propTypes = {
-  filteredOffersData: PropTypes.arrayOf(offerType.isRequired).isRequired,
-  //activeCity: PropTypes.string.isRequired,
+  resultOffersData: PropTypes.arrayOf(offerType.isRequired).isRequired,
   activeItem: PropTypes.number.isRequired,
   setActiveItem: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  //activeCity: state.activeCity,
-  //filteredOffersData: state.filteredOffersData,
-  filteredOffersData: getResultOffersData(state),
+  resultOffersData: getResultOffersData(state),
 });
 
 export {Cards};
