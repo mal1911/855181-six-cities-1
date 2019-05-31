@@ -11,6 +11,7 @@ module.exports = {
     compress: false,
     hot: true,
     port: 1337,
+    historyApiFallback: true,
   },
   module: {
     rules: [

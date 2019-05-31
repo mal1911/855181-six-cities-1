@@ -8,9 +8,7 @@ import {compose} from 'recompose';
 import {createAPI} from './api';
 import {Operation} from "./reducer/data/data";
 
-
 import App from './components/app/app';
-
 
 const init = () => {
   const api = createAPI((...args) => store.dispatch(...args));

@@ -5,7 +5,7 @@ import {BASE_URL, TIMEOUT, HTML_STATUS} from './constants';
 export const createAPI = (dispatch) => {
   const api = axios.create({
     baseURL: BASE_URL,
-    timeout: TIMEOUT * 5,
+    timeout: TIMEOUT,
     withCredentials: true,
   });
 

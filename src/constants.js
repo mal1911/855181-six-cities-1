@@ -7,9 +7,10 @@ export const SORTING_TYPES = [
   `Top rated first`,
 ];
 export const BASE_URL = `https://es31-server.appspot.com/six-cities`;
-export const TIMEOUT = 500;
+export const TIMEOUT = 5000;
 export const HTML_STATUS = {
   OK: 200,
   MULTIPLE_CHOICES: 300,
+  BAD_REQUEST: 400,
   FORBIDDEN: 403,
 };
