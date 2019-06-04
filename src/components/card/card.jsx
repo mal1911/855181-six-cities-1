@@ -1,16 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {offerType} from '../../prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import {offerType} from "../../prop-types";
+import {withRouter} from "react-router-dom";
 
 const Card = (props) => {
   const handlerChange = (evt) => {
     props.onChange(props.offerObj);
+    props.history.push(`/offer/${props.offerObj.id}`);
     evt.preventDefault();
   };
 
   return <article className="cities__place-card place-card">
     <div className="cities__image-wrapper place-card__image-wrapper">
-      <a href="#" onMouseEnter={handlerChange}>
+      <a href="#">
         <img className="place-card__image" src={props.offerObj[`preview_image`]} width="260" height="200" alt="Place image"/>
       </a>
     </div>
@@ -44,6 +46,9 @@ const Card = (props) => {
 Card.propTypes = {
   offerObj: offerType.isRequired,
   onChange: PropTypes.func,
+  history: PropTypes.any,
+
 };
 
-export default Card;
+export default withRouter(Card);
+//export default Card;

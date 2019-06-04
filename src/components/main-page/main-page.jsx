@@ -1,12 +1,12 @@
-import React from 'react';
-import Header from '../header/';
-import CardsWrapper from '../cards-wrapper/cards-wraqpper';
-import Cities from '../cities/cities';
-import Map from '../map/map';
+import React from "react";
+import Header from "../header/";
+import Cities from "../cities/cities";
+import PropTypes from "prop-types";
 import withActiveItem from "../../hocs/with-active-item/with-active-item";
+import PlesesWrapper from "../plases-wrapper";
 
-const MainPage = () => {
-  document.body.classList.add(`page--main`);
+const MainPage = (props) => {
+  //document.body.classList.add(`page--main`);
   const ActivatedCities = withActiveItem(Cities, 0);
   return <React.Fragment>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
@@ -20,19 +20,13 @@ const MainPage = () => {
           <ActivatedCities/>
         </section>
       </div>
-      <div className="cities__places-wrapper">
-        <div className="cities__places-container container">
-          <CardsWrapper/>
-          <div className="cities__right-section">
-            <Map/>
-          </div>
-        </div>
-      </div>
+      <PlesesWrapper/>
     </main>
   </React.Fragment>;
 };
 
 MainPage.propTypes = {
+  renderScreen: PropTypes.func,
 };
 
 export default MainPage;
