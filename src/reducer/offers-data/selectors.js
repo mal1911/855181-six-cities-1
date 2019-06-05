@@ -1,7 +1,7 @@
 import {createSelector} from 'reselect';
 import NameSpace from '../name-spaces';
 
-const NAME_SPACE = NameSpace.DATA;
+const NAME_SPACE = NameSpace.OFFERS_DATA;
 
 const SORT_FUNCS = [
   null,
@@ -26,8 +26,8 @@ export const getLoadStatus = (state) => {
   return state[NAME_SPACE].isLoading;
 };
 
-export const getErrorStatus = (state) => {
-  return state[NAME_SPACE].isError;
+export const getError = (state) => {
+  return state[NAME_SPACE].error;
 };
 
 /*

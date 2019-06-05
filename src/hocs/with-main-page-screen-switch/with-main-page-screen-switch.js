@@ -2,7 +2,7 @@ import React, {PureComponent} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {compose} from "recompose";
-import {getCountResultOffers} from "../../reducer/data/selectors";
+import {getCountResultOffers} from "../../reducer/offers-data/selectors";
 import PlasesWrapper from "../../components/plases-wrapper";
 //import PlasesWrapperEmpty from "../../components/plases-wrapper-empty";
 import {offerType} from "../../prop-types";

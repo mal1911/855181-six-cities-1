@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {offerType} from "../../prop-types";
 import Card from "../card/card";
 import {connect} from "react-redux";
-import {getResultOffersData} from "../../reducer/data/selectors";
+import {getResultOffersData} from "../../reducer/offers-data/selectors";
 import {Redirect} from "react-router-dom";
 
 const Cards = (props) => {

@@ -1,6 +1,6 @@
 import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../api';
-import {ActionType, Operation} from './data';
+import {ActionType, Operation} from './offers-data';
 import {HTML_STATUS} from '../../constants';
 
 
