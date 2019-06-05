@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {offerType} from "../../prop-types";
-import {withRouter} from "react-router-dom";
+//import {withRouter} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Card = (props) => {
-  const handlerChange = (evt) => {
+  /*const handlerChange = (evt) => {
     props.onChange(props.offerObj);
     props.history.push(`/offer/${props.offerObj.id}`);
     evt.preventDefault();
-  };
+    {onClick={handlerChange}}
+  };*/
 
   return <article className="cities__place-card place-card">
     <div className="cities__image-wrapper place-card__image-wrapper">
@@ -36,7 +38,7 @@ const Card = (props) => {
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#" onClick={handlerChange}>{props.offerObj.title}</a>
+        <NavLink to={`/offer/${props.offerObj.id}`} >{props.offerObj.title}</NavLink>
       </h2>
       <p className="place-card__type">{props.offerObj.type}</p>
     </div>
@@ -50,5 +52,5 @@ Card.propTypes = {
 
 };
 
-export default withRouter(Card);
-//export default Card;
+//export default withRouter(Card);
+export default Card;

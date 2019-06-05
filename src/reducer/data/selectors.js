@@ -10,12 +10,6 @@ const SORT_FUNCS = [
   (a, b) => a.rating > b.rating,
 ];
 
-export const DATA_STATUS = {
-  LOADING: -1,
-  EMPTY: 0,
-  DATA: 1,
-};
-
 export const getOffersData = (state) => {
   return state[NAME_SPACE].offersData;
 };
@@ -27,6 +21,15 @@ export const getActiveCityIndex = (state) => {
 export const getActiveOrderIndex = (state) => {
   return state[NAME_SPACE].activeOrderIndex;
 };
+
+export const getLoadStatus = (state) => {
+  return state[NAME_SPACE].isLoading;
+};
+
+export const getErrorStatus = (state) => {
+  return state[NAME_SPACE].isError;
+};
+
 /*
 export const getOffersDataStatus = createSelector(
   getOffersData,
@@ -111,7 +114,7 @@ export const getResultOffersData = createSelector(
 export const getCountResultOffers = createSelector(
     getResultOffersData,
     getOffersData,
-    (resultOffersData, offersData) => offersData.length ? resultOffersData.length : DATA_STATUS.LOADING
+    (resultOffersData, offersData) => offersData.length ? resultOffersData.length : 0
 );
 
 export const getActiveCityName = createSelector(

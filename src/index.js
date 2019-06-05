@@ -1,5 +1,4 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
 import {render} from 'react-dom';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from "react-redux";
@@ -27,13 +26,7 @@ const init = () => {
   store.dispatch(Operation.loadOffersData());
 
   render(<Provider store={store}>
-{/*
-    <BrowserRouter>
-*/}
-      <App/>
-{/*
-    </BrowserRouter>
-*/}
+    <App/>
   </Provider>, document.getElementById(`root`));
 };
 

@@ -59,7 +59,7 @@ SignInPage.propTypes = {
   userLogin: PropTypes.func,
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   userLogin: (autorizationObj) => {
     createAPI(dispatch)
       .post(`/login`, autorizationObj)
@@ -67,8 +67,10 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(ActionCreator.userLogin(response.data));
         dispatch(ActionCreator.requireAuthorization(false));
       });
+    ownProps.history.push(`/`);
   }
 });
 
 export {SignInPage};
+
 export default connect(null, mapDispatchToProps)(SignInPage);
