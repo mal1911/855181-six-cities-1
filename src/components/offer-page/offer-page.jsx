@@ -1,12 +1,16 @@
-import React from 'react';
-import Header from '../header/';
+import React from "react";
+import PropTypes from "prop-types";
+import Header from "../header/";
 
 const OfferPage = (props) => {
   return <React.Fragment>
-{/*
+
     <h1>{props.match.params.id}</h1>
-*/}
     <Header/>
+
+
+
+{/*
     <main className="page__main page__main--property">
       <section className="property">
         <div className="property__gallery-container container">
@@ -309,10 +313,12 @@ const OfferPage = (props) => {
         </section>
       </div>
     </main>
-  </React.Fragment>
-    ;
+*/}
+  </React.Fragment>;
 };
 
-OfferPage.propTypes = {};
+OfferPage.propTypes = {
+  match: PropTypes.object,
+};
 
 export default OfferPage;

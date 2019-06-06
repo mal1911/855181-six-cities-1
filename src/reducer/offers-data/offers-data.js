@@ -1,3 +1,5 @@
+import {transformOfferForLoading} from "../../transform-data";
+
 const initialState = {
   activeCityIndex: 0,
   activeOrderIndex: 0,
@@ -43,7 +45,8 @@ const Operation = {
   loadOffersData: () => (dispatch, _getState, api) => {
     return api.get(`/hotels`)
       .then((response) => {
-        dispatch(ActionCreator.loadedOffersData(response.data));
+        const data = response.data.map((obj) => transformOfferForLoading(obj));
+        dispatch(ActionCreator.loadedOffersData(data));
         dispatch(ActionCreator.changeLoadStatus(false));
       })
       .catch((err) => {

@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {ActionCreator} from '../../reducer/user/user';
 import {createAPI} from '../../api';
 import PropTypes from "prop-types";
+import {transformHostForLoading, transformUserForLoading} from "../../transform-data";
 
 class SignInPage extends PureComponent {
   constructor(props) {
@@ -64,7 +65,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     createAPI(dispatch)
       .post(`/login`, autorizationObj)
       .then((response) => {
-        dispatch(ActionCreator.userLogin(response.data));
+        const data = transformUserForLoading(response.data);
+        dispatch(ActionCreator.userLogin(data));
         dispatch(ActionCreator.requireAuthorization(false));
       });
     ownProps.history.push(`/`);

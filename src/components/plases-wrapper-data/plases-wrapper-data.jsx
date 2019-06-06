@@ -1,5 +1,5 @@
 import React from "react";
-import CardsWrapper from "../cards-wrapper/cards-wraqpper";
+import CardsWrapper from "../cards-wrapper/cards-wrapper";
 import Map from "../map/map";
 
 const PlasesWrapperData = () =>

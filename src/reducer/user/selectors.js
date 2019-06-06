@@ -14,6 +14,6 @@ export const getUserObj = (state) => {
 export const getUserInfo = createSelector(
     getUserObj,
     (userObj) => {
-      return userObj ? {email: userObj.email, avatarUrl: userObj[`avatar_url`]} : null;
+      return userObj ? {email: userObj.email, avatarUrl: userObj.avatarUrl} : null;
     }
 );

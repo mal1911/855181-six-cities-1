@@ -1,3 +1,5 @@
+import {transformOfferForLoading} from "../../transform-data";
+
 const initialState = {
   data: [],
   isLoading: true,
@@ -31,7 +33,9 @@ const Operation = {
   loadData: () => (dispatch, _getState, api) => {
     return api.get(`/hotels`)
       .then((response) => {
-        dispatch(ActionCreator.loadedOffersData(response.data));
+        const data = response.data.map((obj) => transformOfferForLoading(obj));
+        //console.log(data);
+        dispatch(ActionCreator.loadedData(data));
         dispatch(ActionCreator.changeLoadStatus(false));
       })
       .catch((err) => {
@@ -43,9 +47,9 @@ const Operation = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.LOADED_OFFERS_DATA:
+    case ActionType.LOADED_DATA:
       return Object.assign({}, state, {
-        offersData: action.payload,
+        data: action.payload,
       });
     case ActionType.CHANGE_LOAD_STATUS:
       return Object.assign({}, state, {
@@ -54,14 +58,6 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_ERROR_STATUS:
       return Object.assign({}, state, {
         error: action.payload
-      });
-    case ActionType.CHANGE_ACTIVE_CITY_INDEX:
-      return Object.assign({}, state, {
-        activeCityIndex: action.payload
-      });
-    case ActionType.CHANGE_ACTIVE_ORDER_INDEX:
-      return Object.assign({}, state, {
-        activeOrderIndex: action.payload
       });
   }
   return state;
