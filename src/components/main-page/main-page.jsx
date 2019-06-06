@@ -3,7 +3,7 @@ import Header from "../header/";
 import Cities from "../cities/cities";
 import LeafletLink from "../leaflet-link/leaflet-link";
 import withActiveItem from "../../hocs/with-active-item/with-active-item";
-import PlesesWrapper from "../plases-wrapper";
+import PlesesWrapper from "../places-wrapper";
 import "./main-page.css";
 
 const MainPage = () => {

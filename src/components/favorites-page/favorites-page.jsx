@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import Header from "../header/";
+import Footer from "../footer";
 import PropTypes from "prop-types";
-import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 import FavoritesWrpapperData from "../favorites-wrapper-data";
 import FavoritesWrpapperEmpty from "../favorites-wrapper-empty";
@@ -30,11 +30,9 @@ class FavoritesPage extends PureComponent {
         <FavoritesWrpapperEmptyBody/>
       */}
       <FavoritesWrpapperData/>
-      <footer className="footer container">
-        <NavLink className="footer__logo-link" to="/">
-          <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33"/>
-        </NavLink>
-      </footer>
+
+
+      <Footer/>
     </React.Fragment>;
   }
 }

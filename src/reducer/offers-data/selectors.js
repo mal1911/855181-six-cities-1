@@ -30,20 +30,6 @@ export const getError = (state) => {
   return state[NAME_SPACE].error;
 };
 
-/*
-export const getOffersDataStatus = createSelector(
-  getOffersData,
-  (offersData) => {
-    if (!offersData.length) {
-      return DATA_STATUS.EMPTY;
-    } else if (offersData[0] === null) {
-      return DATA_STATUS.LOADING;
-    } else {
-      return DATA_STATUS.DATA;
-    }
-  }
-);
-*/
 export const getCitiesData = createSelector(
   getOffersData,
   (offersData) => {
@@ -67,32 +53,6 @@ export const getCitiesData = createSelector(
     return citiesData;
   }
 );
-/*
-export const getFilteredOffersData = createSelector(
-  getOffersData,
-  getCitiesData,
-  getActiveCityIndex,
-  (offersData, citiesData, activeCityIndex) => {
-    let filteredOffersData = [];
-    if (citiesData.length && offersData.length) {
-      filteredOffersData = offersData.filter((offerObj) => offerObj.city.name === citiesData[activeCityIndex].name);
-    }
-    return filteredOffersData;
-  }
-);
-
-export const getResultOffersData = createSelector(
-  getFilteredOffersData,
-  getActiveOrderIndex,
-  (filteredOffersData, activeOrderIndex) => {
-    let resultOffersData = [...filteredOffersData];
-    if (filteredOffersData.length && activeOrderIndex) {
-      resultOffersData = filteredOffersData.sort(SORT_FUNCS[activeOrderIndex]);
-    }
-    return resultOffersData;
-  }
-);
-*/
 
 export const getResultOffersData = createSelector(
   getOffersData,
@@ -107,6 +67,7 @@ export const getResultOffersData = createSelector(
         resultOffersData = resultOffersData.sort(SORT_FUNCS[activeOrderIndex]);
       }
     }
+    console.log(resultOffersData);
     return resultOffersData;
   }
 );

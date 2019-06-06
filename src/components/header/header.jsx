@@ -5,12 +5,14 @@ import PropTypes from 'prop-types';
 import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
+  const logoSrc = `${props.pathIndex ? props.pathIndex : ``}/img/logo.svg`;
+
   return <header className="header">
     <div className="container">
       <div className="header__wrapper">
         <div className="header__left">
           <NavLink className="header__logo-link" to="/" activeClassName={`header__logo-link--active`}>
-            <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
+            <img className="header__logo" src={logoSrc} alt="6 cities logo" width="81" height="41"/>
           </NavLink>
         </div>
         <nav className="header__nav">
@@ -33,7 +35,8 @@ Header.propTypes = {
   userInfo: PropTypes.shape({
     email: PropTypes.string.isRequired,
     avatarUrl: PropTypes.string.isRequired,
-  })
+  }),
+  pathIndex: PropTypes.number,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
@@ -41,4 +44,5 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 });
 
 export {Header};
+
 export default connect(mapStateToProps)(Header);

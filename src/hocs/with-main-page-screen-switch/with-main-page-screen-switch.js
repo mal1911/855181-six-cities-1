@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {compose} from "recompose";
 import {getCountResultOffers} from "../../reducer/offers-data/selectors";
-import PlasesWrapper from "../../components/plases-wrapper";
-//import PlasesWrapperEmpty from "../../components/plases-wrapper-empty";
+import PlasesWrapper from "../../components/places-wrapper";
+//import PlacesWrapperEmpty from "../../components/places-wrapper-empty";
 import {offerType} from "../../prop-types";
 
 const withMainPageScreenSwitch = (Component) => {
@@ -28,7 +28,7 @@ const withMainPageScreenSwitch = (Component) => {
 //      if (this.props.filteredOffersData.length) {
         return <PlasesWrapper/>;
   //    } else {
-  //      return <PlasesWrapperEmpty/>;
+  //      return <PlacesWrapperEmpty/>;
   //    }
     }
   }

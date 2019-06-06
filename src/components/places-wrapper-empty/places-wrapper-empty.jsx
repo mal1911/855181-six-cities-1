@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {getActiveCityName} from "../../reducer/offers-data/selectors";
 
-const PlasesWrapperEmpty = (props) =>
+const PlacesWrapperEmpty = (props) =>
   (<React.Fragment>
     <div className="cities__places-wrapper">
       <div className="cities__places-container cities__places-container--empty container">
@@ -20,7 +20,7 @@ const PlasesWrapperEmpty = (props) =>
     </div>
   </React.Fragment>);
 
-PlasesWrapperEmpty.propTypes = {
+PlacesWrapperEmpty.propTypes = {
   activeCityName: PropTypes.string.isRequired,
 };
 
@@ -28,6 +28,6 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   activeCityName: getActiveCityName(state),
 });
 
-export {PlasesWrapperEmpty};
+export {PlacesWrapperEmpty};
 
-export default connect(mapStateToProps)(PlasesWrapperEmpty);
+export default connect(mapStateToProps)(PlacesWrapperEmpty);
