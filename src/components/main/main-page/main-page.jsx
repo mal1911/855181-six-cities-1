@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../header/";
-import Cities from "../cities/cities";
-import LeafletLink from "../leaflet-link/leaflet-link";
-import withActiveItem from "../../hocs/with-active-item/with-active-item";
-import PlesesWrapper from "../places-wrapper";
+import Header from "../../header/index";
+import Cities from "../../cities/cities";
+import LeafletLink from "../../leaflet-link/leaflet-link";
+import withActiveItem from "../../../hocs/with-active-item/with-active-item";
+import PlesesWrapper from "../../places-wrapper/index";
 import "./main-page.css";
 
 const MainPage = () => {

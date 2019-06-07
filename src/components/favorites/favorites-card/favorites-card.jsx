@@ -1,5 +1,5 @@
 import React from "react";
-import {offerType} from "../../prop-types";
+import {offerType} from "../../../prop-types";
 import {NavLink} from "react-router-dom";
 
 const FavoritesCard = (props) => {

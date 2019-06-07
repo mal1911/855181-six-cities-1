@@ -1,13 +1,13 @@
 import React, {PureComponent} from "react";
-import Header from "../header/";
-import Footer from "../footer";
+import Header from "../../header/index";
+import Footer from "../../footer/index";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import FavoritesWrpapperData from "../favorites-wrapper-data";
-import FavoritesWrpapperEmpty from "../favorites-wrapper-empty";
-import withBodyClass from "../../hocs/with-body-class/with-body-class";
-import {getCountResultFavorites, getLoadStatus, getError} from "../../reducer/favorites-data/selectors";
-import {Operation} from "../../reducer/favorites-data/favorites-data";
+import FavoritesWrpapperData from "../favorites-wrapper-data/index";
+import FavoritesWrpapperEmpty from "../favorites-wrapper-empty/index";
+import withBodyClass from "../../../hocs/with-body-class/with-body-class";
+import {getCountResultFavorites, getLoadStatus, getError} from "../../../reducer/favorites-data/selectors";
+import {Operation} from "../../../reducer/favorites-data/favorites-data";
 
 
 class FavoritesPage extends PureComponent {
@@ -16,7 +16,7 @@ class FavoritesPage extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.dispatch(Operation.loadData());
+    this.props.onDidMountComponent();
   }
 
   componentWillUnmount() {
@@ -41,7 +41,8 @@ FavoritesPage.propTypes = {
   countResultFavorites: PropTypes.number.isRequired,
   loadStatus: PropTypes.bool,
   error: PropTypes.object,
-  dispatch: PropTypes.func,
+  onDidMountComponent: PropTypes.func,
+
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
@@ -50,6 +51,12 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   error: getError(state),
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  onDidMountComponent: () => {
+    dispatch(Operation.loadData());
+  },
+});
+
 export {FavoritesPage};
 
-export default connect(mapStateToProps)(FavoritesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritesPage);

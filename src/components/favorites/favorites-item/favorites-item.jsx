@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {offerType} from "../../prop-types";
-import FavoritesCards from "../favorites-cards";
+import {offerType} from "../../../prop-types";
+import FavoritesCard from "../favorites-card/index";
 
 const FavoritesItem = (props) => {
+  const favoritesCards = props.favoritesOneData.map((favoritesObj, index) =>
+    <FavoritesCard key={index} favoritesObj={favoritesObj}/>);
+
   return <li className="favorites__locations-items">
     <div className="favorites__locations locations locations--current">
       <div className="locations__item">
@@ -12,7 +15,7 @@ const FavoritesItem = (props) => {
         </a>
       </div>
     </div>
-    <FavoritesCards favoritesOneData={props.favoritesOneData}/>
+    <div className="favorites__places">{favoritesCards}</div>
   </li>;
 };
 

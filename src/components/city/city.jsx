@@ -1,30 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {cityType} from "../../prop-types";
 
-const City = (props) => {
+const City = ({cityObj, isActive, onClick}) => {
   const handlerClick = (evt) => {
-    props.onClick(props.cityObj);
+    onClick(cityObj);
     evt.preventDefault();
   };
 
-  const classList = [`locations__item-link`, `tabs__item`];
-  if (props.isActive) {
-    classList.push(`tabs__item--active`);
-  }
+  const activeClassName = isActive ? `tabs__item--active` : ``;
 
   return <li className="locations__item">
-    <a className={classList.join(` `)} href="#" onClick={handlerClick}>
-      <span>{props.cityObj.name}</span>
+    <a className={`locations__item-link ${activeClassName} tabs__item`} href="#" onClick={handlerClick}>
+      <span>{cityObj.name}</span>
     </a>
   </li>;
 };
 
 City.propTypes = {
-  cityObj: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    coordinates: PropTypes.array.isRequired.isRequired}).isRequired,
-  onClick: PropTypes.func,
+  cityObj: cityType.isRequired,
   isActive: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default City;

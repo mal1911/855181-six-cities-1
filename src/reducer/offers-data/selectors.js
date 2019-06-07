@@ -22,6 +22,10 @@ export const getActiveOrderIndex = (state) => {
   return state[NAME_SPACE].activeOrderIndex;
 };
 
+export const getActiveOfferId = (state) => {
+  return state[NAME_SPACE].activeOfferId;
+};
+
 export const getLoadStatus = (state) => {
   return state[NAME_SPACE].isLoading;
 };
@@ -67,7 +71,7 @@ export const getResultOffersData = createSelector(
         resultOffersData = resultOffersData.sort(SORT_FUNCS[activeOrderIndex]);
       }
     }
-    console.log(resultOffersData);
+    //console.log(resultOffersData);
     return resultOffersData;
   }
 );
@@ -105,4 +109,14 @@ export const getActiveMapObj = createSelector(
     }
     return resultObj;
   }
+);
+
+export const getActiveOfferObj = createSelector(
+    getOffersData,
+    getActiveOfferId,
+    (offersData, activeOfferId) => {
+      const resObj = offersData.find((offerObj) => offerObj.id === activeOfferId);
+      //console.log(activeOfferId, resObj);
+      return resObj ? resObj : null;
+    }
 );

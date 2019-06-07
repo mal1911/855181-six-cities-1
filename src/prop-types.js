@@ -37,7 +37,30 @@ export const offerType = PropTypes.shape({
   location: locationType.isRequired
 });
 
+export const commentType = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  user: hostType.isRequired,
+  rating: PropTypes.number.isRequired,
+  comment: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+});
+
+
   /*
+
+ {
+    id: 1,
+    user: {
+      id: 4,
+      is_pro: false,
+      name: "Max",
+      avatar_url: "img/1.png"
+    },
+    rating: 4,
+    comment: "A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.",
+    date: "2019-05-08T14:13:56.569Z"
+  }
+
     export const hostType = PropTypes.shape({
       id: PropTypes.number.isRequired,
       [`is_pro`]: PropTypes.bool.isRequired,

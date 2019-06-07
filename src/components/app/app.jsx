@@ -1,9 +1,9 @@
 import React from "react";
 import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
-import MainPage from "../main-page";
-import FavoritesPage from "../favorites-page";
+import MainPage from "../main/main-page";
+import FavoritesPage from "../favorites/favorites-page";
 import SignInPage from "../sign-in-page";
-import OfferPage from "../offer-page";
+import OfferPage from "../offer/offer-page";
 import withCheckLogin from "../../hocs/with-check-login/with-check-login";
 import withBodyClass from "../../hocs/with-body-class/with-body-class";
 

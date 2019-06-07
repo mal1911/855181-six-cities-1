@@ -3,6 +3,7 @@ import {transformOfferForLoading} from "../../transform-data";
 const initialState = {
   activeCityIndex: 0,
   activeOrderIndex: 0,
+  activeOfferId: 0,
   offersData: [],
   isLoading: true,
   error: null,
@@ -14,6 +15,7 @@ const ActionType = {
   CHANGE_ERROR_STATUS: `CHANGE_ERROR_STATUS`,
   CHANGE_ACTIVE_CITY_INDEX: `CHANGE_ACTIVE_CITY_INDEX`,
   CHANGE_ACTIVE_ORDER_INDEX: `CHANGE_ACTIVE_ORDER_INDEX`,
+  CHANGE_ACTIVE_OFFER_ID: `CHANGE_ACTIVE_OFFER_ID`,
 };
 
 const ActionCreator = {
@@ -38,6 +40,10 @@ const ActionCreator = {
   changeActiveOrderIndex: (index) => ({
     type: ActionType.CHANGE_ACTIVE_ORDER_INDEX,
     payload: index,
+  }),
+  changeActiveOfferId: (id) => ({
+    type: ActionType.CHANGE_ACTIVE_OFFER_ID,
+    payload: id,
   }),
 };
 
@@ -77,6 +83,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_ACTIVE_ORDER_INDEX:
       return Object.assign({}, state, {
         activeOrderIndex: action.payload
+      });
+    case ActionType.CHANGE_ACTIVE_OFFER_ID:
+      return Object.assign({}, state, {
+        activeOfferId: action.payload
       });
   }
   return state;

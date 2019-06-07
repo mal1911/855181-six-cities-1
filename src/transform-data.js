@@ -11,6 +11,16 @@ export const transformUserForLoading = (obj) => {
   return Object.assign({}, transformHostForLoading(obj), {email: obj.email});
 };
 
+export const transformCommentsForLoading = (obj) => {
+  return {
+    id: obj.id,
+    user: transformHostForLoading(obj.user),
+    rating: obj.rating,
+    comment: obj.comment,
+    date: obj.date,
+  };
+};
+
 export const transformOfferForLoading = (obj) => {
   return {
     id: obj.id,
