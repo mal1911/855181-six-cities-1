@@ -1,10 +1,10 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
 import {connect} from "react-redux";
-import {getActiveMapObj, getOffersCoordinatesData} from '../../reducer/data/selectors';
+import {getActiveMapObj, getOffersCoordinatesData} from '../../reducer/offers-data/selectors';
 
-class Map extends PureComponent {
+class Map extends Component {
   componentDidMount() {
     try {
       this._initMap();

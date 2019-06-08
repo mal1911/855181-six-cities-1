@@ -11,6 +11,7 @@ module.exports = {
     compress: false,
     hot: true,
     port: 1337,
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -20,7 +21,11 @@ module.exports = {
         use: {
           loader: `babel-loader`,
         },
-      }
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   resolve: {
