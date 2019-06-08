@@ -1,63 +1,82 @@
 import {transformCommentsForLoading} from "../../transform-data";
 
 const initialState = {
-  data: [],
-  isLoading: true,
-  error: null,
+  commentsData: [],
+  isCommentsLoading: true,
+  commentsError: null,
 };
 
 const ActionType = {
-  LOADED_DATA: `LOADED_DATA`,
-  CHANGE_LOAD_STATUS: `CHANGE_LOAD_STATUS`,
-  CHANGE_ERROR_STATUS: `CHANGE_ERROR_STATUS`,
+  LOADED_COMMENTS_DATA: `LOADED_COMMENTS_DATA`,
+  CHANGE_COMMENTS_LOAD_STATUS: `CHANGE_COMMENTS_LOAD_STATUS`,
+  CHANGE_COMMENTS_ERROR_STATUS: `CHANGE_COMMENTS_ERROR_STATUS`,
 };
 
 const ActionCreator = {
-  loadedData: (data) => {
+  loadedCommentsData: (data) => {
     return {
-      type: ActionType.LOADED_DATA,
+      type: ActionType.LOADED_COMMENTS_DATA,
       payload: data,
     };
   },
-  changeLoadStatus: (status) => ({
-    type: ActionType.CHANGE_LOAD_STATUS,
+  changeCommentsLoadStatus: (status) => ({
+    type: ActionType.CHANGE_COMMENTS_LOAD_STATUS,
     payload: status,
   }),
-  changeErrorStatus: (error) => ({
-    type: ActionType.CHANGE_ERROR_STATUS,
+  changeCommentsErrorStatus: (error) => ({
+    type: ActionType.CHANGE_COMMENTS_ERROR_STATUS,
     payload: error,
   }),
 };
 
+const successCommentsLoading = (dispatch, data) => {
+  data.map((obj) => transformCommentsForLoading(obj));
+  dispatch(ActionCreator.loadedCommentsData(data));
+  dispatch(ActionCreator.changeCommentsLoadStatus(false));
+};
+
+const errorCommentsLoading = (dispatch, err) => {
+  dispatch(ActionCreator.changeCommentsErrorStatus(err));
+  dispatch(ActionCreator.changeCommentsLoadStatus(false));
+};
+
 const Operation = {
-  loadData: (id) => (dispatch, _getState, api) => {
+  loadCommentsData: (id) => (dispatch, _getState, api) => {
     return api.get(`/comments/${id}`)
       .then((response) => {
-        const data = response.data.map((obj) => transformCommentsForLoading(obj));
-        console.log(data);
-        dispatch(ActionCreator.loadedData(data));
-        dispatch(ActionCreator.changeLoadStatus(false));
+        successCommentsLoading(dispatch, response.data);
       })
       .catch((err) => {
-        dispatch(ActionCreator.changeErrorStatus(err));
-        dispatch(ActionCreator.changeLoadStatus(false));
+        errorCommentsLoading(dispatch, err);
+      });
+  },
+
+  saveCommentObj: (id, commentObj) => (dispatch, _getState, api) => {
+    dispatch(ActionCreator.changeCommentsLoadStatus(true));
+
+    return api.post(`/comments/${id}`, commentObj)
+      .then((response) => {
+        successCommentsLoading(dispatch, response.data);
+      })
+      .catch((err) => {
+        errorCommentsLoading(dispatch, err);
       });
   },
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.LOADED_DATA:
+    case ActionType.LOADED_COMMENTS_DATA:
       return Object.assign({}, state, {
-        data: action.payload,
+        commentsData: action.payload,
       });
-    case ActionType.CHANGE_LOAD_STATUS:
+    case ActionType.CHANGE_COMMENTS_LOAD_STATUS:
       return Object.assign({}, state, {
-        isLoading: action.payload
+        isCommentsLoading: action.payload
       });
-    case ActionType.CHANGE_ERROR_STATUS:
+    case ActionType.CHANGE_COMMENTS_ERROR_STATUS:
       return Object.assign({}, state, {
-        error: action.payload
+        commentsError: action.payload
       });
   }
   return state;

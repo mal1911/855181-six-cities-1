@@ -11,7 +11,7 @@ import {Operation} from "./reducer/offers-data/offers-data";
 import App from './components/app/app';
 
 const init = () => {
-  const api = createAPI((...args) => store.dispatch(...args));
+  const api = createAPI(() => history.pushState(null, null, `/login`));
 
   /* eslint-disable no-underscore-dangle */
   const store = createStore(

@@ -1,63 +1,62 @@
 import {transformOfferForLoading} from "../../transform-data";
 
 const initialState = {
-  data: [],
-  isLoading: true,
-  error: null,
+  favoritesData: [],
+  isFavoritesLoading: true,
+  favoritesError: null,
 };
 
 const ActionType = {
-  LOADED_DATA: `LOADED_DATA`,
-  CHANGE_LOAD_STATUS: `CHANGE_LOAD_STATUS`,
-  CHANGE_ERROR_STATUS: `CHANGE_ERROR_STATUS`,
+  LOADED_FAVORITES_DATA: `LOADED_FAVORITES_DATA`,
+  CHANGE_FAVORITES_LOAD_STATUS: `CHANGE_FAVORITES_LOAD_STATUS`,
+  CHANGE_FAVORITES_ERROR_STATUS: `CHANGE_FAVORITES_ERROR_STATUS`,
 };
 
 const ActionCreator = {
-  loadedData: (data) => {
+  loadedFavoritesData: (data) => {
     return {
-      type: ActionType.LOADED_DATA,
+      type: ActionType.LOADED_FAVORITES_DATA,
       payload: data,
     };
   },
-  changeLoadStatus: (status) => ({
-    type: ActionType.CHANGE_LOAD_STATUS,
+  changeFavoritesLoadStatus: (status) => ({
+    type: ActionType.CHANGE_FAVORITES_LOAD_STATUS,
     payload: status,
   }),
-  changeErrorStatus: (error) => ({
-    type: ActionType.CHANGE_ERROR_STATUS,
+  changeFavoritesErrorStatus: (error) => ({
+    type: ActionType.CHANGE_FAVORITES_ERROR_STATUS,
     payload: error,
   }),
 };
 
 const Operation = {
-  loadData: () => (dispatch, _getState, api) => {
-    return api.get(`/hotels`)
+  loadFavoritesData: () => (dispatch, _getState, api) => {
+    return api.get(`/favorite`)
       .then((response) => {
         const data = response.data.map((obj) => transformOfferForLoading(obj));
-        //console.log(data);
-        dispatch(ActionCreator.loadedData(data));
-        dispatch(ActionCreator.changeLoadStatus(false));
+        dispatch(ActionCreator.loadedFavoritesData(data));
+        dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       })
       .catch((err) => {
-        dispatch(ActionCreator.changeErrorStatus(err));
-        dispatch(ActionCreator.changeLoadStatus(false));
+        dispatch(ActionCreator.changeFavoritesErrorStatus(err));
+        dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       });
   },
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.LOADED_DATA:
+    case ActionType.LOADED_FAVORITES_DATA:
       return Object.assign({}, state, {
-        data: action.payload,
+        favoritesData: action.payload,
       });
-    case ActionType.CHANGE_LOAD_STATUS:
+    case ActionType.CHANGE_FAVORITES_LOAD_STATUS:
       return Object.assign({}, state, {
-        isLoading: action.payload
+        isFavoritesLoading: action.payload
       });
-    case ActionType.CHANGE_ERROR_STATUS:
+    case ActionType.CHANGE_FAVORITES_ERROR_STATUS:
       return Object.assign({}, state, {
-        error: action.payload
+        favoritesError: action.payload
       });
   }
   return state;

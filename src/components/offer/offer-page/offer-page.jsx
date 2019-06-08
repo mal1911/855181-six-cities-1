@@ -13,7 +13,6 @@ class OfferPage extends PureComponent {
   }
 
   componentDidMount() {
-    //console.log(this.props.match.params.id);
     this.props.onDidMountComponent(parseInt(this.props.match.params.id, 10));
   }
 
@@ -22,7 +21,6 @@ class OfferPage extends PureComponent {
 
   render() {
     const withOfferWrapper = this.props.offerObj ? <OfferWrapper offerObj={this.props.offerObj}/> : null;
-    //console.log(this.props.offerObj);
     return <React.Fragment>
       <Header/>
       {withOfferWrapper}

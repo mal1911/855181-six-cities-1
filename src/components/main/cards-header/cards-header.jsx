@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getActiveCityName, getCountResultOffers} from '../../reducer/offers-data/selectors';
+import {getActiveCityName, getCountResultOffers} from '../../../reducer/offers-data/selectors';
 
 const CardsHeader = (props) => {
   return <React.Fragment>

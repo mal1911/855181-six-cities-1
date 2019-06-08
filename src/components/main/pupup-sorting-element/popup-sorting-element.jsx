@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ESC_KEYCODE, SORTING_TYPES} from '../../constants';
+import {ESC_KEYCODE, SORTING_TYPES} from '../../../constants';
 import {connect} from "react-redux";
-import {ActionCreator} from '../../reducer/offers-data/offers-data';
+import {ActionCreator} from '../../../reducer/offers-data/offers-data';
 
 const PopupSortingElement = (props) => {
 

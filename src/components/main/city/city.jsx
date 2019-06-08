@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {cityType} from "../../prop-types";
+import {cityType} from "../../../prop-types";
 
 const City = ({cityObj, isActive, onClick}) => {
   const handlerClick = (evt) => {

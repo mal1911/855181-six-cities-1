@@ -1,16 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {offerType} from "../../prop-types";
-//import {withRouter} from "react-router-dom";
+import {offerType} from "../../../prop-types";
 import {NavLink} from "react-router-dom";
 
 const Card = (props) => {
-  /*const handlerChange = (evt) => {
-    props.onChange(props.offerObj);
-    props.history.push(`/offer/${props.offerObj.id}`);
-    evt.preventDefault();
-    {onClick={handlerChange}}
-  };*/
 
   const isPremium = () => {
     return props.offerObj.isPremium
@@ -62,5 +55,4 @@ Card.propTypes = {
 
 };
 
-//export default withRouter(Card);
 export default Card;

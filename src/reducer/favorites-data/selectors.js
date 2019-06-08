@@ -4,15 +4,15 @@ import NameSpace from "../name-spaces";
 const NAME_SPACE = NameSpace.FAVORITES_DATA;
 
 export const getFavoritesData = (state) => {
-  return state[NAME_SPACE].data;
+  return state[NAME_SPACE].favoritesData;
 };
 
-export const getLoadStatus = (state) => {
-  return state[NAME_SPACE].isLoading;
+export const getFavoritesLoadStatus = (state) => {
+  return state[NAME_SPACE].isFavoritesLoading;
 };
 
-export const getError = (state) => {
-  return state[NAME_SPACE].error;
+export const getFavoritesError = (state) => {
+  return state[NAME_SPACE].favoritesError;
 };
 
 export const getResultFavoritesData = createSelector(
@@ -29,7 +29,6 @@ export const getResultFavoritesData = createSelector(
         }
         resultFavoritesData[index].push(obj);
       });
-      //console.log(resultFavoritesData);
       return resultFavoritesData;
     }
 );

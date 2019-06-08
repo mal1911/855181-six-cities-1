@@ -4,16 +4,17 @@ import NameSpace from "../name-spaces";
 const NAME_SPACE = NameSpace.COMMENTS_DATA;
 
 export const getCommentsData = (state) => {
-  return state[NAME_SPACE].data;
+  return state[NAME_SPACE].commentsData;
 };
 
-export const getLoadStatus = (state) => {
-  return state[NAME_SPACE].isLoading;
+export const getCommentsLoadStatus = (state) => {
+  return state[NAME_SPACE].isCommentsLoading;
 };
 
-export const getError = (state) => {
-  return state[NAME_SPACE].error;
+export const getCommentsError = (state) => {
+  return state[NAME_SPACE].commentsError;
 };
+
 /*
 export const getResultFavoritesData = createSelector(
   getFavoritesData,

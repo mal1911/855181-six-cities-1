@@ -26,12 +26,12 @@ export const getActiveOfferId = (state) => {
   return state[NAME_SPACE].activeOfferId;
 };
 
-export const getLoadStatus = (state) => {
-  return state[NAME_SPACE].isLoading;
+export const getOffersLoadStatus = (state) => {
+  return state[NAME_SPACE].isOffersLoading;
 };
 
-export const getError = (state) => {
-  return state[NAME_SPACE].error;
+export const getOffersError = (state) => {
+  return state[NAME_SPACE].offersError;
 };
 
 export const getCitiesData = createSelector(

@@ -1,11 +1,15 @@
+import {transformUserForLoading} from "../../transform-data";
+import {HTML_STATUS} from "../../constants";
+
 const initialState = {
   isAuthorizationRequired: true,
-  userObj: null
+  userObj: null,
 };
 
 const ActionType = {
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   USER_LOGIN: `USER_LOGIN`,
+  USER_LOGOUT: `USER_LOGOUT`,
 };
 
 const ActionCreator = {
@@ -21,6 +25,24 @@ const ActionCreator = {
       payload: userObj,
     };
   },
+  userLogout: () => {
+    return {
+      type: ActionType.USER_LOGOUT,
+    };
+  },
+};
+
+const Operation = {
+  userLogin: (autorizationObj, history) => (dispatch, _getState, api) => {
+    return api.post(`/login`, autorizationObj)
+      .then((response) => {
+        if (response.status === HTML_STATUS.OK) {
+          const data = transformUserForLoading(response.data);
+          dispatch(ActionCreator.userLogin(data));
+          history.push(`/`);
+        }
+      });
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,6 +54,13 @@ const reducer = (state = initialState, action) => {
     case ActionType.USER_LOGIN: {
       return Object.assign({}, state, {
         userObj: action.payload,
+        isAuthorizationRequired: false,
+      });
+    }
+    case ActionType.USER_LOGOUT: {
+      return Object.assign({}, state, {
+        userObj: {},
+        isAuthorizationRequired: true,
       });
     }
   }
@@ -41,5 +70,6 @@ const reducer = (state = initialState, action) => {
 export {
   ActionCreator,
   ActionType,
+  Operation,
   reducer,
 };

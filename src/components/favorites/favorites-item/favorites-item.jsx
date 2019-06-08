@@ -20,7 +20,7 @@ const FavoritesItem = (props) => {
 };
 
 FavoritesItem.propTypes = {
-  favoritesOneData: PropTypes.arrayOf(offerType.isRequired).isRequired,
+  favoritesOneData: PropTypes.arrayOf(offerType),
 };
 
 export default FavoritesItem;

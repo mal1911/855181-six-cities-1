@@ -1,16 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {offerType} from "../../prop-types";
+import {offerType} from "../../../prop-types";
 import Card from "../card/card";
 import {connect} from "react-redux";
-import {getResultOffersData} from "../../reducer/offers-data/selectors";
-
-//import {Redirect} from "react-router-dom";
+import {getResultOffersData} from "../../../reducer/offers-data/selectors";
 
 const Cards = (props) => {
   const handlerChange = (cardObj) => {
     props.setActiveItem(cardObj.id);
-    //<Redirect to="/results" />;
   };
 
   const cards = props.resultOffersData.map((offerObj, index) =>

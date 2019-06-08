@@ -1,10 +1,8 @@
-import React, {PureComponent} from 'react';
-import Header from '../header';
+import React, {PureComponent} from "react";
+import Header from "../header";
 import {connect} from "react-redux";
-import {ActionCreator} from '../../reducer/user/user';
-import {createAPI} from '../../api';
+import {Operation} from "../../reducer/user-data/user-data";
 import PropTypes from "prop-types";
-import {transformHostForLoading, transformUserForLoading} from "../../transform-data";
 
 class SignInPage extends PureComponent {
   constructor(props) {
@@ -16,12 +14,20 @@ class SignInPage extends PureComponent {
     };
 
     this._handlerSendForm = this._handlerSendForm.bind(this);
-    document.body.classList.add(`page--login`);
+    this._handlerChangeEmail = this._handlerChangeEmail.bind(this);
+    this._handlerChangePassword = this._handlerChangePassword.bind(this);
   }
 
   _handlerSendForm(evt) {
     evt.preventDefault();
     this.props.userLogin(this.state);
+  }
+
+  _handlerChangeEmail(evt) {
+    this.setState({email: evt.target.value});
+  }
+  _handlerChangePassword(evt) {
+    this.setState({password: evt.target.value});
   }
 
   render() {
@@ -34,18 +40,38 @@ class SignInPage extends PureComponent {
             <form className="login__form form" action="#" method="post" onSubmit={this._handlerSendForm}>
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">E-mail</label>
-                <input className="login__input form__input" type="email" name="email" placeholder="Email" required="" onChange={(evt) => this.setState({email: evt.target.value})}/>
+                <input
+                  className="login__input form__input"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required={true}
+                  value={this.state.email}
+                  onChange={this._handlerChangeEmail}/>
               </div>
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">Password</label>
-                <input className="login__input form__input" type="password" name="password" placeholder="Password" required="" onChange={(evt) => this.setState({password: evt.target.value})}/>
+                <input
+                  className="login__input form__input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required={true}
+                  value={this.state.password}
+                  onChange={this._handlerChangePassword}/>
               </div>
-              <button className="login__submit form__submit button" type="submit">Sign in</button>
+              <button
+                className="login__submit form__submit button"
+                type="submit"
+                disabled={!this.state.email || !this.state.password}
+              >
+                Sign in
+              </button>
             </form>
           </section>
           <section className="locations locations--login locations--current">
             <div className="locations__item">
-              <a className="locations__item-link" href="#">
+              <a className="locations__item-link">
                 <span>Amsterdam</span>
               </a>
             </div>
@@ -62,14 +88,7 @@ SignInPage.propTypes = {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   userLogin: (autorizationObj) => {
-    createAPI(dispatch)
-      .post(`/login`, autorizationObj)
-      .then((response) => {
-        const data = transformUserForLoading(response.data);
-        dispatch(ActionCreator.userLogin(data));
-        dispatch(ActionCreator.requireAuthorization(false));
-      });
-    ownProps.history.push(`/`);
+    dispatch(Operation.userLogin(autorizationObj, ownProps.history));
   }
 });
 

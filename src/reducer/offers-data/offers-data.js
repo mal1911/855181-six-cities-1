@@ -5,32 +5,32 @@ const initialState = {
   activeOrderIndex: 0,
   activeOfferId: 0,
   offersData: [],
-  isLoading: true,
-  error: null,
+  isOffersLoading: true,
+  offersError: null,
 };
 
 const ActionType = {
-  LOADED_OFFERS_DATA: `LOAD_OFFERS_DATA`,
-  CHANGE_LOAD_STATUS: `CHANGE_LOAD_STATUS`,
-  CHANGE_ERROR_STATUS: `CHANGE_ERROR_STATUS`,
+  LOADED_OFFERS_DATA: `LOADED_OFFERS_DATA`,
+  CHANGE_OFFERS_LOAD_STATUS: `CHANGE_OFFERS_LOAD_STATUS`,
+  CHANGE_OFFERS_ERROR_STATUS: `CHANGE_OFFERS_ERROR_STATUS`,
   CHANGE_ACTIVE_CITY_INDEX: `CHANGE_ACTIVE_CITY_INDEX`,
   CHANGE_ACTIVE_ORDER_INDEX: `CHANGE_ACTIVE_ORDER_INDEX`,
   CHANGE_ACTIVE_OFFER_ID: `CHANGE_ACTIVE_OFFER_ID`,
 };
 
 const ActionCreator = {
-  loadedOffersData: (offersData) => {
+  loadedOffersData: (data) => {
     return {
       type: ActionType.LOADED_OFFERS_DATA,
-      payload: offersData,
+      payload: data,
     };
   },
-  changeLoadStatus: (status) => ({
-    type: ActionType.CHANGE_LOAD_STATUS,
+  changeOffersLoadStatus: (status) => ({
+    type: ActionType.CHANGE_OFFERS_LOAD_STATUS,
     payload: status,
   }),
-  changeErrorStatus: (error) => ({
-    type: ActionType.CHANGE_ERROR_STATUS,
+  changeOffersErrorStatus: (error) => ({
+    type: ActionType.CHANGE_OFFERS_ERROR_STATUS,
     payload: error,
   }),
   changeActiveCityIndex: (index) => ({
@@ -41,9 +41,9 @@ const ActionCreator = {
     type: ActionType.CHANGE_ACTIVE_ORDER_INDEX,
     payload: index,
   }),
-  changeActiveOfferId: (id) => ({
+  changeActiveOfferId: (index) => ({
     type: ActionType.CHANGE_ACTIVE_OFFER_ID,
-    payload: id,
+    payload: index,
   }),
 };
 
@@ -53,11 +53,11 @@ const Operation = {
       .then((response) => {
         const data = response.data.map((obj) => transformOfferForLoading(obj));
         dispatch(ActionCreator.loadedOffersData(data));
-        dispatch(ActionCreator.changeLoadStatus(false));
+        dispatch(ActionCreator.changeOffersLoadStatus(false));
       })
       .catch((err) => {
-        dispatch(ActionCreator.changeErrorStatus(err));
-        dispatch(ActionCreator.changeLoadStatus(false));
+        dispatch(ActionCreator.changeOffersErrorStatus(err));
+        dispatch(ActionCreator.changeOffersLoadStatus(false));
       });
   },
 };
@@ -68,13 +68,13 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         offersData: action.payload,
       });
-    case ActionType.CHANGE_LOAD_STATUS:
+    case ActionType.CHANGE_OFFERS_LOAD_STATUS:
       return Object.assign({}, state, {
-        isLoading: action.payload
+        isOffersLoading: action.payload
       });
-    case ActionType.CHANGE_ERROR_STATUS:
+    case ActionType.CHANGE_OFFERS_ERROR_STATUS:
       return Object.assign({}, state, {
-        error: action.payload
+        offersError: action.payload
       });
     case ActionType.CHANGE_ACTIVE_CITY_INDEX:
       return Object.assign({}, state, {

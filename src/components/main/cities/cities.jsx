@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {cityType} from "../../prop-types";
+import {cityType} from "../../../prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../reducer/offers-data/offers-data";
-import {getCitiesData} from "../../reducer/offers-data/selectors";
-import City from "../city";
+import {ActionCreator} from "../../../reducer/offers-data/offers-data";
+import {getCitiesData} from "../../../reducer/offers-data/selectors";
+import City from "../city/index";
 
 const Cities = (props) => {
   const isActiveItem = (index) => (index === props.activeItem);

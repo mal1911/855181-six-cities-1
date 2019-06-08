@@ -1,8 +1,7 @@
 import axios from 'axios';
-import {ActionCreator} from './reducer/user/user';
 import {BASE_URL, TIMEOUT, HTML_STATUS} from './constants';
 
-export const createAPI = (dispatch) => {
+export const createAPI = (onLoginFail) => {
   const api = axios.create({
     baseURL: BASE_URL,
     timeout: TIMEOUT,
@@ -14,8 +13,8 @@ export const createAPI = (dispatch) => {
   };
 
   const onFail = (err) => {
-    if (err.response.status === HTML_STATUS.FORBIDDEN) {
-      dispatch(ActionCreator.requireAuthorization(true));
+    if (err.status === HTML_STATUS.FORBIDDEN) {
+      onLoginFail();
     }
     return err;
   };

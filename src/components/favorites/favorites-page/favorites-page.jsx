@@ -6,9 +6,9 @@ import {connect} from "react-redux";
 import FavoritesWrpapperData from "../favorites-wrapper-data/index";
 import FavoritesWrpapperEmpty from "../favorites-wrapper-empty/index";
 import withBodyClass from "../../../hocs/with-body-class/with-body-class";
-import {getCountResultFavorites, getLoadStatus, getError} from "../../../reducer/favorites-data/selectors";
+import withDataStatusScreen from "../../../hocs/with-data-status-screen/with-data-status-screen";
+import {getCountResultFavorites, getFavoritesLoadStatus, getFavoritesError} from "../../../reducer/favorites-data/selectors";
 import {Operation} from "../../../reducer/favorites-data/favorites-data";
-
 
 class FavoritesPage extends PureComponent {
   constructor(props) {
@@ -19,41 +19,33 @@ class FavoritesPage extends PureComponent {
     this.props.onDidMountComponent();
   }
 
-  componentWillUnmount() {
-  }
-
   render() {
     const FavoritesWrpapperEmptyBody = withBodyClass(FavoritesWrpapperEmpty, [`page--favorites-empty`]);
+    const WithDataStatusScreen = withDataStatusScreen(FavoritesWrpapperData, FavoritesWrpapperEmptyBody);
     return <React.Fragment>
       <Header/>
-      {/*
-        <FavoritesWrpapperEmptyBody/>
-      */}
-      <FavoritesWrpapperData/>
-
-
+      <WithDataStatusScreen {...this.props}/>
       <Footer/>
     </React.Fragment>;
   }
 }
 
 FavoritesPage.propTypes = {
-  countResultFavorites: PropTypes.number.isRequired,
+  countData: PropTypes.number.isRequired,
   loadStatus: PropTypes.bool,
   error: PropTypes.object,
   onDidMountComponent: PropTypes.func,
-
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  countResultFavorites: getCountResultFavorites(state),
-  loadStatus: getLoadStatus(state),
-  error: getError(state),
+  countData: getCountResultFavorites(state),
+  loadStatus: getFavoritesLoadStatus(state),
+  error: getFavoritesError(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onDidMountComponent: () => {
-    dispatch(Operation.loadData());
+    dispatch(Operation.loadFavoritesData());
   },
 });
 
