@@ -11,9 +11,9 @@ const App = () => {
   return <BrowserRouter>
     <Switch>
       <Route path="/" exact component={withBodyClass(MainPage, [`page--gray`, `page--main`])}/>
+      <Route path="/offer/:id" component={OfferPage}/>
       <Route path="/favorites" component={withCheckLogin(FavoritesPage)}/>
       <Route path="/login" component={withBodyClass(SignInPage, [`page--gray`, `page--login`])}/>
-      <Route path="/offer/:id" childRoutes component={OfferPage}/>
       <Redirect to="/"/>
     </Switch>
   </BrowserRouter>;

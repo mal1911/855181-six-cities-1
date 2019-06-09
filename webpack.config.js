@@ -1,4 +1,5 @@
 const path = require(`path`);
+const webpack = require(`webpack`);
 
 module.exports = {
   entry: `./src/index.js`,
@@ -7,7 +8,7 @@ module.exports = {
     path: path.join(__dirname, `public`)
   },
   devServer: {
-    contentBase: path.join(__dirname, `public`),
+    contentBase: path.join(__dirname, `./public`),
     compress: false,
     hot: true,
     port: 1337,
@@ -31,5 +32,12 @@ module.exports = {
   resolve: {
     extensions: [`.js`, `.jsx`]
   },
-  devtool: `source-map`
+  devtool: `source-map`,
+  plugins: [
+    new webpack.ProvidePlugin({
+      'React': 'react',
+      'ReactDOM': 'react-dom',
+      'propTypes': 'prop-types'
+    })
+  ]
 };
