@@ -13,7 +13,7 @@ class OfferPage extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.onDidMountComponent(parseInt(this.props.match.params.id, 10));
+    this.props.onLoaded(parseInt(this.props.match.params.id, 10));
   }
 
   componentWillUnmount() {
@@ -31,7 +31,7 @@ class OfferPage extends PureComponent {
 OfferPage.propTypes = {
   match: PropTypes.object,
   offerObj: offerType,
-  onDidMountComponent: PropTypes.func,
+  onLoaded: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
@@ -39,7 +39,7 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onDidMountComponent: (id) => {
+  onLoaded: (id) => {
     dispatch(ActionCreator.changeActiveOfferId(id));
   },
 });

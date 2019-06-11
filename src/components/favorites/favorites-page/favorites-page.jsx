@@ -16,7 +16,7 @@ class FavoritesPage extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.onDidMountComponent();
+    this.props.onLoaded();
   }
 
   render() {
@@ -34,7 +34,7 @@ FavoritesPage.propTypes = {
   countData: PropTypes.number.isRequired,
   loadStatus: PropTypes.bool,
   error: PropTypes.object,
-  onDidMountComponent: PropTypes.func,
+  onLoaded: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
@@ -44,7 +44,7 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onDidMountComponent: () => {
+  onLoaded: () => {
     dispatch(Operation.loadFavoritesData());
   },
 });

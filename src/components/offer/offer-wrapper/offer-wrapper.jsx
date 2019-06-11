@@ -2,6 +2,8 @@ import React from "react";
 import {offerType} from "../../../prop-types";
 import {getRandomArray} from "../../../util";
 import OfferComments from "../offer-comments";
+import Map from "../../map";
+import LeafletLink from "../../leaflet-link";
 
 const OfferWrapper = ({offerObj}) => {
   const MAX_OFFER_IMAGES = 6;
@@ -24,6 +26,7 @@ const OfferWrapper = ({offerObj}) => {
   const userStatusClassName = offerObj.host.isPro ? `property__avatar-wrapper--pro` : ``;
 
   return <main className="page__main page__main--property">
+    <LeafletLink/>
     <section className="property">
       <div className="property__gallery-container container">
         <div className="property__gallery">
@@ -85,8 +88,8 @@ const OfferWrapper = ({offerObj}) => {
           </div>
           <OfferComments offerObj={offerObj} />
         </div>
+        <Map className={`property__map`}/>
       </div>
-      <section className="property__map map"></section>
     </section>
     <div className="container">
       <section className="near-places places">

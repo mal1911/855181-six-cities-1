@@ -1,25 +1,23 @@
 import React from "react";
-import Cards from "../cards/cards";
-import CardsHeader from "../cards-header/cards-header";
+import Cards from "../cards";
+import CardsHeader from "../cards-header";
 import PopupSortingElement from "../pupup-sorting-element/popup-sorting-element";
-import withActiveItem from "../../../hocs/with-active-item/with-active-item";
 import withPopupToggle from "../../../hocs/with-popup-toggle/with-popup-toggle";
-import Map from "../../map/map";
+import Map from "../../map";
 
 const PlacesWrapperData = () => {
-  const ActivatedPopupSortingElement = withActiveItem(withPopupToggle(PopupSortingElement), 0);
-  const ActivatedCards = withActiveItem(Cards);
+  const TogglePopupSortingElement = withPopupToggle(PopupSortingElement);
 
   return <React.Fragment>
     <div className="cities__places-wrapper">
       <div className="cities__places-container container">
         <section className="cities__places places">
           <CardsHeader/>
-          <ActivatedPopupSortingElement/>
-          <ActivatedCards/>
+          <TogglePopupSortingElement/>
+          <Cards/>
         </section>
         <div className="cities__right-section">
-          <Map/>
+          <Map className={`cities__map`}/>
         </div>
       </div>
     </div>

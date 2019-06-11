@@ -13,21 +13,9 @@ class SignInPage extends PureComponent {
       password: ``
     };
 
-    this._handlerSendForm = this._handlerSendForm.bind(this);
-    this._handlerChangeEmail = this._handlerChangeEmail.bind(this);
-    this._handlerChangePassword = this._handlerChangePassword.bind(this);
-  }
-
-  _handlerSendForm(evt) {
-    evt.preventDefault();
-    this.props.userLogin(this.state);
-  }
-
-  _handlerChangeEmail(evt) {
-    this.setState({email: evt.target.value});
-  }
-  _handlerChangePassword(evt) {
-    this.setState({password: evt.target.value});
+    this._handleSendForm = this._handleSendForm.bind(this);
+    this._handleChangeEmail = this._handleChangeEmail.bind(this);
+    this._handleChangePassword = this._handleChangePassword.bind(this);
   }
 
   render() {
@@ -37,7 +25,7 @@ class SignInPage extends PureComponent {
         <div className="page__login-container container">
           <section className="login">
             <h1 className="login__title">Sign in</h1>
-            <form className="login__form form" action="#" method="post" onSubmit={this._handlerSendForm}>
+            <form className="login__form form" action="#" method="post" onSubmit={this._handleSendForm}>
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">E-mail</label>
                 <input
@@ -47,7 +35,7 @@ class SignInPage extends PureComponent {
                   placeholder="Email"
                   required={true}
                   value={this.state.email}
-                  onChange={this._handlerChangeEmail}/>
+                  onChange={this._handleChangeEmail}/>
               </div>
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">Password</label>
@@ -58,7 +46,7 @@ class SignInPage extends PureComponent {
                   placeholder="Password"
                   required={true}
                   value={this.state.password}
-                  onChange={this._handlerChangePassword}/>
+                  onChange={this._handleChangePassword}/>
               </div>
               <button
                 className="login__submit form__submit button"
@@ -79,6 +67,18 @@ class SignInPage extends PureComponent {
         </div>
       </main>
     </React.Fragment>);
+  }
+
+  _handleSendForm(evt) {
+    evt.preventDefault();
+    this.props.userLogin(this.state);
+  }
+
+  _handleChangeEmail(evt) {
+    this.setState({email: evt.target.value});
+  }
+  _handleChangePassword(evt) {
+    this.setState({password: evt.target.value});
   }
 }
 

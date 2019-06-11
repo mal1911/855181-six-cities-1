@@ -78,7 +78,8 @@ const reducer = (state = initialState, action) => {
       });
     case ActionType.CHANGE_ACTIVE_CITY_INDEX:
       return Object.assign({}, state, {
-        activeCityIndex: action.payload
+        activeCityIndex: action.payload,
+        activeOfferId: 0
       });
     case ActionType.CHANGE_ACTIVE_ORDER_INDEX:
       return Object.assign({}, state, {

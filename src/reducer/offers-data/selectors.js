@@ -5,9 +5,9 @@ const NAME_SPACE = NameSpace.OFFERS_DATA;
 
 const SORT_FUNCS = [
   null,
-  (a, b) => a.price > b.price,
   (a, b) => a.price < b.price,
-  (a, b) => a.rating > b.rating,
+  (a, b) => a.price > b.price,
+  (a, b) => a.rating < b.rating,
 ];
 
 export const getOffersData = (state) => {
@@ -44,15 +44,6 @@ export const getCitiesData = createSelector(
           citiesData.push(offerObj.city);
         }
       });
-      /*citiesData.push({
-        name:`ququ`,
-        location: {
-          latitude: 10,
-          longitude: 20,
-          zoom: 10,
-        }
-      }
-      );*/
     }
     return citiesData;
   }
@@ -77,9 +68,9 @@ export const getResultOffersData = createSelector(
 );
 
 export const getCountResultOffers = createSelector(
-    getResultOffersData,
-    getOffersData,
-    (resultOffersData, offersData) => offersData.length ? resultOffersData.length : 0
+  getResultOffersData,
+  getOffersData,
+  (resultOffersData, offersData) => offersData.length ? resultOffersData.length : 0
 );
 
 export const getActiveCityName = createSelector(
@@ -89,34 +80,39 @@ export const getActiveCityName = createSelector(
     citiesData.length ? citiesData[activeCityIndex].name : ``
 );
 
-export const getOffersCoordinatesData = createSelector(
-  getResultOffersData,
-  (resultOffersData) =>
-    resultOffersData.map((offerObj) => [offerObj.location.latitude, offerObj.location.longitude])
-);
-
-export const getActiveMapObj = createSelector(
-  getCitiesData,
-  getActiveCityIndex,
-  (citiesData, activeCityIndex) => {
-    let resultObj = null;
-    if (citiesData.length) {
-      const cityObj = citiesData[activeCityIndex];
-      resultObj = {
-        coordinates: [cityObj.location.latitude, cityObj.location.longitude],
-        zoom: cityObj.location.zoom,
-      };
-    }
-    return resultObj;
+export const getActiveOfferObj = createSelector(
+  getOffersData,
+  getActiveOfferId,
+  (offersData, activeOfferId) => {
+    const resObj = offersData.find((offerObj) => offerObj.id === activeOfferId);
+    return resObj ? resObj : null;
   }
 );
 
-export const getActiveOfferObj = createSelector(
-    getOffersData,
-    getActiveOfferId,
-    (offersData, activeOfferId) => {
-      const resObj = offersData.find((offerObj) => offerObj.id === activeOfferId);
-      //console.log(activeOfferId, resObj);
-      return resObj ? resObj : null;
+
+export const getOffersLocationsData = createSelector(
+    getResultOffersData,
+    getActiveOfferObj,
+    (resultOffersData, activeOfferObj) =>
+      resultOffersData.map((offerObj) => {
+        return {
+          location: offerObj.location,
+          isActive: offerObj === activeOfferObj,
+        };
+      })
+);
+
+export const getActiveMapLocation = createSelector(
+    getCitiesData,
+    getActiveCityIndex,
+    getActiveOfferObj,
+    (citiesData, activeCityIndex, activeOfferObj) => {
+      if (!activeOfferObj && citiesData.length) {
+        return citiesData[activeCityIndex].location;
+      } else if (activeOfferObj) {
+        return activeOfferObj.location;
+      } else {
+        return 0;
+      }
     }
 );
