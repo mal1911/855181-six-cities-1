@@ -1,19 +1,18 @@
 import React from "react";
 import {offerType} from "../../../prop-types";
-import {NavLink} from "react-router-dom";
 
-const FavoritesCard = ({offerObj}) => {
+const OfferCard = ({offerObj}) => {
   const hangleClick = (evt) => {
     evt.preventDefault();
   };
 
-  return <article className="favorites__card place-card">
-    <div className="favorites__image-wrapper place-card__image-wrapper">
+  return <article className="near-places__card place-card">
+    <div className="near-places__image-wrapper place-card__image-wrapper">
       <a href="#" onClick={hangleClick}>
-        <img className="place-card__image" src={offerObj.previewImage} width="150" height="110" alt="Place image"/>
+        <img className="place-card__image" src={offerObj.previewImage} width="260" height="200" alt="Place image"/>
       </a>
     </div>
-    <div className="favorites__card-info place-card__info">
+    <div className="place-card__info">
       <div className="place-card__price-wrapper">
         <div className="place-card__price">
           <b className="place-card__price-value">&euro;{offerObj.price}</b>
@@ -33,15 +32,15 @@ const FavoritesCard = ({offerObj}) => {
         </div>
       </div>
       <h2 className="place-card__name">
-        <NavLink to={`/offer/${offerObj.id}`}>{offerObj.title}</NavLink>
+        <a href="#" onClick={hangleClick}>{offerObj.title}</a>
       </h2>
       <p className="place-card__type">{offerObj.type}</p>
     </div>
   </article>;
 };
 
-FavoritesCard.propTypes = {
+OfferCard.propTypes = {
   offerObj: offerType.isRequired,
 };
 
-export default FavoritesCard;
+export default OfferCard;

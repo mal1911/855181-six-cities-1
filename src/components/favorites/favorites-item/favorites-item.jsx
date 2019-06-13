@@ -4,8 +4,8 @@ import {offerType} from "../../../prop-types";
 import FavoritesCard from "../favorites-card/index";
 
 const FavoritesItem = (props) => {
-  const favoritesCards = props.favoritesOneData.map((favoritesObj, index) =>
-    <FavoritesCard key={index} favoritesObj={favoritesObj}/>);
+  const favoritesCards = props.favoritesOneData.map((offerObj, index) =>
+    <FavoritesCard key={index} offerObj={offerObj}/>);
 
   return <li className="favorites__locations-items">
     <div className="favorites__locations locations locations--current">

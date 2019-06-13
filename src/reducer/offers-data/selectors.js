@@ -35,60 +35,58 @@ export const getOffersError = (state) => {
 };
 
 export const getCitiesData = createSelector(
-  getOffersData,
-  (offersData) => {
-    const citiesData = [];
-    if (offersData.length) {
-      offersData.forEach((offerObj) => {
-        if (!citiesData.find((cityObj) => cityObj.name === offerObj.city.name)) {
-          citiesData.push(offerObj.city);
-        }
-      });
+    getOffersData,
+    (offersData) => {
+      const citiesData = [];
+      if (offersData.length) {
+        offersData.forEach((offerObj) => {
+          if (!citiesData.find((cityObj) => cityObj.name === offerObj.city.name)) {
+            citiesData.push(offerObj.city);
+          }
+        });
+      }
+      return citiesData;
     }
-    return citiesData;
-  }
 );
 
 export const getResultOffersData = createSelector(
-  getOffersData,
-  getCitiesData,
-  getActiveCityIndex,
-  getActiveOrderIndex,
-  (offersData, citiesData, activeCityIndex, activeOrderIndex) => {
-    let resultOffersData = [];
-    if (offersData.length && citiesData.length) {
-      resultOffersData = offersData.filter((offerObj) => offerObj.city.name === citiesData[activeCityIndex].name);
-      if (activeOrderIndex) {
-        resultOffersData = resultOffersData.sort(SORT_FUNCS[activeOrderIndex]);
+    getOffersData,
+    getCitiesData,
+    getActiveCityIndex,
+    getActiveOrderIndex,
+    (offersData, citiesData, activeCityIndex, activeOrderIndex) => {
+      let resultOffersData = [];
+      if (offersData.length && citiesData.length) {
+        resultOffersData = offersData.filter((offerObj) => offerObj.city.name === citiesData[activeCityIndex].name);
+        if (activeOrderIndex) {
+          resultOffersData = resultOffersData.sort(SORT_FUNCS[activeOrderIndex]);
+        }
       }
+      return resultOffersData;
     }
-    //console.log(resultOffersData);
-    return resultOffersData;
-  }
 );
 
 export const getCountResultOffers = createSelector(
-  getResultOffersData,
-  getOffersData,
-  (resultOffersData, offersData) => offersData.length ? resultOffersData.length : 0
+    getResultOffersData,
+    getOffersData,
+    (resultOffersData, offersData) => offersData.length ? resultOffersData.length : 0
 );
 
 export const getActiveCityName = createSelector(
-  getCitiesData,
-  getActiveCityIndex,
-  (citiesData, activeCityIndex) =>
-    citiesData.length ? citiesData[activeCityIndex].name : ``
+    getCitiesData,
+    getActiveCityIndex,
+    (citiesData, activeCityIndex) =>
+      citiesData.length ? citiesData[activeCityIndex].name : ``
 );
 
 export const getActiveOfferObj = createSelector(
-  getOffersData,
-  getActiveOfferId,
-  (offersData, activeOfferId) => {
-    const resObj = offersData.find((offerObj) => offerObj.id === activeOfferId);
-    return resObj ? resObj : null;
-  }
+    getOffersData,
+    getActiveOfferId,
+    (offersData, activeOfferId) => {
+      const resObj = offersData.find((offerObj) => offerObj.id === activeOfferId);
+      return resObj ? resObj : null;
+    }
 );
-
 
 export const getOffersLocationsData = createSelector(
     getResultOffersData,
@@ -114,5 +112,22 @@ export const getActiveMapLocation = createSelector(
       } else {
         return 0;
       }
+    }
+);
+
+export const getNearData = createSelector(
+    getOffersData,
+    getActiveOfferObj,
+    (offersData, activeOfferObj) => {
+      const getDistance = (currLocation) =>
+        Math.sqrt(
+            Math.pow(Math.abs(activeOfferObj.location.latitude - currLocation.latitude), 2) +
+            Math.pow(Math.abs(activeOfferObj.location.longitude - currLocation.longitude), 2)
+        )
+      return offersData.map(
+          (offerObj) => Object.assign({}, offerObj, {distance: getDistance(offerObj.location)})
+      ).sort(
+          (a, b) => a.distance > b.distance
+      ).slice(1, 4);
     }
 );

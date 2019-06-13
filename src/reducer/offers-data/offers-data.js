@@ -43,8 +43,8 @@ const ActionCreator = {
   }),
   changeActiveOfferId: (index) => ({
     type: ActionType.CHANGE_ACTIVE_OFFER_ID,
-    payload: index,
-  }),
+    payload: index
+  })
 };
 
 const Operation = {
@@ -79,16 +79,16 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_ACTIVE_CITY_INDEX:
       return Object.assign({}, state, {
         activeCityIndex: action.payload,
-        activeOfferId: 0
       });
     case ActionType.CHANGE_ACTIVE_ORDER_INDEX:
       return Object.assign({}, state, {
         activeOrderIndex: action.payload
       });
-    case ActionType.CHANGE_ACTIVE_OFFER_ID:
+    case ActionType.CHANGE_ACTIVE_OFFER_ID: {
       return Object.assign({}, state, {
-        activeOfferId: action.payload
+        activeOfferId: action.payload,
       });
+    }
   }
   return state;
 };

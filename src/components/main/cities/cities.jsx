@@ -39,6 +39,7 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 const mapDispatchToProps = (dispatch) => ({
   onCityClick: (index) => {
     dispatch(ActionCreator.changeActiveCityIndex(index));
+    dispatch(ActionCreator.changeActiveOfferId(0));
   },
 });
 

@@ -1,11 +1,11 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import {offerType} from "../../../prop-types";
+import {offerType, cityType} from "../../../prop-types";
 import Header from "../../header/index";
 import OfferWrapper from "../offer-wrapper/index";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../../reducer/offers-data/offers-data";
-import {getActiveOfferObj} from "../../../reducer/offers-data/selectors";
+import {getActiveOfferObj, getOffersData, getCitiesData} from "../../../reducer/offers-data/selectors";
 
 class OfferPage extends PureComponent {
   constructor(props) {
@@ -16,7 +16,11 @@ class OfferPage extends PureComponent {
     this.props.onLoaded(parseInt(this.props.match.params.id, 10));
   }
 
-  componentWillUnmount() {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.offersData.length) {
+      const cityName = nextProps.offersData.find((offerObj) => offerObj.id === nextProps.offerObj.id).city.name;
+      this.props.onChangeActiveOfferObj(nextProps.citiesData.findIndex((cityObj) => cityObj.name === cityName));
+    }
   }
 
   render() {
@@ -31,17 +35,25 @@ class OfferPage extends PureComponent {
 OfferPage.propTypes = {
   match: PropTypes.object,
   offerObj: offerType,
+  offersData: PropTypes.arrayOf(offerType),
+  citiesData: PropTypes.arrayOf(cityType),
   onLoaded: PropTypes.func,
+  onChangeActiveOfferObj: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   offerObj: getActiveOfferObj(state),
+  offersData: getOffersData(state),
+  citiesData: getCitiesData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onLoaded: (id) => {
     dispatch(ActionCreator.changeActiveOfferId(id));
   },
+  onChangeActiveOfferObj: (index) => {
+    dispatch(ActionCreator.changeActiveCityIndex(index));
+  }
 });
 
 export {OfferPage};

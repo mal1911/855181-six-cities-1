@@ -12,31 +12,15 @@ class OfferForm extends PureComponent {
       comment: ``,
     };
 
-    this._handlerSendForm = this._handlerSendForm.bind(this);
-    this._handlerChangeRating = this._handlerChangeRating.bind(this);
-    this._handlerChangeComment = this._handlerChangeComment.bind(this);
+    this._handleSendForm = this._handleSendForm.bind(this);
+    this._handleChangeRating = this._handleChangeRating.bind(this);
+    this._handleChangeComment = this._handleChangeComment.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.loadStatus && !nextProps.error) {
       this._resetForm();
     }
-  }
-
-  _handlerSendForm(evt) {
-    this.props.onSendForm(this.props.offerId, this.state);
-    evt.preventDefault();
-  }
-
-  _handlerChangeRating(evt) {
-    this.setState({rating: parseInt(evt.target.value, 10)});
-  }
-
-  _handlerChangeComment(evt) {
-    this.setState({comment: evt.target.value});
-  }
-  _resetForm() {
-    this.setState({rating: 0, comment: ``});
   }
 
   render() {
@@ -46,7 +30,7 @@ class OfferForm extends PureComponent {
       className="reviews__form form"
       action="#"
       method="post"
-      onSubmit={this._handlerSendForm}
+      onSubmit={this._handleSendForm}
     >
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating">
@@ -56,7 +40,7 @@ class OfferForm extends PureComponent {
           value="5"
           id="5-stars"
           type="radio"
-          onChange={this._handlerChangeRating}
+          onChange={this._handleChangeRating}
           checked={isCheckedRating(5)}
         />
         <label htmlFor="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
@@ -70,7 +54,7 @@ class OfferForm extends PureComponent {
           value="4"
           id="4-stars"
           type="radio"
-          onChange={this._handlerChangeRating}
+          onChange={this._handleChangeRating}
           checked={isCheckedRating(4)}
         />
         <label htmlFor="4-stars" className="reviews__rating-label form__rating-label" title="good">
@@ -84,7 +68,7 @@ class OfferForm extends PureComponent {
           value="3"
           id="3-stars"
           type="radio"
-          onChange={this._handlerChangeRating}
+          onChange={this._handleChangeRating}
           checked={isCheckedRating(3)}
         />
         <label htmlFor="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
@@ -98,7 +82,7 @@ class OfferForm extends PureComponent {
           value="2"
           id="2-stars"
           type="radio"
-          onChange={this._handlerChangeRating}
+          onChange={this._handleChangeRating}
           checked={isCheckedRating(2)}
         />
         <label htmlFor="2-stars" className="reviews__rating-label form__rating-label" title="badly">
@@ -112,7 +96,7 @@ class OfferForm extends PureComponent {
           value="1"
           id="1-star"
           type="radio"
-          onChange={this._handlerChangeRating}
+          onChange={this._handleChangeRating}
           checked={isCheckedRating(1)}
         />
         <label htmlFor="1-star" className="reviews__rating-label form__rating-label" title="terribly">
@@ -127,7 +111,7 @@ class OfferForm extends PureComponent {
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
         value={this.state.comment}
-        onChange={this._handlerChangeComment}
+        onChange={this._handleChangeComment}
       >
       </textarea>
       <div className="reviews__button-wrapper">
@@ -144,6 +128,23 @@ class OfferForm extends PureComponent {
         </button>
       </div>
     </form>;
+  }
+
+  _handleSendForm(evt) {
+    this.props.onSendForm(this.props.offerId, this.state);
+    evt.preventDefault();
+  }
+
+  _handleChangeRating(evt) {
+    this.setState({rating: parseInt(evt.target.value, 10)});
+  }
+
+  _handleChangeComment(evt) {
+    this.setState({comment: evt.target.value});
+  }
+
+  _resetForm() {
+    this.setState({rating: 0, comment: ``});
   }
 }
 

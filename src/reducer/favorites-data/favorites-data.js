@@ -31,7 +31,7 @@ const ActionCreator = {
 
 const Operation = {
   loadFavoritesData: () => (dispatch, _getState, api) => {
-    return api.get(`/favorite`)
+    return api.get(/*`/favorite`*/ `/hotels`)
       .then((response) => {
         const data = response.data.map((obj) => transformOfferForLoading(obj));
         dispatch(ActionCreator.loadedFavoritesData(data));
@@ -40,6 +40,19 @@ const Operation = {
       .catch((err) => {
         dispatch(ActionCreator.changeFavoritesErrorStatus(err));
         dispatch(ActionCreator.changeFavoritesLoadStatus(false));
+      });
+  },
+  changeFavoriteStatus: (id, status) => (dispatch, _getState, api) => {
+    return api.get(`/favorite/${id}/${status}`)
+      .then((response) => {
+        console.log(response.data);
+  //      const data = response.data.map((obj) => transformOfferForLoading(obj));
+  //      dispatch(ActionCreator.loadedFavoritesData(data));
+  //      dispatch(ActionCreator.changeFavoritesLoadStatus(false));
+      })
+      .catch((err) => {
+//        dispatch(ActionCreator.changeFavoritesErrorStatus(err));
+//        dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       });
   },
 };
