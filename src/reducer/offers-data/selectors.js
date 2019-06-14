@@ -131,3 +131,17 @@ export const getNearData = createSelector(
       ).slice(1, 4);
     }
 );
+
+export const getCityIndexFromOfferId = createSelector(
+    getOffersData,
+    getCitiesData,
+    getActiveOfferId,
+    (offersData, citiesData, activeOfferId) => {
+      if (offersData.length > 0 && activeOfferId > 0) {
+        const cityName = offersData.find((offerObj) => activeOfferId === offerObj.id).city.name;
+        return citiesData.findIndex((cityObj) => cityObj.name === cityName);
+      } else {
+        return 0;
+      }
+    }
+);

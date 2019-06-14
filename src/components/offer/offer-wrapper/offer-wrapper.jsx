@@ -7,10 +7,10 @@ import OfferCard from "../offer-card";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getNearData} from "../../../reducer/offers-data/selectors";
-import {Operation} from "../../../reducer/offers-data/offers-data";
+import {Operation} from "../../../reducer/favorites-data/favorites-data";
+import {withRouter} from 'react-router';
 
-
-const OfferWrapper = ({offerObj, nearData}) => {
+const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus}) => {
   const MAX_OFFER_IMAGES = 6;
 
   const imgs = getRandomArray(offerObj.images, MAX_OFFER_IMAGES).map((imageSrc, index) => <div key={index} className="property__image-wrapper">
@@ -25,6 +25,7 @@ const OfferWrapper = ({offerObj, nearData}) => {
       :
       null;
   };
+
   const rating = Math.round(offerObj.rating);
   const insides = offerObj.goods.map((good, index) => <li key={index} className="property__inside-item">{good}</li>);
   const userStatus = offerObj.host.isPro ? `Pro` : ``;
@@ -33,6 +34,11 @@ const OfferWrapper = ({offerObj, nearData}) => {
   const nearCards = nearData.map((obj, index) =>
     <OfferCard key={index} offerObj={obj}/>);
 
+  const handleButtonClick = (evt) => {
+    console.log(`onChangeFavoriteStatus`);
+    onChangeFavoriteStatus(offerObj.id, offerObj.isFavorite ? 0 : 1);
+    evt.preventDefault();
+  };
 
   return <main className="page__main page__main--property">
     <section className="property">
@@ -49,9 +55,10 @@ const OfferWrapper = ({offerObj, nearData}) => {
               {offerObj.title}
             </h1>
             <button
-              className="property__bookmark-button button /*place-card__bookmark-button--active*/"
+              className={`property__bookmark-button button ${offerObj.isFavorite ? `place-card__bookmark-button--active` : ``}`}
               type="button"
-              onClick={props.onChangeFavoriteStatus(offerObj.id, 0)}>
+              onClick={handleButtonClick}
+            >
               <svg className="property__bookmark-icon" width="31" height="33">
                 <use xlinkHref="#icon-bookmark"></use>
               </svg>
@@ -123,12 +130,12 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   nearData: getNearData(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   onChangeFavoriteStatus: (id, status) => {
-    dispatch(Operation.changeFavoriteStatus(id, status));
+    dispatch(Operation.changeFavoriteStatus(id, status, ownProps.history));
   },
 });
 
 export {OfferWrapper};
 
-export default connect(mapStateToProps, mapDispatchToProps)(OfferWrapper);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OfferWrapper));

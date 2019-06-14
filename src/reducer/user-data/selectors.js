@@ -11,6 +11,14 @@ export const getUserObj = (state) => {
   return state[NAME_SPACE].userObj;
 };
 
+export const getUserLoadStatus = (state) => {
+  return state[NAME_SPACE].isUserLoading;
+};
+
+export const getUserError = (state) => {
+  return state[NAME_SPACE].userError;
+};
+
 export const getUserInfo = createSelector(
     getUserObj,
     (userObj) => {

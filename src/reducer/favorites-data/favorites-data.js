@@ -1,4 +1,5 @@
 import {transformOfferForLoading} from "../../transform-data";
+import {HTML_STATUS} from "../../constants";
 
 const initialState = {
   favoritesData: [],
@@ -31,8 +32,9 @@ const ActionCreator = {
 
 const Operation = {
   loadFavoritesData: () => (dispatch, _getState, api) => {
-    return api.get(/*`/favorite`*/ `/hotels`)
+    return api.get(`/favorite`)
       .then((response) => {
+        console.log(`Load Favorite ok`, response);
         const data = response.data.map((obj) => transformOfferForLoading(obj));
         dispatch(ActionCreator.loadedFavoritesData(data));
         dispatch(ActionCreator.changeFavoritesLoadStatus(false));
@@ -42,15 +44,24 @@ const Operation = {
         dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       });
   },
-  changeFavoriteStatus: (id, status) => (dispatch, _getState, api) => {
-    return api.get(`/favorite/${id}/${status}`)
+
+  changeFavoriteStatus: (id, status, history) => (dispatch, _getState, api) => {
+    return api.post(`/favorite/${id}/${status}`)
       .then((response) => {
-        console.log(response.data);
+
+          console.log(`changeFavoriteStatus ok`, `/favorite/${id}/${status}`, response);
   //      const data = response.data.map((obj) => transformOfferForLoading(obj));
   //      dispatch(ActionCreator.loadedFavoritesData(data));
   //      dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       })
       .catch((err) => {
+        console.log(`changeFavoriteStatus err`, err);
+        if (err.response.status === HTML_STATUS.FORBIDDEN) {
+          history.push(`/login`);
+        }
+
+
+
 //        dispatch(ActionCreator.changeFavoritesErrorStatus(err));
 //        dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       });

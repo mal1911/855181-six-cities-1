@@ -3,6 +3,8 @@ import Header from "../header";
 import {connect} from "react-redux";
 import {Operation} from "../../reducer/user-data/user-data";
 import PropTypes from "prop-types";
+import {getUserInfo, getAuthorizationStatus} from "../../reducer/user-data/selectors";
+
 
 class SignInPage extends PureComponent {
   constructor(props) {
@@ -18,8 +20,16 @@ class SignInPage extends PureComponent {
     this._handleChangePassword = this._handleChangePassword.bind(this);
   }
 
+  componentWillReceiveProps({userInfo}) {
+    if (userInfo) {
+      this.setState({
+        email: userInfo.email,
+      });
+    }
+  }
+
   render() {
-    return (<React.Fragment>
+    return <React.Fragment>
       <Header/>
       <main className="page__main page__main--login">
         <div className="page__login-container container">
@@ -66,7 +76,7 @@ class SignInPage extends PureComponent {
           </section>
         </div>
       </main>
-    </React.Fragment>);
+    </React.Fragment>;
   }
 
   _handleSendForm(evt) {
@@ -77,14 +87,25 @@ class SignInPage extends PureComponent {
   _handleChangeEmail(evt) {
     this.setState({email: evt.target.value});
   }
+
   _handleChangePassword(evt) {
     this.setState({password: evt.target.value});
   }
 }
 
 SignInPage.propTypes = {
+  userInfo: PropTypes.shape({
+    email: PropTypes.string,
+    password: PropTypes.string,
+  }),
+  isAuthorizationRequired: PropTypes.bool,
   userLogin: PropTypes.func,
 };
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  userInfo: getUserInfo(state),
+  isAuthorizationRequired: getAuthorizationStatus(state),
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   userLogin: (autorizationObj) => {
@@ -94,4 +115,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 export {SignInPage};
 
-export default connect(null, mapDispatchToProps)(SignInPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SignInPage);
