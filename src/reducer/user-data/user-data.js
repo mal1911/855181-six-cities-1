@@ -29,28 +29,16 @@ const ActionCreator = {
       payload: userObj,
     };
   },
-  userLogout: () => {
-    return {
-      type: ActionType.USER_LOGOUT,
-    };
-  },
 
   changeUserLoadStatus: (status) => ({
     type: ActionType.CHANGE_USER_LOAD_STATUS,
     payload: status,
   }),
+
   changeUserErrorStatus: (error) => ({
     type: ActionType.CHANGE_USER_ERROR_STATUS,
     payload: error,
   }),
-
-
-};
-
-const successLoginObj = (dispatch, data) => {
-  dispatch(ActionCreator.userLogin(transformUserForLoading(data)));
-  dispatch(ActionCreator.requireAuthorization(false));
-  dispatch(ActionCreator.changeUserLoadStatus(false));
 };
 
 const Operation = {
@@ -59,8 +47,15 @@ const Operation = {
     return api.get(`/login`)
       .then((response) => {
         if (response.status === HTML_STATUS.OK) {
-          successLoginObj(dispatch, response.data);
+          dispatch(ActionCreator.userLogin(transformUserForLoading(response.data)));
+          dispatch(ActionCreator.requireAuthorization(false));
         }
+      })
+      .catch((err) => {
+        dispatch(ActionCreator.changeUserErrorStatus(err));
+      })
+      .finally(() => {
+        dispatch(ActionCreator.changeUserLoadStatus(false));
       });
   },
   userLogin: (autorizationObj, history) => (dispatch, _getState, api) => {
@@ -68,24 +63,18 @@ const Operation = {
     return api.post(`/login`, autorizationObj)
       .then((response) => {
         if (response.status === HTML_STATUS.OK) {
-          successLoginObj(dispatch, response.data);
+          dispatch(ActionCreator.userLogin(transformUserForLoading(response.data)));
+          dispatch(ActionCreator.requireAuthorization(false));
           history.push(`/`);
         }
-      }).cath((err) => {
-        dispatch(ActionCreator.changeUserLoadStatus(false));
+      })
+      .catch((err) => {
         dispatch(ActionCreator.changeUserErrorStatus(err));
+      })
+      .finally(() => {
+        dispatch(ActionCreator.changeUserLoadStatus(false));
       });
   },
-
-  /*  userLogout: () => (dispatch, _getState, api) => {
-    return api.post(`/login`, {})
-      .then((response) => {
-        if (response.status === HTML_STATUS.OK) {
-          successCheckLogin(dispatch, response.data);
-        }
-      });
-  },
- */
 };
 
 const reducer = (state = initialState, action) => {
@@ -97,11 +86,6 @@ const reducer = (state = initialState, action) => {
     case ActionType.USER_LOGIN: {
       return Object.assign({}, state, {
         userObj: action.payload,
-      });
-    }
-    case ActionType.USER_LOGOUT: {
-      return Object.assign({}, state, {
-        userObj: {},
       });
     }
     case ActionType.CHANGE_USER_LOAD_STATUS: {

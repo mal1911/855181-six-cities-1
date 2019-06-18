@@ -42,6 +42,7 @@ const errorCommentsLoading = (dispatch, err) => {
 
 const Operation = {
   loadCommentsData: (id) => (dispatch, _getState, api) => {
+    dispatch(ActionCreator.changeCommentsLoadStatus(true));
     return api.get(`/comments/${id}`)
       .then((response) => {
         successCommentsLoading(dispatch, response.data);
@@ -53,7 +54,6 @@ const Operation = {
 
   saveCommentObj: (id, commentObj) => (dispatch, _getState, api) => {
     dispatch(ActionCreator.changeCommentsLoadStatus(true));
-
     return api.post(`/comments/${id}`, commentObj)
       .then((response) => {
         successCommentsLoading(dispatch, response.data);

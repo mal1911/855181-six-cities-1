@@ -7,7 +7,6 @@ import {getAuthorizationStatus, getUserLoadStatus, getUserError} from "../../red
 
 const withCheckLogin = (Component) => {
   const WithCheckLogin = (props) => {
-    console.log(`withCheckLogin`, props);
     return props.isAuthorizationRequired && !props.loadStatus
       ?
       <Redirect to="/login"/>

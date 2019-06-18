@@ -3,14 +3,15 @@ import {offerType} from "../../../prop-types";
 import {getRandomArray} from "../../../util";
 import OfferComments from "../offer-comments";
 import Map from "../../map";
-import OfferCard from "../offer-card";
+import Card from "../../card";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getNearData} from "../../../reducer/offers-data/selectors";
-import {Operation} from "../../../reducer/favorites-data/favorites-data";
+import {ActionCreator, Operation} from "../../../reducer/offers-data/offers-data";
 import {withRouter} from 'react-router';
+import "./offer-wrapper.css";
 
-const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus}) => {
+const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus, onChangeActiveCard}) => {
   const MAX_OFFER_IMAGES = 6;
 
   const imgs = getRandomArray(offerObj.images, MAX_OFFER_IMAGES).map((imageSrc, index) => <div key={index} className="property__image-wrapper">
@@ -31,14 +32,27 @@ const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus}) => {
   const userStatus = offerObj.host.isPro ? `Pro` : ``;
   const userStatusClassName = offerObj.host.isPro ? `property__avatar-wrapper--pro` : ``;
 
-  const nearCards = nearData.map((obj, index) =>
-    <OfferCard key={index} offerObj={obj}/>);
+  const handleChange = (cardObj) => {
+    onChangeActiveCard(cardObj.id);
+  };
 
   const handleButtonClick = (evt) => {
-    console.log(`onChangeFavoriteStatus`);
     onChangeFavoriteStatus(offerObj.id, offerObj.isFavorite ? 0 : 1);
     evt.preventDefault();
   };
+
+  const handleCardNearButtonClick = (cardObj) => {
+    onChangeFavoriteStatus(cardObj.id, cardObj.isFavorite ? 0 : 1);
+  };
+
+  const nearCards = nearData.map((obj, index) =>
+    <Card
+      key={index}
+      offerObj={obj}
+      cardClassName={`near`}
+      onButtonClick={handleCardNearButtonClick}
+      onChange={handleChange}
+    />);
 
   return <main className="page__main page__main--property">
     <section className="property">
@@ -55,7 +69,7 @@ const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus}) => {
               {offerObj.title}
             </h1>
             <button
-              className={`property__bookmark-button button ${offerObj.isFavorite ? `place-card__bookmark-button--active` : ``}`}
+              className={`property__bookmark-button button ${offerObj.isFavorite ? `property__bookmark-button--active` : ``}`}
               type="button"
               onClick={handleButtonClick}
             >
@@ -124,6 +138,7 @@ OfferWrapper.propTypes = {
   offerObj: offerType.isRequired,
   nearData: PropTypes.arrayOf(offerType),
   onChangeFavoriteStatus: PropTypes.func,
+  onChangeActiveCard: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
@@ -133,6 +148,9 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onChangeFavoriteStatus: (id, status) => {
     dispatch(Operation.changeFavoriteStatus(id, status, ownProps.history));
+  },
+  onChangeActiveCard: (id) => {
+    dispatch(ActionCreator.changeActiveOfferId(id));
   },
 });
 

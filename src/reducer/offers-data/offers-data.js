@@ -1,4 +1,5 @@
 import {transformOfferForLoading} from "../../transform-data";
+import {HTML_STATUS} from "../../constants";
 
 const initialState = {
   activeCityIndex: 0,
@@ -11,6 +12,7 @@ const initialState = {
 
 const ActionType = {
   LOADED_OFFERS_DATA: `LOADED_OFFERS_DATA`,
+  CHANGE_OFFERS_DATA: `CHANGE_OFFERS_DATA`,
   CHANGE_OFFERS_LOAD_STATUS: `CHANGE_OFFERS_LOAD_STATUS`,
   CHANGE_OFFERS_ERROR_STATUS: `CHANGE_OFFERS_ERROR_STATUS`,
   CHANGE_ACTIVE_CITY_INDEX: `CHANGE_ACTIVE_CITY_INDEX`,
@@ -22,6 +24,12 @@ const ActionCreator = {
   loadedOffersData: (data) => {
     return {
       type: ActionType.LOADED_OFFERS_DATA,
+      payload: data,
+    };
+  },
+  changeOffersData: (data) => {
+    return {
+      type: ActionType.CHANGE_OFFERS_DATA,
       payload: data,
     };
   },
@@ -49,16 +57,39 @@ const ActionCreator = {
 
 const Operation = {
   loadOffersData: () => (dispatch, _getState, api) => {
+    dispatch(ActionCreator.changeOffersLoadStatus(true));
     return api.get(`/hotels`)
       .then((response) => {
         const data = response.data.map((obj) => transformOfferForLoading(obj));
         dispatch(ActionCreator.loadedOffersData(data));
-        dispatch(ActionCreator.changeOffersLoadStatus(false));
       })
       .catch((err) => {
         dispatch(ActionCreator.changeOffersErrorStatus(err));
-        dispatch(ActionCreator.changeOffersLoadStatus(false));
-      });
+      })
+      .finally(() =>
+        dispatch(ActionCreator.changeOffersLoadStatus(false))
+      );
+  },
+
+  changeFavoriteStatus: (id, status, history) => (dispatch, _getState, api) => {
+    dispatch(ActionCreator.changeOffersLoadStatus(true));
+    return api.post(`/favorite/${id}/${status}`)
+      .then((response) => {
+        const newObj = transformOfferForLoading(response.data);
+        const offersData = _getState().OFFERS_DATA.offersData.map(
+            (obj) => newObj.id === obj.id ? Object.assign({}, newObj) : obj);
+        dispatch(ActionCreator.changeOffersData(offersData));
+      })
+      .catch((err) => {
+        if (err.response.status === HTML_STATUS.FORBIDDEN) {
+          history.push(`/login`);
+        } else {
+          dispatch(ActionCreator.changeOffersErrorStatus(err));
+        }
+      })
+      .finally(() =>
+        dispatch(ActionCreator.changeOffersLoadStatus(false))
+      );
   },
 };
 
@@ -87,6 +118,11 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_ACTIVE_OFFER_ID: {
       return Object.assign({}, state, {
         activeOfferId: action.payload,
+      });
+    }
+    case ActionType.CHANGE_OFFERS_DATA: {
+      return Object.assign({}, state, {
+        offersData: action.payload,
       });
     }
   }

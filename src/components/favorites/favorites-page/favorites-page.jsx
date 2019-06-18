@@ -9,6 +9,8 @@ import withBodyClass from "../../../hocs/with-body-class/with-body-class";
 import withDataStatusScreen from "../../../hocs/with-data-status-screen/with-data-status-screen";
 import {getCountResultFavorites, getFavoritesLoadStatus, getFavoritesError} from "../../../reducer/favorites-data/selectors";
 import {Operation} from "../../../reducer/favorites-data/favorites-data";
+import {withRouter} from "react-router";
+import {FavoritesItem} from "../favorites-item/favorites-item";
 
 class FavoritesPage extends PureComponent {
   constructor(props) {
@@ -43,12 +45,12 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   error: getFavoritesError(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   onLoaded: () => {
-    dispatch(Operation.loadFavoritesData());
+    dispatch(Operation.loadFavoritesData(ownProps.history));
   },
 });
 
 export {FavoritesPage};
 
-export default connect(mapStateToProps, mapDispatchToProps)(FavoritesPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FavoritesPage));

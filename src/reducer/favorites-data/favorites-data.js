@@ -31,39 +31,22 @@ const ActionCreator = {
 };
 
 const Operation = {
-  loadFavoritesData: () => (dispatch, _getState, api) => {
+  loadFavoritesData: (history) => (dispatch, _getState, api) => {
+    dispatch(ActionCreator.changeFavoritesLoadStatus(true));
     return api.get(`/favorite`)
       .then((response) => {
-        console.log(`Load Favorite ok`, response);
         const data = response.data.map((obj) => transformOfferForLoading(obj));
         dispatch(ActionCreator.loadedFavoritesData(data));
-        dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       })
       .catch((err) => {
-        dispatch(ActionCreator.changeFavoritesErrorStatus(err));
-        dispatch(ActionCreator.changeFavoritesLoadStatus(false));
-      });
-  },
-
-  changeFavoriteStatus: (id, status, history) => (dispatch, _getState, api) => {
-    return api.post(`/favorite/${id}/${status}`)
-      .then((response) => {
-
-          console.log(`changeFavoriteStatus ok`, `/favorite/${id}/${status}`, response);
-  //      const data = response.data.map((obj) => transformOfferForLoading(obj));
-  //      dispatch(ActionCreator.loadedFavoritesData(data));
-  //      dispatch(ActionCreator.changeFavoritesLoadStatus(false));
-      })
-      .catch((err) => {
-        console.log(`changeFavoriteStatus err`, err);
         if (err.response.status === HTML_STATUS.FORBIDDEN) {
           history.push(`/login`);
+        } else {
+          dispatch(ActionCreator.changeFavoritesErrorStatus(err));
         }
-
-
-
-//        dispatch(ActionCreator.changeFavoritesErrorStatus(err));
-//        dispatch(ActionCreator.changeFavoritesLoadStatus(false));
+      })
+      .finally(() => {
+        dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       });
   },
 };

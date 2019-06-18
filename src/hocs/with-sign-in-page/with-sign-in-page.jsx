@@ -14,7 +14,7 @@ const withSignInPage = () => {
       ?
       <Redirect to="/"/>
       :
-      <SignInPageBody/>;
+      <SignInPageBody {...props}/>;
   };
 
   WithSignInPage.propTypes = {

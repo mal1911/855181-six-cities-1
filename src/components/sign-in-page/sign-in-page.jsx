@@ -1,8 +1,9 @@
 import React, {PureComponent} from "react";
 import Header from "../header";
 import {connect} from "react-redux";
-import {Operation} from "../../reducer/user-data/user-data";
+import {withRouter} from "react-router";
 import PropTypes from "prop-types";
+import {Operation} from "../../reducer/user-data/user-data";
 import {getUserInfo, getAuthorizationStatus} from "../../reducer/user-data/selectors";
 
 
@@ -81,7 +82,7 @@ class SignInPage extends PureComponent {
 
   _handleSendForm(evt) {
     evt.preventDefault();
-    this.props.userLogin(this.state);
+    this.props.onUserLogin(this.state);
   }
 
   _handleChangeEmail(evt) {
@@ -99,7 +100,7 @@ SignInPage.propTypes = {
     password: PropTypes.string,
   }),
   isAuthorizationRequired: PropTypes.bool,
-  userLogin: PropTypes.func,
+  onUserLogin: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
@@ -108,11 +109,11 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  userLogin: (autorizationObj) => {
+  onUserLogin: (autorizationObj) => {
     dispatch(Operation.userLogin(autorizationObj, ownProps.history));
   }
 });
 
 export {SignInPage};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignInPage));

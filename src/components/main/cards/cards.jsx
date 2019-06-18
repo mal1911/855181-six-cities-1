@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {offerType} from "../../../prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../../reducer/offers-data/offers-data";
-import Card from "../card/card";
+import Card from "../../card/card";
 
 import {getResultOffersData} from "../../../reducer/offers-data/selectors";
 
@@ -13,7 +13,7 @@ const Cards = (props) => {
   };
 
   const cards = props.resultOffersData.map((offerObj, index) =>
-    <Card key={index} offerObj={offerObj} onChange={handleChange}/>);
+    <Card key={index} offerObj={offerObj} onChange={handleChange} cardClassName={`cities`}/>);
 
   return <div className="cities__places-list places__list tabs__content">
     {cards}
