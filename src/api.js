@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {BASE_URL, TIMEOUT, HTML_STATUS} from './constants';
+import {BASE_URL, TIMEOUT} from './constants';
 
 export const createAPI = () => {
   const api = axios.create({
@@ -13,10 +13,7 @@ export const createAPI = () => {
   };
 
   const onFail = (err) => {
-    if (err.response.status === HTML_STATUS.FORBIDDEN) {
-      throw (err);
-    }
-    return err;
+    throw (err);
   };
 
   api.interceptors.response.use(onSuccess, onFail);

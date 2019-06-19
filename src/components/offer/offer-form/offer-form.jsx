@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Operation} from "../../../reducer/comments-data/comments-data";
 import {getCommentsLoadStatus, getCommentsError} from "../../../reducer/comments-data/selectors";
+import {MIN_COMMENT_LENGTH, MAX_COMMENT_LENGTH} from "../../../constants";
+import ErrorMessage from "../../error-message";
+import withPopupToggle from "../../../hocs/with-popup-toggle/with-popup-toggle";
 
 class OfferForm extends PureComponent {
   constructor(props) {
@@ -32,6 +35,7 @@ class OfferForm extends PureComponent {
       method="post"
       onSubmit={this._handleSendForm}
     >
+      {this._showErrorMessage()}
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating">
         <input
@@ -109,6 +113,8 @@ class OfferForm extends PureComponent {
         className="reviews__textarea form__textarea"
         id="review"
         name="review"
+        minLength={MIN_COMMENT_LENGTH}
+        maxLength={MAX_COMMENT_LENGTH}
         placeholder="Tell how was your stay, what you like and what can be improved"
         value={this.state.comment}
         onChange={this._handleChangeComment}
@@ -122,7 +128,11 @@ class OfferForm extends PureComponent {
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled={!this.state.rating || !this.state.comment}
+          disabled={
+            !this.state.rating ||
+            !(this.state.comment.length >= MIN_COMMENT_LENGTH &&
+            this.state.comment.length <= MAX_COMMENT_LENGTH)
+          }
         >
           Submit
         </button>
@@ -145,6 +155,10 @@ class OfferForm extends PureComponent {
 
   _resetForm() {
     this.setState({rating: 0, comment: ``});
+  }
+  _showErrorMessage() {
+    const ToggleErrorMessage = withPopupToggle(ErrorMessage, true);
+    return this.props.error ? <ToggleErrorMessage message={this.props.error.message}/> : null;
   }
 }
 

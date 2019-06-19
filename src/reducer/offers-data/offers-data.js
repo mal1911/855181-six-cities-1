@@ -1,5 +1,6 @@
 import {transformOfferForLoading} from "../../transform-data";
 import {HTML_STATUS} from "../../constants";
+import {ActionCreator as FavoritesActionCreator} from "../favorites-data/favorites-data";
 
 const initialState = {
   activeCityIndex: 0,
@@ -55,9 +56,15 @@ const ActionCreator = {
   })
 };
 
+const beforeLoading = (dispatch) => {
+  dispatch(ActionCreator.changeOffersLoadStatus(true));
+  dispatch(ActionCreator.changeOffersErrorStatus(null));
+  dispatch(FavoritesActionCreator.changeFavoritesErrorStatus(null));
+};
+
 const Operation = {
   loadOffersData: () => (dispatch, _getState, api) => {
-    dispatch(ActionCreator.changeOffersLoadStatus(true));
+    beforeLoading(dispatch);
     return api.get(`/hotels`)
       .then((response) => {
         const data = response.data.map((obj) => transformOfferForLoading(obj));
@@ -72,19 +79,24 @@ const Operation = {
   },
 
   changeFavoriteStatus: (id, status, history) => (dispatch, _getState, api) => {
-    dispatch(ActionCreator.changeOffersLoadStatus(true));
+    beforeLoading(dispatch);
     return api.post(`/favorite/${id}/${status}`)
       .then((response) => {
         const newObj = transformOfferForLoading(response.data);
         const offersData = _getState().OFFERS_DATA.offersData.map(
             (obj) => newObj.id === obj.id ? Object.assign({}, newObj) : obj);
         dispatch(ActionCreator.changeOffersData(offersData));
+
+        const favoritesData = _getState().FAVORITES_DATA.favoritesData;
+        const index = favoritesData.findIndex((obj) => obj.id === id);
+        const newData = [...favoritesData.slice(0, index), ...favoritesData.slice(index + 1)];
+        dispatch(FavoritesActionCreator.loadedFavoritesData(newData));
       })
       .catch((err) => {
         if (err.response.status === HTML_STATUS.FORBIDDEN) {
           history.push(`/login`);
         } else {
-          dispatch(ActionCreator.changeOffersErrorStatus(err));
+          dispatch(FavoritesActionCreator.changeFavoritesErrorStatus(err));
         }
       })
       .finally(() =>

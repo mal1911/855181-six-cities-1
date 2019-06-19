@@ -20,7 +20,6 @@ class FavoritesPage extends PureComponent {
   componentDidMount() {
     this.props.onLoaded();
   }
-
   render() {
     const FavoritesWrpapperEmptyBody = withBodyClass(FavoritesWrpapperEmpty, [`page--favorites-empty`]);
     const WithDataStatusScreen = withDataStatusScreen(FavoritesWrpapperData, FavoritesWrpapperEmptyBody);

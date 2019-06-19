@@ -33,6 +33,8 @@ const ActionCreator = {
 const Operation = {
   loadFavoritesData: (history) => (dispatch, _getState, api) => {
     dispatch(ActionCreator.changeFavoritesLoadStatus(true));
+    dispatch(ActionCreator.changeFavoritesErrorStatus(null));
+
     return api.get(`/favorite`)
       .then((response) => {
         const data = response.data.map((obj) => transformOfferForLoading(obj));

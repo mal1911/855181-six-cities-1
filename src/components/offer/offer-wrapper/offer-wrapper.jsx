@@ -1,17 +1,20 @@
 import React from "react";
-import {offerType} from "../../../prop-types";
+import {locationType, offerType} from "../../../prop-types";
 import {getRandomArray} from "../../../util";
 import OfferComments from "../offer-comments";
 import Map from "../../map";
 import Card from "../../card";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {getNearData} from "../../../reducer/offers-data/selectors";
+import {getNearData, getNearLocationsData, getOffersError} from "../../../reducer/offers-data/selectors";
 import {ActionCreator, Operation} from "../../../reducer/offers-data/offers-data";
 import {withRouter} from 'react-router';
 import "./offer-wrapper.css";
+import {MAX_NEAR_PALASES} from "../../../constants";
+import ErrorMessage from "../../error-message";
+import withPopupToggle from "../../../hocs/with-popup-toggle/with-popup-toggle";
 
-const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus, onChangeActiveCard}) => {
+const OfferWrapper = ({offerObj, nearData, nearLocationsData, onChangeFavoriteStatus, onChangeActiveCard, error}) => {
   const MAX_OFFER_IMAGES = 6;
 
   const imgs = getRandomArray(offerObj.images, MAX_OFFER_IMAGES).map((imageSrc, index) => <div key={index} className="property__image-wrapper">
@@ -45,7 +48,7 @@ const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus, onChangeActiv
     onChangeFavoriteStatus(cardObj.id, cardObj.isFavorite ? 0 : 1);
   };
 
-  const nearCards = nearData.map((obj, index) =>
+  const nearCards = nearData.slice(1, MAX_NEAR_PALASES + 1).map((obj, index) =>
     <Card
       key={index}
       offerObj={obj}
@@ -54,7 +57,13 @@ const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus, onChangeActiv
       onChange={handleChange}
     />);
 
+  const showErrorMessage = () => {
+    const ToggleErrorMessage = withPopupToggle(ErrorMessage, true);
+    return error ? <ToggleErrorMessage message={error.message}/> : null;
+  }
+
   return <main className="page__main page__main--property">
+    {showErrorMessage()}
     <section className="property">
       <div className="property__gallery-container container">
         <div className="property__gallery">
@@ -120,7 +129,10 @@ const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus, onChangeActiv
           </div>
           <OfferComments offerObj={offerObj} />
         </div>
-        <Map className={`property__map`}/>
+        <Map
+          className={`property__map`}
+          offersLocationsData={nearLocationsData.slice(0, MAX_NEAR_PALASES + 1)}
+        />
       </div>
     </section>
     <div className="container">
@@ -137,12 +149,18 @@ const OfferWrapper = ({offerObj, nearData, onChangeFavoriteStatus, onChangeActiv
 OfferWrapper.propTypes = {
   offerObj: offerType.isRequired,
   nearData: PropTypes.arrayOf(offerType),
+  nearLocationsData: PropTypes.arrayOf(PropTypes.shape({
+    location: locationType.isRequired,
+    isActive: PropTypes.bool
+  })),
   onChangeFavoriteStatus: PropTypes.func,
   onChangeActiveCard: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   nearData: getNearData(state),
+  nearLocationsData: getNearLocationsData(state),
+  error: getOffersError(state),
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

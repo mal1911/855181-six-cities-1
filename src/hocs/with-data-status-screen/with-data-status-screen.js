@@ -8,7 +8,7 @@ const withDataStatusScreen = (ComponentData, ComponentEmpty) => {
     if (loadStatus) {
       return <Spinner/>;
     } else if (error) {
-      return <ErrorMessage/>;
+      return <ErrorMessage message={error.message} opened={true}/>;
     } else {
       return countData > 0 ? <ComponentData/> : <ComponentEmpty/>;
     }

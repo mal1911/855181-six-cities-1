@@ -1,5 +1,6 @@
 import {createSelector} from "reselect";
 import NameSpace from "../name-spaces";
+import {MAX_CITIES} from "../../constants";
 
 const NAME_SPACE = NameSpace.OFFERS_DATA;
 
@@ -45,7 +46,7 @@ export const getCitiesData = createSelector(
           }
         });
       }
-      return citiesData;
+      return citiesData.slice(0, MAX_CITIES);
     }
 );
 
@@ -128,8 +129,20 @@ export const getNearData = createSelector(
           (offerObj) => Object.assign({}, offerObj, {distance: getDistance(offerObj.location)})
       ).sort(
           (a, b) => a.distance > b.distance
-      ).slice(1, 4);
+      );
     }
+);
+
+export const getNearLocationsData = createSelector(
+    getNearData,
+    getActiveOfferObj,
+    (nearData, activeOfferObj) =>
+      nearData.map((offerObj) => {
+        return {
+          location: offerObj.location,
+          isActive: offerObj.id === activeOfferObj.id,
+        };
+      })
 );
 
 export const getCityIndexFromOfferId = createSelector(

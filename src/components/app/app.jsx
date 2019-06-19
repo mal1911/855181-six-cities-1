@@ -5,22 +5,35 @@ import FavoritesPage from "../favorites/favorites-page";
 import OfferPage from "../offer/offer-page";
 import withCheckLogin from "../../hocs/with-check-login/with-check-login";
 import withBodyClass from "../../hocs/with-body-class/with-body-class";
-import withSignInPage from "../../hocs/with-sign-in-page/with-sign-in-page";
-import SignInPage from "../sign-in-page/sign-in-page";
+import {getAuthorizationStatus} from "../../reducer/user-data/selectors";
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
+import SignInPage from "../sign-in-page";
 
-const App = () => {
+const App = ({isAuthorizationRequired}) => {
+  const MainPageBody = withBodyClass(MainPage, [`page--gray`, `page--main`]);
+  const SignInPageBody = withBodyClass(SignInPage, [`page--gray`, `page--login`]);
+
   return <BrowserRouter>
     <Switch>
-      <Route path="/" exact component={withBodyClass(MainPage, [`page--gray`, `page--main`])}/>
+      <Route path="/" exact component={MainPageBody}/>
       <Route path="/favorites" component={withCheckLogin(FavoritesPage)}/>
-{/*
-      <Route path="/login" component={withSignInPage()}/>
-*/}
-      <Route path="/login" component={SignInPage}/>
-      <Route path="/offer/:id" childRoutes component={OfferPage}/>
+      <Route path="/login" render={() => isAuthorizationRequired ? <SignInPageBody/> : <Redirect to="/"/>}/>
+      <Route path="/offer/:id" component={OfferPage}/>
       <Redirect to="/"/>
     </Switch>
   </BrowserRouter>;
 };
 
-export default App;
+App.propTypes = {
+  isAuthorizationRequired: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthorizationRequired: getAuthorizationStatus(state)
+});
+
+
+export {App};
+
+export default connect(mapStateToProps)(App);

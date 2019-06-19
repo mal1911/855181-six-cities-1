@@ -79,7 +79,6 @@ Map.propTypes = {
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   activeMapLocation: getActiveMapLocation(state),
-  offersLocationsData: getOffersLocationsData(state),
 });
 
 export {Map};

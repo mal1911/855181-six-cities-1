@@ -29,9 +29,15 @@ const ActionCreator = {
   }),
 };
 
+const beforeLoading = (dispatch) => {
+  dispatch(ActionCreator.changeCommentsLoadStatus(true));
+  dispatch(ActionCreator.changeCommentsErrorStatus(null));
+};
+
 const successCommentsLoading = (dispatch, data) => {
-  data.map((obj) => transformCommentsForLoading(obj));
-  dispatch(ActionCreator.loadedCommentsData(data));
+  dispatch(ActionCreator.loadedCommentsData(
+      data.map((obj) => transformCommentsForLoading(obj)))
+  );
   dispatch(ActionCreator.changeCommentsLoadStatus(false));
 };
 
@@ -42,7 +48,7 @@ const errorCommentsLoading = (dispatch, err) => {
 
 const Operation = {
   loadCommentsData: (id) => (dispatch, _getState, api) => {
-    dispatch(ActionCreator.changeCommentsLoadStatus(true));
+    beforeLoading(dispatch);
     return api.get(`/comments/${id}`)
       .then((response) => {
         successCommentsLoading(dispatch, response.data);
@@ -51,9 +57,8 @@ const Operation = {
         errorCommentsLoading(dispatch, err);
       });
   },
-
   saveCommentObj: (id, commentObj) => (dispatch, _getState, api) => {
-    dispatch(ActionCreator.changeCommentsLoadStatus(true));
+    beforeLoading(dispatch);
     return api.post(`/comments/${id}`, commentObj)
       .then((response) => {
         successCommentsLoading(dispatch, response.data);
