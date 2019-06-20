@@ -2,8 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {getCountResultOffers, getOffersLoadStatus, getOffersError} from "../../../reducer/offers-data/selectors";
-import PlacesWrapperData from "../places-wrapper-data/index";
-import PlasesWrapperEmpty from "../places-wrapper-empty/index";
+import PlacesWrapperData from "../places-wrapper-data";
+import PlasesWrapperEmpty from "../places-wrapper-empty";
 import withDataStatusScreen from "../../../hocs/with-data-status-screen/with-data-status-screen";
 
 const PlacesWrapper = (props) => {

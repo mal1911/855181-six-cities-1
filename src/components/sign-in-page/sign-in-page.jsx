@@ -1,8 +1,11 @@
 import React, {PureComponent} from "react";
 import Header from "../header";
 import {connect} from "react-redux";
-import {Operation} from "../../reducer/user-data/user-data";
+import {withRouter} from "react-router";
 import PropTypes from "prop-types";
+import {Operation} from "../../reducer/user-data/user-data";
+import {getUserInfo, getAuthorizationStatus} from "../../reducer/user-data/selectors";
+
 
 class SignInPage extends PureComponent {
   constructor(props) {
@@ -13,31 +16,27 @@ class SignInPage extends PureComponent {
       password: ``
     };
 
-    this._handlerSendForm = this._handlerSendForm.bind(this);
-    this._handlerChangeEmail = this._handlerChangeEmail.bind(this);
-    this._handlerChangePassword = this._handlerChangePassword.bind(this);
+    this._handleSendForm = this._handleSendForm.bind(this);
+    this._handleChangeEmail = this._handleChangeEmail.bind(this);
+    this._handleChangePassword = this._handleChangePassword.bind(this);
   }
 
-  _handlerSendForm(evt) {
-    evt.preventDefault();
-    this.props.userLogin(this.state);
-  }
-
-  _handlerChangeEmail(evt) {
-    this.setState({email: evt.target.value});
-  }
-  _handlerChangePassword(evt) {
-    this.setState({password: evt.target.value});
+  componentWillReceiveProps({userInfo}) {
+    if (userInfo) {
+      this.setState({
+        email: userInfo.email,
+      });
+    }
   }
 
   render() {
-    return (<React.Fragment>
+    return <React.Fragment>
       <Header/>
       <main className="page__main page__main--login">
         <div className="page__login-container container">
           <section className="login">
             <h1 className="login__title">Sign in</h1>
-            <form className="login__form form" action="#" method="post" onSubmit={this._handlerSendForm}>
+            <form className="login__form form" action="#" method="post" onSubmit={this._handleSendForm}>
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">E-mail</label>
                 <input
@@ -47,7 +46,7 @@ class SignInPage extends PureComponent {
                   placeholder="Email"
                   required={true}
                   value={this.state.email}
-                  onChange={this._handlerChangeEmail}/>
+                  onChange={this._handleChangeEmail}/>
               </div>
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">Password</label>
@@ -58,7 +57,7 @@ class SignInPage extends PureComponent {
                   placeholder="Password"
                   required={true}
                   value={this.state.password}
-                  onChange={this._handlerChangePassword}/>
+                  onChange={this._handleChangePassword}/>
               </div>
               <button
                 className="login__submit form__submit button"
@@ -78,20 +77,43 @@ class SignInPage extends PureComponent {
           </section>
         </div>
       </main>
-    </React.Fragment>);
+    </React.Fragment>;
+  }
+
+  _handleSendForm(evt) {
+    evt.preventDefault();
+    this.props.onUserLogin(this.state);
+  }
+
+  _handleChangeEmail(evt) {
+    this.setState({email: evt.target.value});
+  }
+
+  _handleChangePassword(evt) {
+    this.setState({password: evt.target.value});
   }
 }
 
 SignInPage.propTypes = {
-  userLogin: PropTypes.func,
+  userInfo: PropTypes.shape({
+    email: PropTypes.string,
+    password: PropTypes.string,
+  }),
+  isAuthorizationRequired: PropTypes.bool,
+  onUserLogin: PropTypes.func,
 };
 
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  userInfo: getUserInfo(state),
+  isAuthorizationRequired: getAuthorizationStatus(state),
+});
+
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  userLogin: (autorizationObj) => {
+  onUserLogin: (autorizationObj) => {
     dispatch(Operation.userLogin(autorizationObj, ownProps.history));
   }
 });
 
 export {SignInPage};
 
-export default connect(null, mapDispatchToProps)(SignInPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignInPage));

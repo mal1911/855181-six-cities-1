@@ -14,7 +14,7 @@ export const transformUserForLoading = (obj) => {
 export const transformCommentsForLoading = (obj) => {
   return {
     id: obj.id,
-    user: transformHostForLoading(obj.user),
+    user: Object.assign({}, transformHostForLoading(obj.user)),
     rating: obj.rating,
     comment: obj.comment,
     date: obj.date,

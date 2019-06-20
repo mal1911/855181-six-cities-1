@@ -1,7 +1,8 @@
 import axios from 'axios';
-import {BASE_URL, TIMEOUT, HTML_STATUS} from './constants';
+import {BASE_URL, TIMEOUT} from './constants';
+import {HTML_STATUS} from "./constants";
 
-export const createAPI = (onLoginFail) => {
+export const createAPI = () => {
   const api = axios.create({
     baseURL: BASE_URL,
     timeout: TIMEOUT,
@@ -13,10 +14,10 @@ export const createAPI = (onLoginFail) => {
   };
 
   const onFail = (err) => {
-    if (err.status === HTML_STATUS.FORBIDDEN) {
-      onLoginFail();
+    if (err.response.status === HTML_STATUS.FORBIDDEN) {
+      throw (err.response);
     }
-    return err;
+    return err.response;
   };
 
   api.interceptors.response.use(onSuccess, onFail);

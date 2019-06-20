@@ -5,7 +5,7 @@ import Header from "../../header/index";
 import OfferWrapper from "../offer-wrapper/index";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../../reducer/offers-data/offers-data";
-import {getActiveOfferObj} from "../../../reducer/offers-data/selectors";
+import {getActiveOfferObj, getCityIndexFromOfferId} from "../../../reducer/offers-data/selectors";
 
 class OfferPage extends PureComponent {
   constructor(props) {
@@ -13,10 +13,13 @@ class OfferPage extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.onDidMountComponent(parseInt(this.props.match.params.id, 10));
+    this.props.onLoaded(parseInt(this.props.match.params.id, 10));
   }
 
-  componentWillUnmount() {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.offerObj) {
+      this.props.onChangeActiveOfferObj(nextProps.cityIndex);
+    }
   }
 
   render() {
@@ -31,17 +34,23 @@ class OfferPage extends PureComponent {
 OfferPage.propTypes = {
   match: PropTypes.object,
   offerObj: offerType,
-  onDidMountComponent: PropTypes.func,
+  cityIndex: PropTypes.number,
+  onLoaded: PropTypes.func,
+  onChangeActiveOfferObj: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   offerObj: getActiveOfferObj(state),
+  cityIndex: getCityIndexFromOfferId(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onDidMountComponent: (id) => {
+  onLoaded: (id) => {
     dispatch(ActionCreator.changeActiveOfferId(id));
   },
+  onChangeActiveOfferObj: (index) => {
+    dispatch(ActionCreator.changeActiveCityIndex(index));
+  }
 });
 
 export {OfferPage};

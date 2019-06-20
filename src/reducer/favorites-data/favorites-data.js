@@ -1,4 +1,5 @@
 import {transformOfferForLoading} from "../../transform-data";
+import {HTML_STATUS} from "../../constants";
 
 const initialState = {
   favoritesData: [],
@@ -30,15 +31,23 @@ const ActionCreator = {
 };
 
 const Operation = {
-  loadFavoritesData: () => (dispatch, _getState, api) => {
+  loadFavoritesData: (history) => (dispatch, _getState, api) => {
+    dispatch(ActionCreator.changeFavoritesLoadStatus(true));
+    dispatch(ActionCreator.changeFavoritesErrorStatus(null));
+
     return api.get(`/favorite`)
       .then((response) => {
         const data = response.data.map((obj) => transformOfferForLoading(obj));
         dispatch(ActionCreator.loadedFavoritesData(data));
-        dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       })
       .catch((err) => {
-        dispatch(ActionCreator.changeFavoritesErrorStatus(err));
+        if (err.response.status === HTML_STATUS.FORBIDDEN) {
+          history.push(`/login`);
+        } else {
+          dispatch(ActionCreator.changeFavoritesErrorStatus(err));
+        }
+      })
+      .finally(() => {
         dispatch(ActionCreator.changeFavoritesLoadStatus(false));
       });
   },

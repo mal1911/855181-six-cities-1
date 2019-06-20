@@ -1,0 +1,31 @@
+.cities__place-card:hover {
+  opacity: 0.6;
+}
+
+.cities__place-card .place-card__bookmark-button {
+  display: none;
+}
+
+.favorites__place-card {
+  display: flex;
+  align-items: flex-start;
+  width: 421px;
+  margin-bottom: 32px;
+}
+
+.favorites__place-card .place-card__info{
+  padding-top: 1px;
+}
+
+.favorites__image-wrapper img {
+  width: 150px;
+  height: 110px;
+}
+
+.near__place-card {
+  margin-left: 50px;
+}
+
+.near__place-card  .place-card__name {
+  width: 250px;
+}

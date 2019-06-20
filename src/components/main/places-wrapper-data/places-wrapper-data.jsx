@@ -1,29 +1,47 @@
 import React from "react";
-import Cards from "../cards/cards";
-import CardsHeader from "../cards-header/cards-header";
+import Cards from "../cards";
+import CardsHeader from "../cards-header";
 import PopupSortingElement from "../pupup-sorting-element/popup-sorting-element";
-import withActiveItem from "../../../hocs/with-active-item/with-active-item";
 import withPopupToggle from "../../../hocs/with-popup-toggle/with-popup-toggle";
-import Map from "../../map/map";
+import Map from "../../map";
+import {connect} from "react-redux";
+import {getOffersLocationsData} from "../../../reducer/offers-data/selectors";
+import {locationType} from "../../../prop-types";
+import PropTypes from "prop-types";
 
-const PlacesWrapperData = () => {
-  const ActivatedPopupSortingElement = withActiveItem(withPopupToggle(PopupSortingElement), 0);
-  const ActivatedCards = withActiveItem(Cards);
+const PlacesWrapperData = ({offersLocationsData}) => {
+  const TogglePopupSortingElement = withPopupToggle(PopupSortingElement);
 
   return <React.Fragment>
     <div className="cities__places-wrapper">
       <div className="cities__places-container container">
         <section className="cities__places places">
           <CardsHeader/>
-          <ActivatedPopupSortingElement/>
-          <ActivatedCards/>
+          <TogglePopupSortingElement/>
+          <Cards/>
         </section>
         <div className="cities__right-section">
-          <Map/>
+          <Map
+            className={`cities__map`}
+            offersLocationsData={offersLocationsData}
+          />
         </div>
       </div>
     </div>
   </React.Fragment>;
 };
 
-export default PlacesWrapperData;
+PlacesWrapperData.propTypes = {
+  offersLocationsData: PropTypes.arrayOf(PropTypes.shape({
+    location: locationType.isRequired,
+    isActive: PropTypes.bool
+  })),
+};
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  offersLocationsData: getOffersLocationsData(state),
+});
+
+export {PlacesWrapperData};
+
+export default connect(mapStateToProps)(PlacesWrapperData);
