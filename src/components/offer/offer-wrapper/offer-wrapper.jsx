@@ -1,6 +1,5 @@
 import React from "react";
 import {locationType, offerType} from "../../../prop-types";
-import {getRandomArray} from "../../../util";
 import OfferComments from "../offer-comments";
 import Map from "../../map";
 import Card from "../../card";
@@ -10,14 +9,13 @@ import {getNearData, getNearLocationsData, getOffersError} from "../../../reduce
 import {ActionCreator, Operation} from "../../../reducer/offers-data/offers-data";
 import {withRouter} from 'react-router';
 import "./offer-wrapper.css";
-import {MAX_NEAR_PALASES} from "../../../constants";
+import {MAX_NEAR_PALASES, MAX_OFFER_IMAGES} from "../../../constants";
 import ErrorMessage from "../../error-message";
 import withPopupToggle from "../../../hocs/with-popup-toggle/with-popup-toggle";
 
 const OfferWrapper = ({offerObj, nearData, nearLocationsData, onChangeFavoriteStatus, onChangeActiveCard, error}) => {
-  const MAX_OFFER_IMAGES = 6;
 
-  const imgs = getRandomArray(offerObj.images, MAX_OFFER_IMAGES).map((imageSrc, index) => <div key={index} className="property__image-wrapper">
+  const imgs = offerObj.images.slice(0, MAX_OFFER_IMAGES).map((imageSrc, index) => <div key={index} className="property__image-wrapper">
     <img className="property__image" src={imageSrc} alt="Photo studio"/>
   </div>);
 
@@ -60,7 +58,7 @@ const OfferWrapper = ({offerObj, nearData, nearLocationsData, onChangeFavoriteSt
   const showErrorMessage = () => {
     const ToggleErrorMessage = withPopupToggle(ErrorMessage, true);
     return error ? <ToggleErrorMessage message={error.message}/> : null;
-  }
+  };
 
   return <main className="page__main page__main--property">
     {showErrorMessage()}
@@ -149,6 +147,7 @@ const OfferWrapper = ({offerObj, nearData, nearLocationsData, onChangeFavoriteSt
 OfferWrapper.propTypes = {
   offerObj: offerType.isRequired,
   nearData: PropTypes.arrayOf(offerType),
+  error: PropTypes.object,
   nearLocationsData: PropTypes.arrayOf(PropTypes.shape({
     location: locationType.isRequired,
     isActive: PropTypes.bool

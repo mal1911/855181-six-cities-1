@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {locationType} from "../../prop-types";
 import leaflet from 'leaflet';
 import {connect} from "react-redux";
-import {getOffersLocationsData, getActiveMapLocation} from '../../reducer/offers-data/selectors';
+import {getActiveMapLocation} from '../../reducer/offers-data/selectors';
 import "./map.css";
 
 class Map extends Component {

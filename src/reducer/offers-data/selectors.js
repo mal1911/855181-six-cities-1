@@ -120,11 +120,11 @@ export const getNearData = createSelector(
     getOffersData,
     getActiveOfferObj,
     (offersData, activeOfferObj) => {
-      const getDistance = (currLocation) =>
-        Math.sqrt(
+      const getDistance = (currLocation) => {
+        return Math.sqrt(
             Math.pow(Math.abs(activeOfferObj.location.latitude - currLocation.latitude), 2) +
-            Math.pow(Math.abs(activeOfferObj.location.longitude - currLocation.longitude), 2)
-        )
+            Math.pow(Math.abs(activeOfferObj.location.longitude - currLocation.longitude), 2));
+      };
       return offersData.map(
           (offerObj) => Object.assign({}, offerObj, {distance: getDistance(offerObj.location)})
       ).sort(

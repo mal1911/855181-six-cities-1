@@ -10,7 +10,6 @@ import withDataStatusScreen from "../../../hocs/with-data-status-screen/with-dat
 import {getCountResultFavorites, getFavoritesLoadStatus, getFavoritesError} from "../../../reducer/favorites-data/selectors";
 import {Operation} from "../../../reducer/favorites-data/favorites-data";
 import {withRouter} from "react-router";
-import {FavoritesItem} from "../favorites-item/favorites-item";
 
 class FavoritesPage extends PureComponent {
   constructor(props) {

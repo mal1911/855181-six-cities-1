@@ -62,6 +62,10 @@ const beforeLoading = (dispatch) => {
   dispatch(FavoritesActionCreator.changeFavoritesErrorStatus(null));
 };
 
+const afterLoading = (dispatch) => {
+  dispatch(ActionCreator.changeOffersLoadStatus(false));
+};
+
 const Operation = {
   loadOffersData: () => (dispatch, _getState, api) => {
     beforeLoading(dispatch);
@@ -69,13 +73,12 @@ const Operation = {
       .then((response) => {
         const data = response.data.map((obj) => transformOfferForLoading(obj));
         dispatch(ActionCreator.loadedOffersData(data));
+        afterLoading(dispatch);
       })
       .catch((err) => {
         dispatch(ActionCreator.changeOffersErrorStatus(err));
-      })
-      .finally(() =>
-        dispatch(ActionCreator.changeOffersLoadStatus(false))
-      );
+        afterLoading(dispatch);
+      });
   },
 
   changeFavoriteStatus: (id, status, history) => (dispatch, _getState, api) => {
@@ -91,17 +94,16 @@ const Operation = {
         const index = favoritesData.findIndex((obj) => obj.id === id);
         const newData = [...favoritesData.slice(0, index), ...favoritesData.slice(index + 1)];
         dispatch(FavoritesActionCreator.loadedFavoritesData(newData));
+        afterLoading(dispatch);
       })
       .catch((err) => {
-        if (err.response.status === HTML_STATUS.FORBIDDEN) {
+        if (err.status === HTML_STATUS.FORBIDDEN) {
           history.push(`/login`);
         } else {
           dispatch(FavoritesActionCreator.changeFavoritesErrorStatus(err));
         }
-      })
-      .finally(() =>
-        dispatch(ActionCreator.changeOffersLoadStatus(false))
-      );
+        afterLoading(dispatch);
+      });
   },
 };
 

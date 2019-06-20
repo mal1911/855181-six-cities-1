@@ -11,7 +11,6 @@ const initialState = {
 const ActionType = {
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   USER_LOGIN: `USER_LOGIN`,
-  USER_LOGOUT: `USER_LOGOUT`,
   CHANGE_USER_LOAD_STATUS: `CHANGE_USER_LOAD_STATUS`,
   CHANGE_USER_ERROR_STATUS: `CHANGE_USER_ERROR_STATUS`,
 };
@@ -35,10 +34,21 @@ const ActionCreator = {
     payload: status,
   }),
 
-  changeUserErrorStatus: (error) => ({
+  changeUserErrorStatus: (status) => ({
     type: ActionType.CHANGE_USER_ERROR_STATUS,
-    payload: error,
+    payload: status,
   }),
+};
+
+const afterSuccess = (dispatch, data) => {
+  dispatch(ActionCreator.userLogin(transformUserForLoading(data)));
+  dispatch(ActionCreator.requireAuthorization(false));
+  dispatch(ActionCreator.changeUserLoadStatus(false));
+};
+
+const afterError = (dispatch, err) => {
+  dispatch(ActionCreator.changeUserErrorStatus(err));
+  dispatch(ActionCreator.changeUserLoadStatus(false));
 };
 
 const Operation = {
@@ -47,15 +57,11 @@ const Operation = {
     return api.get(`/login`)
       .then((response) => {
         if (response.status === HTML_STATUS.OK) {
-          dispatch(ActionCreator.userLogin(transformUserForLoading(response.data)));
-          dispatch(ActionCreator.requireAuthorization(false));
+          afterSuccess(dispatch, response.data);
         }
       })
       .catch((err) => {
-        dispatch(ActionCreator.changeUserErrorStatus(err));
-      })
-      .finally(() => {
-        dispatch(ActionCreator.changeUserLoadStatus(false));
+        afterError(dispatch, err);
       });
   },
   userLogin: (autorizationObj, history) => (dispatch, _getState, api) => {
@@ -63,16 +69,12 @@ const Operation = {
     return api.post(`/login`, autorizationObj)
       .then((response) => {
         if (response.status === HTML_STATUS.OK) {
-          dispatch(ActionCreator.userLogin(transformUserForLoading(response.data)));
-          dispatch(ActionCreator.requireAuthorization(false));
+          afterSuccess(dispatch, response.data);
           history.push(`/`);
         }
       })
       .catch((err) => {
-        dispatch(ActionCreator.changeUserErrorStatus(err));
-      })
-      .finally(() => {
-        dispatch(ActionCreator.changeUserLoadStatus(false));
+        afterError(dispatch, err);
       });
   },
 };
