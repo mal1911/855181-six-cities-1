@@ -3,8 +3,8 @@ import Header from "../header";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import PropTypes from "prop-types";
-import {Operation} from "../../reducer/user-data/user-data";
-import {getUserInfo, getAuthorizationStatus} from "../../reducer/user-data/selectors";
+import {Operation} from "../../reducer/user/user";
+import {getUserInfo, getAuthorizationStatus} from "../../reducer/user/selectors";
 
 
 class SignInPage extends PureComponent {
@@ -110,7 +110,7 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onUserLogin: (autorizationObj) => {
-    dispatch(Operation.userLogin(autorizationObj, ownProps.history));
+    dispatch(Operation.userLogin(autorizationObj, () => ownProps.history.push(`/login`)));
   }
 });
 

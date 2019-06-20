@@ -1,8 +1,8 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {Operation} from "../../../reducer/comments-data/comments-data";
-import {getCommentsLoadStatus, getCommentsError} from "../../../reducer/comments-data/selectors";
+import {Operation} from "../../../reducer/data/data";
+import {getLoadStatus, getCommentsError} from "../../../reducer/data/selectors";
 import {MIN_COMMENT_LENGTH, MAX_COMMENT_LENGTH} from "../../../constants";
 import ErrorMessage from "../../error-message";
 import withPopupToggle from "../../../hocs/with-popup-toggle/with-popup-toggle";
@@ -171,7 +171,7 @@ OfferForm.propTypes = {
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   error: getCommentsError(state),
-  loadStatus: getCommentsLoadStatus(state),
+  loadStatus: getLoadStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

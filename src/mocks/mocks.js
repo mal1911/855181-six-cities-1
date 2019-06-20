@@ -6,8 +6,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `/img/apartment-01.jpg`,
     images: [
@@ -34,20 +34,20 @@ export const offersData = [
       `Laptop friendly workspace`,
       `Air conditioning`,
       `Fridge`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 48.87561,
       longitude: 2.375499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 2,
@@ -56,8 +56,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -84,20 +84,20 @@ export const offersData = [
       `Breakfast`,
       `Fridge`,
       `Dishwasher`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 51.243402,
       longitude: 6.791314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 3,
@@ -106,8 +106,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -132,20 +132,20 @@ export const offersData = [
       `Breakfast`,
       `Air conditioning`,
       `Baby seat`,
-      `Towels`
+      `Towels`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 50.945361,
       longitude: 6.935974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 4,
@@ -154,8 +154,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -179,20 +179,20 @@ export const offersData = [
       `Washer`,
       `Breakfast`,
       `Baby seat`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 48.862610000000004,
       longitude: 2.369499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 5,
@@ -201,8 +201,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -225,20 +225,20 @@ export const offersData = [
       `Washer`,
       `Breakfast`,
       `Laptop friendly workspace`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 51.225402,
       longitude: 6.784314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 6,
@@ -247,8 +247,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -269,20 +269,20 @@ export const offersData = [
     price: 332,
     goods: [
       `Laptop friendly workspace`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 53.574341000000004,
       longitude: 10.022654000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 7,
@@ -291,8 +291,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -321,20 +321,20 @@ export const offersData = [
       `Breakfast`,
       `Laptop friendly workspace`,
       `Coffee machine`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 52.37854,
       longitude: 4.894976,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 8,
@@ -343,8 +343,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -370,20 +370,20 @@ export const offersData = [
       `Air conditioning`,
       `Baby seat`,
       `Laptop friendly workspace`,
-      `Fridge`
+      `Fridge`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 50.941361,
       longitude: 6.956974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 9,
@@ -392,8 +392,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -423,20 +423,20 @@ export const offersData = [
       `Dishwasher`,
       `Air conditioning`,
       `Cable TV`,
-      `Washing machine`
+      `Washing machine`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 52.36854,
       longitude: 4.887976,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 10,
@@ -445,8 +445,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -471,20 +471,20 @@ export const offersData = [
       `Baby seat`,
       `Washer`,
       `Air conditioning`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 48.868610000000004,
       longitude: 2.342499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 11,
@@ -493,8 +493,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -517,20 +517,20 @@ export const offersData = [
       `Breakfast`,
       `Air conditioning`,
       `Laptop friendly workspace`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I rent out a very sunny and bright apartment only 7 minutes walking distance to the metro station. The apartment has a spacious living room with a kitchen, one bedroom and a bathroom with mit bath. A terrace can be used in summer.`,
     location: {
       latitude: 52.364540000000005,
       longitude: 4.9019759999999994,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 12,
@@ -539,8 +539,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -570,20 +570,20 @@ export const offersData = [
       `Fridge`,
       `Towels`,
       `Breakfast`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I rent out a very sunny and bright apartment only 7 minutes walking distance to the metro station. The apartment has a spacious living room with a kitchen, one bedroom and a bathroom with mit bath. A terrace can be used in summer.`,
     location: {
       latitude: 52.36354,
       longitude: 4.911976,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 13,
@@ -592,8 +592,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -617,20 +617,20 @@ export const offersData = [
       `Air conditioning`,
       `Breakfast`,
       `Baby seat`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Design interior in most sympathetic area! Complitely renovated, well-equipped, cosy studio in idyllic, over 100 years old wooden house. Calm street, fast connection to center and airport.`,
     location: {
       latitude: 53.528341000000005,
       longitude: 10.018654000000002,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 14,
@@ -639,8 +639,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -666,20 +666,20 @@ export const offersData = [
       `Washer`,
       `Laptop friendly workspace`,
       `Baby seat`,
-      `Towels`
+      `Towels`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 52.389540000000004,
       longitude: 4.883976,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 15,
@@ -688,8 +688,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -717,20 +717,20 @@ export const offersData = [
       `Dishwasher`,
       `Laptop friendly workspace`,
       `Baby seat`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 50.947361,
       longitude: 6.9799739999999995,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 16,
@@ -739,8 +739,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -766,20 +766,20 @@ export const offersData = [
       `Towels`,
       `Laptop friendly workspace`,
       `Washer`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 50.865556999999995,
       longitude: 4.371696999999999,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 17,
@@ -788,8 +788,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -811,20 +811,20 @@ export const offersData = [
     goods: [
       `Laptop friendly workspace`,
       `Breakfast`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 51.235402,
       longitude: 6.800314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 18,
@@ -833,8 +833,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -861,20 +861,20 @@ export const offersData = [
       `Towels`,
       `Laptop friendly workspace`,
       `Breakfast`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 50.852557,
       longitude: 4.3376969999999995,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 19,
@@ -883,8 +883,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -912,20 +912,20 @@ export const offersData = [
       `Air conditioning`,
       `Coffee machine`,
       `Baby seat`,
-      `Fridge`
+      `Fridge`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 50.822556999999996,
       longitude: 4.347697,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 20,
@@ -934,8 +934,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -956,20 +956,20 @@ export const offersData = [
     maxAdults: 5,
     price: 113,
     goods: [
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 53.555341000000006,
       longitude: 9.975654,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 21,
@@ -978,8 +978,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -1000,20 +1000,20 @@ export const offersData = [
     price: 626,
     goods: [
       `Breakfast`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 50.945361,
       longitude: 6.962974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 22,
@@ -1022,8 +1022,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -1044,20 +1044,20 @@ export const offersData = [
     price: 313,
     goods: [
       `Breakfast`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I rent out a very sunny and bright apartment only 7 minutes walking distance to the metro station. The apartment has a spacious living room with a kitchen, one bedroom and a bathroom with mit bath. A terrace can be used in summer.`,
     location: {
       latitude: 50.854557,
       longitude: 4.364697,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 23,
@@ -1066,8 +1066,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -1097,20 +1097,20 @@ export const offersData = [
       `Washing machine`,
       `Baby seat`,
       `Towels`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 52.36954000000001,
       longitude: 4.914976,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 24,
@@ -1119,8 +1119,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -1144,20 +1144,20 @@ export const offersData = [
       `Washer`,
       `Baby seat`,
       `Laptop friendly workspace`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 50.934361,
       longitude: 6.943974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 25,
@@ -1166,8 +1166,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -1190,20 +1190,20 @@ export const offersData = [
       `Laptop friendly workspace`,
       `Air conditioning`,
       `Washer`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 48.843610000000005,
       longitude: 2.338499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 26,
@@ -1212,8 +1212,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -1238,20 +1238,20 @@ export const offersData = [
       `Laptop friendly workspace`,
       `Air conditioning`,
       `Breakfast`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 53.546341000000005,
       longitude: 10.022654000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 27,
@@ -1260,8 +1260,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -1285,20 +1285,20 @@ export const offersData = [
       `Baby seat`,
       `Breakfast`,
       `Laptop friendly workspace`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 51.236402000000005,
       longitude: 6.784314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 28,
@@ -1307,8 +1307,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -1338,20 +1338,20 @@ export const offersData = [
       `Fridge`,
       `Dishwasher`,
       `Washing machine`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 48.834610000000005,
       longitude: 2.335499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 29,
@@ -1360,8 +1360,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -1391,20 +1391,20 @@ export const offersData = [
       `Dishwasher`,
       `Breakfast`,
       `Washer`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 51.211402,
       longitude: 6.756314000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 30,
@@ -1413,8 +1413,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -1436,20 +1436,20 @@ export const offersData = [
     goods: [
       `Washer`,
       `Laptop friendly workspace`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 50.949361,
       longitude: 6.976974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 31,
@@ -1458,8 +1458,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -1485,20 +1485,20 @@ export const offersData = [
       `Air conditioning`,
       `Breakfast`,
       `Laptop friendly workspace`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 50.837557,
       longitude: 4.339697,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 32,
@@ -1507,8 +1507,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -1536,20 +1536,20 @@ export const offersData = [
       `Coffee machine`,
       `Fridge`,
       `Washer`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 50.954361,
       longitude: 6.982974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 33,
@@ -1558,8 +1558,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -1589,20 +1589,20 @@ export const offersData = [
       `Fridge`,
       `Washer`,
       `Cable TV`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 53.558341000000006,
       longitude: 10.001654,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 34,
@@ -1611,8 +1611,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -1639,20 +1639,20 @@ export const offersData = [
       `Baby seat`,
       `Fridge`,
       `Air conditioning`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 51.241402,
       longitude: 6.782314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 35,
@@ -1661,8 +1661,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -1687,20 +1687,20 @@ export const offersData = [
       `Baby seat`,
       `Air conditioning`,
       `Laptop friendly workspace`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 50.951361,
       longitude: 6.944974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 36,
@@ -1709,8 +1709,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -1730,20 +1730,20 @@ export const offersData = [
     maxAdults: 6,
     price: 785,
     goods: [
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 50.916361,
       longitude: 6.944974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 37,
@@ -1752,8 +1752,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -1780,20 +1780,20 @@ export const offersData = [
       `Air conditioning`,
       `Fridge`,
       `Laptop friendly workspace`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 48.837610000000005,
       longitude: 2.3454990000000002,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 38,
@@ -1802,8 +1802,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -1833,20 +1833,20 @@ export const offersData = [
       `Air conditioning`,
       `Baby seat`,
       `Towels`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 51.214402,
       longitude: 6.764314000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 39,
@@ -1855,8 +1855,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -1882,20 +1882,20 @@ export const offersData = [
       `Fridge`,
       `Baby seat`,
       `Laptop friendly workspace`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 53.573341000000006,
       longitude: 9.994654,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 40,
@@ -1904,8 +1904,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -1925,20 +1925,20 @@ export const offersData = [
     maxAdults: 5,
     price: 239,
     goods: [
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 53.563341,
       longitude: 10.019654000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 41,
@@ -1947,8 +1947,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -1968,20 +1968,20 @@ export const offersData = [
     maxAdults: 3,
     price: 203,
     goods: [
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 48.84761,
       longitude: 2.356499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 42,
@@ -1990,8 +1990,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -2017,20 +2017,20 @@ export const offersData = [
       `Baby seat`,
       `Laptop friendly workspace`,
       `Air conditioning`,
-      `Fridge`
+      `Fridge`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 48.83861,
       longitude: 2.350499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 43,
@@ -2039,8 +2039,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -2062,20 +2062,20 @@ export const offersData = [
     goods: [
       `Washer`,
       `Laptop friendly workspace`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 51.222402,
       longitude: 6.786314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 44,
@@ -2084,8 +2084,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -2110,20 +2110,20 @@ export const offersData = [
       `Laptop friendly workspace`,
       `Breakfast`,
       `Washer`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I rent out a very sunny and bright apartment only 7 minutes walking distance to the metro station. The apartment has a spacious living room with a kitchen, one bedroom and a bathroom with mit bath. A terrace can be used in summer.`,
     location: {
       latitude: 48.834610000000005,
       longitude: 2.364499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 45,
@@ -2132,8 +2132,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -2157,20 +2157,20 @@ export const offersData = [
       `Breakfast`,
       `Laptop friendly workspace`,
       `Washer`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 50.844556999999995,
       longitude: 4.346697,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 46,
@@ -2179,8 +2179,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -2201,20 +2201,20 @@ export const offersData = [
     price: 257,
     goods: [
       `Laptop friendly workspace`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Design interior in most sympathetic area! Complitely renovated, well-equipped, cosy studio in idyllic, over 100 years old wooden house. Calm street, fast connection to center and airport.`,
     location: {
       latitude: 52.388540000000006,
       longitude: 4.899976,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 47,
@@ -2223,8 +2223,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -2252,20 +2252,20 @@ export const offersData = [
       `Breakfast`,
       `Air conditioning`,
       `Dishwasher`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 48.861610000000006,
       longitude: 2.340499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 48,
@@ -2274,8 +2274,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -2302,20 +2302,20 @@ export const offersData = [
       `Fridge`,
       `Breakfast`,
       `Dishwasher`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 48.877610000000004,
       longitude: 2.333499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 49,
@@ -2324,8 +2324,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -2352,20 +2352,20 @@ export const offersData = [
       `Laptop friendly workspace`,
       `Towels`,
       `Breakfast`,
-      `Dishwasher`
+      `Dishwasher`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 48.858610000000006,
       longitude: 2.330499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 50,
@@ -2374,8 +2374,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -2397,20 +2397,20 @@ export const offersData = [
     goods: [
       `Laptop friendly workspace`,
       `Breakfast`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 50.842557,
       longitude: 4.3536969999999995,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 51,
@@ -2419,8 +2419,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -2444,20 +2444,20 @@ export const offersData = [
       `Baby seat`,
       `Breakfast`,
       `Washer`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 53.540341000000005,
       longitude: 10.025654000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 52,
@@ -2466,8 +2466,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -2491,20 +2491,20 @@ export const offersData = [
       `Washer`,
       `Breakfast`,
       `Baby seat`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 50.849557,
       longitude: 4.374696999999999,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 53,
@@ -2513,8 +2513,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -2542,20 +2542,20 @@ export const offersData = [
       `Fridge`,
       `Air conditioning`,
       `Dishwasher`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 51.237402,
       longitude: 6.797314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 54,
@@ -2564,8 +2564,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -2594,20 +2594,20 @@ export const offersData = [
       `Baby seat`,
       `Washing machine`,
       `Laptop friendly workspace`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 51.205402,
       longitude: 6.7613140000000005,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 55,
@@ -2616,8 +2616,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -2638,20 +2638,20 @@ export const offersData = [
     price: 480,
     goods: [
       `Laptop friendly workspace`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 50.913361,
       longitude: 6.9509739999999995,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 56,
@@ -2660,8 +2660,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -2689,20 +2689,20 @@ export const offersData = [
       `Air conditioning`,
       `Coffee machine`,
       `Baby seat`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 50.930361,
       longitude: 6.937974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 57,
@@ -2711,8 +2711,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -2734,20 +2734,20 @@ export const offersData = [
     goods: [
       `Washer`,
       `Breakfast`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 50.869557,
       longitude: 4.332697,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 58,
@@ -2756,8 +2756,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -2784,20 +2784,20 @@ export const offersData = [
       `Breakfast`,
       `Dishwasher`,
       `Fridge`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 48.837610000000005,
       longitude: 2.364499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 59,
@@ -2806,8 +2806,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -2829,20 +2829,20 @@ export const offersData = [
     goods: [
       `Laptop friendly workspace`,
       `Breakfast`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 50.959361,
       longitude: 6.978974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 60,
@@ -2851,8 +2851,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -2878,20 +2878,20 @@ export const offersData = [
       `Washer`,
       `Air conditioning`,
       `Towels`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 50.860557,
       longitude: 4.376697,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 61,
@@ -2900,8 +2900,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -2925,20 +2925,20 @@ export const offersData = [
       `Air conditioning`,
       `Breakfast`,
       `Laptop friendly workspace`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 50.828556999999996,
       longitude: 4.362697,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 62,
@@ -2947,8 +2947,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -2978,20 +2978,20 @@ export const offersData = [
       `Air conditioning`,
       `Washing machine`,
       `Towels`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I rent out a very sunny and bright apartment only 7 minutes walking distance to the metro station. The apartment has a spacious living room with a kitchen, one bedroom and a bathroom with mit bath. A terrace can be used in summer.`,
     location: {
       latitude: 53.573341000000006,
       longitude: 10.009654000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 63,
@@ -3000,8 +3000,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -3026,20 +3026,20 @@ export const offersData = [
       `Air conditioning`,
       `Baby seat`,
       `Breakfast`,
-      `Towels`
+      `Towels`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 53.550341,
       longitude: 9.980654000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 64,
@@ -3048,8 +3048,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -3074,20 +3074,20 @@ export const offersData = [
       `Air conditioning`,
       `Baby seat`,
       `Laptop friendly workspace`,
-      `Towels`
+      `Towels`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 48.87961000000001,
       longitude: 2.353499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 65,
@@ -3096,8 +3096,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -3126,20 +3126,20 @@ export const offersData = [
       `Baby seat`,
       `Towels`,
       `Fridge`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 52.36354,
       longitude: 4.889976,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 66,
@@ -3148,8 +3148,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -3169,20 +3169,20 @@ export const offersData = [
     maxAdults: 1,
     price: 190,
     goods: [
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 50.867557,
       longitude: 4.371696999999999,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 67,
@@ -3191,8 +3191,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -3216,20 +3216,20 @@ export const offersData = [
       `Laptop friendly workspace`,
       `Air conditioning`,
       `Washer`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 48.846610000000005,
       longitude: 2.374499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 68,
@@ -3238,8 +3238,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -3266,20 +3266,20 @@ export const offersData = [
       `Towels`,
       `Washer`,
       `Dishwasher`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 50.827557,
       longitude: 4.336697,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 69,
@@ -3288,8 +3288,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -3315,20 +3315,20 @@ export const offersData = [
       `Air conditioning`,
       `Laptop friendly workspace`,
       `Breakfast`,
-      `Fridge`
+      `Fridge`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
     location: {
       latitude: 52.35054,
       longitude: 4.908976,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 70,
@@ -3337,8 +3337,8 @@ export const offersData = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -3368,20 +3368,20 @@ export const offersData = [
       `Washing machine`,
       `Fridge`,
       `Laptop friendly workspace`,
-      `Dishwasher`
+      `Dishwasher`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I rent out a very sunny and bright apartment only 7 minutes walking distance to the metro station. The apartment has a spacious living room with a kitchen, one bedroom and a bathroom with mit bath. A terrace can be used in summer.`,
     location: {
       latitude: 50.862556999999995,
       longitude: 4.375697,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 71,
@@ -3390,8 +3390,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -3420,20 +3420,20 @@ export const offersData = [
       `Coffee machine`,
       `Washer`,
       `Breakfast`,
-      `Washing machine`
+      `Washing machine`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 51.228402,
       longitude: 6.784314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 72,
@@ -3442,8 +3442,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -3466,20 +3466,20 @@ export const offersData = [
       `Air conditioning`,
       `Laptop friendly workspace`,
       `Breakfast`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 51.239402000000005,
       longitude: 6.756314000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 73,
@@ -3488,8 +3488,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -3511,20 +3511,20 @@ export const offersData = [
     goods: [
       `Laptop friendly workspace`,
       `Breakfast`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 51.250402,
       longitude: 6.7853140000000005,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 74,
@@ -3533,8 +3533,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -3562,20 +3562,20 @@ export const offersData = [
       `Air conditioning`,
       `Towels`,
       `Breakfast`,
-      `Coffee machine`
+      `Coffee machine`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 53.565341,
       longitude: 9.980654000000001,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 75,
@@ -3584,8 +3584,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -3611,20 +3611,20 @@ export const offersData = [
       `Towels`,
       `Air conditioning`,
       `Laptop friendly workspace`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
     location: {
       latitude: 50.917361,
       longitude: 6.977974,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 76,
@@ -3633,8 +3633,8 @@ export const offersData = [
       location: {
         latitude: 50.938361,
         longitude: 6.959974,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -3661,20 +3661,20 @@ export const offersData = [
       `Towels`,
       `Washer`,
       `Dishwasher`,
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 50.957361,
       longitude: 6.9509739999999995,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 77,
@@ -3683,8 +3683,8 @@ export const offersData = [
       location: {
         latitude: 53.550341,
         longitude: 10.000654,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -3713,20 +3713,20 @@ export const offersData = [
       `Towels`,
       `Coffee machine`,
       `Fridge`,
-      `Dishwasher`
+      `Dishwasher`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
     location: {
       latitude: 53.565341000000004,
       longitude: 9.978654,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 78,
@@ -3735,8 +3735,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -3761,20 +3761,20 @@ export const offersData = [
       `Air conditioning`,
       `Baby seat`,
       `Breakfast`,
-      `Washer`
+      `Washer`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 52.361540000000005,
       longitude: 4.883976,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 79,
@@ -3783,8 +3783,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -3810,20 +3810,20 @@ export const offersData = [
       `Towels`,
       `Laptop friendly workspace`,
       `Washer`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 48.83961,
       longitude: 2.342499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 80,
@@ -3832,8 +3832,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -3853,20 +3853,20 @@ export const offersData = [
     maxAdults: 2,
     price: 138,
     goods: [
-      `Laptop friendly workspace`
+      `Laptop friendly workspace`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 51.232402,
       longitude: 6.800314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 81,
@@ -3875,8 +3875,8 @@ export const offersData = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-03.jpg`,
     images: [
@@ -3899,20 +3899,20 @@ export const offersData = [
       `Laptop friendly workspace`,
       `Breakfast`,
       `Washer`,
-      `Air conditioning`
+      `Air conditioning`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
     location: {
       latitude: 52.35754,
       longitude: 4.9179759999999995,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 82,
@@ -3921,8 +3921,8 @@ export const offersData = [
       location: {
         latitude: 51.225402,
         longitude: 6.776314,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-01.jpg`,
     images: [
@@ -3949,20 +3949,20 @@ export const offersData = [
       `Breakfast`,
       `Laptop friendly workspace`,
       `Towels`,
-      `Baby seat`
+      `Baby seat`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.`,
     location: {
       latitude: 51.237402,
       longitude: 6.779314,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
   {
     id: 83,
@@ -3971,8 +3971,8 @@ export const offersData = [
       location: {
         latitude: 48.85661,
         longitude: 2.351499,
-        zoom: 13
-      }
+        zoom: 13,
+      },
     },
     previewImage: `img/apartment-02.jpg`,
     images: [
@@ -4000,20 +4000,20 @@ export const offersData = [
       `Towels`,
       `Coffee machine`,
       `Baby seat`,
-      `Breakfast`
+      `Breakfast`,
     ],
     host: {
       id: 25,
       isPro: true,
       name: `Angelina`,
-      avatarUrl: `img/avatar-angelina.jpg`
+      avatarUrl: `img/avatar-angelina.jpg`,
     },
     description: `A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.`,
     location: {
       latitude: 48.87861,
       longitude: 2.357499,
-      zoom: 16
-    }
+      zoom: 16,
+    },
   },
 ];
 
@@ -4023,47 +4023,436 @@ export const citiesData = [
     location: {
       latitude: 48.85661,
       longitude: 2.351499,
-      zoom: 13
-    }
+      zoom: 13,
+    },
   },
   {
     name: `Amsterdam`,
     location: {
       latitude: 52.37454,
       longitude: 4.897976,
-      zoom: 13
-    }
+      zoom: 13,
+    },
   },
   {
     name: `Brussels`,
     location: {
       latitude: 50.846557,
       longitude: 4.351697,
-      zoom: 13
-    }
+      zoom: 13,
+    },
   },
   {
     name: `Hamburg`,
     location: {
       latitude: 53.550341,
       longitude: 10.000654,
-      zoom: 13
-    }
+      zoom: 13,
+    },
   },
   {
     name: `Dusseldorf`,
     location: {
       latitude: 51.225402,
       longitude: 6.776314,
-      zoom: 13
-    }
+      zoom: 13,
+    },
   },
   {
     name: `Cologne`,
     location: {
       latitude: 50.938361,
       longitude: 6.959974,
-      zoom: 13
-    }
-  }
+      zoom: 13,
+    },
+  },
+];
+
+export const favoritesData = [
+  {
+    id: 1,
+    city: {
+      name: `Paris`,
+      location: {
+        latitude: 48.85661,
+        longitude: 2.351499,
+        zoom: 13,
+      },
+    },
+    previewImage: `/img/apartment-01.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Beautiful & luxurious apartment at great location`,
+    isFavorite: true,
+    isPremium: true,
+    rating: 2.7,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 2,
+    price: 231,
+    goods: [
+      `Towels`,
+      `Dishwasher`,
+      `Breakfast`,
+      `Washer`,
+      `Laptop friendly workspace`,
+      `Air conditioning`,
+      `Fridge`,
+      `Baby seat`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
+    location: {
+      latitude: 48.87561,
+      longitude: 2.375499,
+      zoom: 16,
+    },
+  },
+  {
+    id: 2,
+    city: {
+      name: `Dusseldorf`,
+      location: {
+        latitude: 51.225402,
+        longitude: 6.776314,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-02.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Penthouse, 4-5 rooms + 5 balconies`,
+    isFavorite: false,
+    isPremium: true,
+    rating: 4.6,
+    type: `apartment`,
+    bedrooms: 3,
+    maxAdults: 9,
+    price: 309,
+    goods: [
+      `Towels`,
+      `Laptop friendly workspace`,
+      `Washer`,
+      `Baby seat`,
+      `Breakfast`,
+      `Fridge`,
+      `Dishwasher`,
+      `Air conditioning`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
+    location: {
+      latitude: 51.243402,
+      longitude: 6.791314,
+      zoom: 16,
+    },
+  },
+  {
+    id: 3,
+    city: {
+      name: `Cologne`,
+      location: {
+        latitude: 50.938361,
+        longitude: 6.959974,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-03.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `The house among olive `,
+    isFavorite: false,
+    isPremium: false,
+    rating: 3.2,
+    type: `house`,
+    bedrooms: 3,
+    maxAdults: 9,
+    price: 715,
+    goods: [
+      `Washer`,
+      `Laptop friendly workspace`,
+      `Breakfast`,
+      `Air conditioning`,
+      `Baby seat`,
+      `Towels`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
+    location: {
+      latitude: 50.945361,
+      longitude: 6.935974,
+      zoom: 16,
+    },
+  },
+  {
+    id: 4,
+    city: {
+      name: `Paris`,
+      location: {
+        latitude: 48.85661,
+        longitude: 2.351499,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-01.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Penthouse, 4-5 rooms + 5 balconies`,
+    isFavorite: true,
+    isPremium: false,
+    rating: 4.3,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 3,
+    price: 264,
+    goods: [
+      `Air conditioning`,
+      `Washer`,
+      `Breakfast`,
+      `Baby seat`,
+      `Laptop friendly workspace`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
+    location: {
+      latitude: 48.862610000000004,
+      longitude: 2.369499,
+      zoom: 16,
+    },
+  },
+  {
+    id: 5,
+    city: {
+      name: `Dusseldorf`,
+      location: {
+        latitude: 51.225402,
+        longitude: 6.776314,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-02.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Waterfront with extraordinary view`,
+    isFavorite: false,
+    isPremium: false,
+    rating: 2.5,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 1,
+    price: 156,
+    goods: [
+      `Washer`,
+      `Breakfast`,
+      `Laptop friendly workspace`,
+      `Air conditioning`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
+    location: {
+      latitude: 51.225402,
+      longitude: 6.784314,
+      zoom: 16,
+    },
+  },
+  {
+    id: 6,
+    city: {
+      name: `Hamburg`,
+      location: {
+        latitude: 53.550341,
+        longitude: 10.000654,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-03.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `The house among olive `,
+    isFavorite: false,
+    isPremium: true,
+    rating: 3.5,
+    type: `apartment`,
+    bedrooms: 3,
+    maxAdults: 6,
+    price: 332,
+    goods: [
+      `Laptop friendly workspace`,
+      `Breakfast`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
+    location: {
+      latitude: 53.574341000000004,
+      longitude: 10.022654000000001,
+      zoom: 16,
+    },
+  },
+  {
+    id: 7,
+    city: {
+      name: `Amsterdam`,
+      location: {
+        latitude: 52.37454,
+        longitude: 4.897976,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-01.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `The Pondhouse - A Magical Place`,
+    isFavorite: false,
+    isPremium: true,
+    rating: 3.2,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 3,
+    price: 204,
+    goods: [
+      `Fridge`,
+      `Air conditioning`,
+      `Towels`,
+      `Washer`,
+      `Washing machine`,
+      `Dishwasher`,
+      `Breakfast`,
+      `Laptop friendly workspace`,
+      `Coffee machine`,
+      `Baby seat`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
+    location: {
+      latitude: 52.37854,
+      longitude: 4.894976,
+      zoom: 16,
+    },
+  },
+  {
+    id: 8,
+    city: {
+      name: `Cologne`,
+      location: {
+        latitude: 50.938361,
+        longitude: 6.959974,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-02.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Canal View Prinsengracht`,
+    isFavorite: false,
+    isPremium: false,
+    rating: 2.1,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 2,
+    price: 297,
+    goods: [
+      `Towels`,
+      `Washer`,
+      `Breakfast`,
+      `Air conditioning`,
+      `Baby seat`,
+      `Laptop friendly workspace`,
+      `Fridge`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
+    location: {
+      latitude: 50.941361,
+      longitude: 6.956974,
+      zoom: 16,
+    },
+  },
 ];

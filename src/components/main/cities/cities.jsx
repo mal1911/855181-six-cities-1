@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import {cityType} from "../../../prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../../reducer/offers-data/offers-data";
-import {getCitiesData, getActiveCityIndex} from "../../../reducer/offers-data/selectors";
+import {ActionCreator} from "../../../reducer/data/data";
+import {getCitiesData, getActiveCityIndex} from "../../../reducer/data/selectors";
 import City from "../city/index";
 
 const Cities = (props) => {

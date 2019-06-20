@@ -4,8 +4,8 @@ import {offerType} from "../../../prop-types";
 import Header from "../../header/index";
 import OfferWrapper from "../offer-wrapper/index";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../../reducer/offers-data/offers-data";
-import {getActiveOfferObj, getCityIndexFromOfferId} from "../../../reducer/offers-data/selectors";
+import {ActionCreator} from "../../../reducer/data/data";
+import {getActiveOfferObj, getCityIndexFromOfferId} from "../../../reducer/data/selectors";
 
 class OfferPage extends PureComponent {
   constructor(props) {

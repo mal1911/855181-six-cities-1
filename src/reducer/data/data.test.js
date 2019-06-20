@@ -1,9 +1,8 @@
 import MockAdapter from "axios-mock-adapter";
 import {createAPI} from "../../api";
-import {Operation, ActionType} from "./offers-data";
-import {ActionType as FavoritesActionType} from "../favorites-data/favorites-data";
+import {Operation, ActionType} from "./data";
 import {HTML_STATUS} from "../../constants";
-import {offersData} from "../../mocks/mocks";
+import {offersData, favoritesData} from "../../mocks/mocks";
 
 describe(`Reducer works correctly`, () => {
   it(`Testing a list of hotels`, function () {
@@ -20,7 +19,7 @@ describe(`Reducer works correctly`, () => {
       .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(5);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
-          type: ActionType.CHANGE_OFFERS_LOAD_STATUS,
+          type: ActionType.CHANGE_LOAD_STATUS,
           payload: true,
         });
         expect(dispatch).toHaveBeenNthCalledWith(2, {
@@ -28,15 +27,15 @@ describe(`Reducer works correctly`, () => {
           payload: null,
         });
         expect(dispatch).toHaveBeenNthCalledWith(3, {
-          type: FavoritesActionType.CHANGE_FAVORITES_ERROR_STATUS,
+          type: ActionType.CHANGE_FAVORITES_ERROR_STATUS,
           payload: null,
         });
         expect(dispatch).toHaveBeenNthCalledWith(4, {
-          type: ActionType.LOADED_OFFERS_DATA,
+          type: ActionType.CHANGE_OFFERS_DATA,
           payload: [],
         });
         expect(dispatch).toHaveBeenNthCalledWith(5, {
-          type: ActionType.CHANGE_OFFERS_LOAD_STATUS,
+          type: ActionType.CHANGE_LOAD_STATUS,
           payload: false,
         });
       });
@@ -46,46 +45,24 @@ describe(`Reducer works correctly`, () => {
     const dispatch = jest.fn();
     const api = createAPI();
     const apiMock = new MockAdapter(api);
-    const dataLoader = Operation.changeFavoriteStatus(offersData[0].id, 0, null);
+    const dataLoader = Operation.changeFavoriteStatus(1, 0, [], [], jest.fn());
 
     apiMock
       .onPost(`/favorite/${offersData[0].id}/0`)
-      .reply(HTML_STATUS.FORBIDDEN, JSON.stringify(offersData[0]));
+      .reply(HTML_STATUS.OK, JSON.stringify(offersData[0]));
 
     return dataLoader(dispatch, jest.fn(), api)
       .then(() => {
-        expect(dispatch).toHaveBeenCalledTimes(5);
-
-        expect(dispatch).toHaveBeenNthCalledWith(4, {
-          type: ActionType.CHANGE_OFFERS_DATA,
-          payload: [],
-        });
-
-        /*
-        expect(dispatch).toHaveBeenNthCalledWith(1, {
-          type: ActionType.CHANGE_OFFERS_LOAD_STATUS,
-          payload: true,
-        });
-        expect(dispatch).toHaveBeenNthCalledWith(2, {
-          type: ActionType.CHANGE_OFFERS_ERROR_STATUS,
-          payload: null,
-        });
-        expect(dispatch).toHaveBeenNthCalledWith(3, {
-          type: FavoritesActionType.CHANGE_FAVORITES_ERROR_STATUS,
-          payload: null,
-        });
-
+        expect(dispatch).toHaveBeenCalledTimes(6);
 
         expect(dispatch).toHaveBeenNthCalledWith(4, {
           type: ActionType.CHANGE_OFFERS_DATA,
           payload: [],
         });
         expect(dispatch).toHaveBeenNthCalledWith(5, {
-          type: ActionType.CHANGE_OFFERS_LOAD_STATUS,
-          payload: false,
+          type: ActionType.CHANGE_FAVORITES_DATA,
+          payload: [],
         });
-        */
-
       });
   });
 });

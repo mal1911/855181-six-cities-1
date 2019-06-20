@@ -2,7 +2,7 @@ import {createSelector} from "reselect";
 import NameSpace from "../name-spaces";
 import {MAX_CITIES} from "../../constants";
 
-const NAME_SPACE = NameSpace.OFFERS_DATA;
+const NAME_SPACE = NameSpace.DATA;
 
 const SORT_FUNCS = [
   null,
@@ -27,12 +27,28 @@ export const getActiveOfferId = (state) => {
   return state[NAME_SPACE].activeOfferId;
 };
 
-export const getOffersLoadStatus = (state) => {
-  return state[NAME_SPACE].isOffersLoading;
+export const getLoadStatus = (state) => {
+  return state[NAME_SPACE].isLoading;
 };
 
 export const getOffersError = (state) => {
   return state[NAME_SPACE].offersError;
+};
+
+export const getFavoritesData = (state) => {
+  return state[NAME_SPACE].favoritesData;
+};
+
+export const getFavoritesError = (state) => {
+  return state[NAME_SPACE].favoritesError;
+};
+
+export const getCommentsData = (state) => {
+  return state[NAME_SPACE].commentsData.sort((a, b) => a.date < b.date);
+};
+
+export const getCommentsError = (state) => {
+  return state[NAME_SPACE].commentsError;
 };
 
 export const getCitiesData = createSelector(
@@ -157,4 +173,27 @@ export const getCityIndexFromOfferId = createSelector(
         return 0;
       }
     }
+);
+
+export const getResultFavoritesData = createSelector(
+    getFavoritesData,
+    (favoritesData) => {
+      const resultFavoritesData = [];
+      favoritesData.forEach((obj) => {
+        let index = -1;
+        if (resultFavoritesData.length) {
+          index = resultFavoritesData.findIndex((resObj) => resObj[0].city.name === obj.city.name);
+        }
+        if (index === -1) {
+          index = resultFavoritesData.push([]) - 1;
+        }
+        resultFavoritesData[index].push(obj);
+      });
+      return resultFavoritesData;
+    }
+);
+
+export const getCountResultFavorites = createSelector(
+    getResultFavoritesData,
+    (resultFavoritesData) => resultFavoritesData.length
 );

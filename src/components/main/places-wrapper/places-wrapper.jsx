@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {getCountResultOffers, getOffersLoadStatus, getOffersError} from "../../../reducer/offers-data/selectors";
+import {getCountResultOffers, getLoadStatus, getOffersError} from "../../../reducer/data/selectors";
 import PlacesWrapperData from "../places-wrapper-data";
 import PlasesWrapperEmpty from "../places-wrapper-empty";
 import withDataStatusScreen from "../../../hocs/with-data-status-screen/with-data-status-screen";
@@ -20,7 +20,7 @@ PlacesWrapper.propTypes = {
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   countData: getCountResultOffers(state),
-  loadStatus: getOffersLoadStatus(state),
+  loadStatus: getLoadStatus(state),
   error: getOffersError(state),
 });
 

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {ESC_KEYCODE, SORTING_TYPES} from '../../../constants';
 import {connect} from "react-redux";
-import {ActionCreator} from '../../../reducer/offers-data/offers-data';
-import {getActiveOrderIndex} from "../../../reducer/offers-data/selectors";
+import {ActionCreator} from '../../../reducer/data/data';
+import {getActiveOrderIndex} from "../../../reducer/data/selectors";
 
 const PopupSortingElement = (props) => {
 

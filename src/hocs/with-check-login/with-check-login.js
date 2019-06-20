@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Redirect} from "react-router-dom";
 import {compose} from "recompose";
 import {connect} from "react-redux";
-import {getAuthorizationStatus, getUserLoadStatus, getUserError} from "../../reducer/user-data/selectors";
+import {getAuthorizationStatus, getUserLoadStatus, getUserError} from "../../reducer/user/selectors";
 
 const withCheckLogin = (Component) => {
   const WithCheckLogin = (props) => {

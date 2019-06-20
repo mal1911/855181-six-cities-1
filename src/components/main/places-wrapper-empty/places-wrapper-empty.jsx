@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {getActiveCityName} from "../../../reducer/offers-data/selectors";
+import {getActiveCityName} from "../../../reducer/data/selectors";
 
 const PlacesWrapperEmpty = (props) =>
   (<React.Fragment>

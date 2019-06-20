@@ -5,15 +5,23 @@ import Map from "../../map";
 import Card from "../../card";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {getNearData, getNearLocationsData, getOffersError} from "../../../reducer/offers-data/selectors";
-import {ActionCreator, Operation} from "../../../reducer/offers-data/offers-data";
+import {getNearData, getNearLocationsData, getOffersError, getOffersData, getFavoritesData} from "../../../reducer/data/selectors";
+import {ActionCreator, Operation} from "../../../reducer/data/data";
 import {withRouter} from 'react-router';
 import "./offer-wrapper.css";
 import {MAX_NEAR_PALASES, MAX_OFFER_IMAGES} from "../../../constants";
 import ErrorMessage from "../../error-message";
 import withPopupToggle from "../../../hocs/with-popup-toggle/with-popup-toggle";
 
-const OfferWrapper = ({offerObj, nearData, nearLocationsData, onChangeFavoriteStatus, onChangeActiveCard, error}) => {
+const OfferWrapper = ({
+  offerObj,
+  nearData,
+  nearLocationsData,
+  onChangeFavoriteStatus,
+  onChangeActiveCard,
+  error,
+  offersData,
+  favoritesData}) => {
 
   const imgs = offerObj.images.slice(0, MAX_OFFER_IMAGES).map((imageSrc, index) => <div key={index} className="property__image-wrapper">
     <img className="property__image" src={imageSrc} alt="Photo studio"/>
@@ -38,12 +46,12 @@ const OfferWrapper = ({offerObj, nearData, nearLocationsData, onChangeFavoriteSt
   };
 
   const handleButtonClick = (evt) => {
-    onChangeFavoriteStatus(offerObj.id, offerObj.isFavorite ? 0 : 1);
+    onChangeFavoriteStatus(offerObj.id, offerObj.isFavorite ? 0 : 1, offersData, favoritesData);
     evt.preventDefault();
   };
 
   const handleCardNearButtonClick = (cardObj) => {
-    onChangeFavoriteStatus(cardObj.id, cardObj.isFavorite ? 0 : 1);
+    onChangeFavoriteStatus(cardObj.id, cardObj.isFavorite ? 0 : 1, offersData, favoritesData);
   };
 
   const nearCards = nearData.slice(1, MAX_NEAR_PALASES + 1).map((obj, index) =>
@@ -59,7 +67,6 @@ const OfferWrapper = ({offerObj, nearData, nearLocationsData, onChangeFavoriteSt
     const ToggleErrorMessage = withPopupToggle(ErrorMessage, true);
     return error ? <ToggleErrorMessage message={error.message}/> : null;
   };
-
   return <main className="page__main page__main--property">
     {showErrorMessage()}
     <section className="property">
@@ -147,6 +154,8 @@ const OfferWrapper = ({offerObj, nearData, nearLocationsData, onChangeFavoriteSt
 OfferWrapper.propTypes = {
   offerObj: offerType.isRequired,
   nearData: PropTypes.arrayOf(offerType),
+  offersData: PropTypes.arrayOf(offerType),
+  favoritesData: PropTypes.arrayOf(offerType),
   error: PropTypes.object,
   nearLocationsData: PropTypes.arrayOf(PropTypes.shape({
     location: locationType.isRequired,
@@ -158,13 +167,15 @@ OfferWrapper.propTypes = {
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   nearData: getNearData(state),
+  offersData: getOffersData(state),
+  favoritesData: getFavoritesData(state),
   nearLocationsData: getNearLocationsData(state),
   error: getOffersError(state),
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onChangeFavoriteStatus: (id, status) => {
-    dispatch(Operation.changeFavoriteStatus(id, status, ownProps.history));
+  onChangeFavoriteStatus: (id, status, offersData, favoritesData) => {
+    dispatch(Operation.changeFavoriteStatus(id, status, offersData, favoritesData, () => ownProps.history.push(`/login`)));
   },
   onChangeActiveCard: (id) => {
     dispatch(ActionCreator.changeActiveOfferId(id));

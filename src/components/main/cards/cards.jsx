@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import {offerType} from "../../../prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../../reducer/offers-data/offers-data";
+import {ActionCreator} from "../../../reducer/data/data";
 import Card from "../../card/card";
 
-import {getResultOffersData} from "../../../reducer/offers-data/selectors";
+import {getResultOffersData} from "../../../reducer/data/selectors";
 
 const Cards = (props) => {
   const handleChange = (cardObj) => {

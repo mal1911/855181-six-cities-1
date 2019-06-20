@@ -7,8 +7,8 @@ import FavoritesWrpapperData from "../favorites-wrapper-data/index";
 import FavoritesWrpapperEmpty from "../favorites-wrapper-empty/index";
 import withBodyClass from "../../../hocs/with-body-class/with-body-class";
 import withDataStatusScreen from "../../../hocs/with-data-status-screen/with-data-status-screen";
-import {getCountResultFavorites, getFavoritesLoadStatus, getFavoritesError} from "../../../reducer/favorites-data/selectors";
-import {Operation} from "../../../reducer/favorites-data/favorites-data";
+import {getCountResultFavorites, getLoadStatus, getFavoritesError} from "../../../reducer/data/selectors";
+import {Operation} from "../../../reducer/data/data";
 import {withRouter} from "react-router";
 
 class FavoritesPage extends PureComponent {
@@ -39,13 +39,13 @@ FavoritesPage.propTypes = {
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   countData: getCountResultFavorites(state),
-  loadStatus: getFavoritesLoadStatus(state),
+  loadStatus: getLoadStatus(state),
   error: getFavoritesError(state),
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onLoaded: () => {
-    dispatch(Operation.loadFavoritesData(ownProps.history));
+    dispatch(Operation.loadFavoritesData(() => ownProps.history.push(`/login`)));
   },
 });
 

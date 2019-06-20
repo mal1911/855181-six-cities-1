@@ -5,7 +5,7 @@ import PopupSortingElement from "../pupup-sorting-element/popup-sorting-element"
 import withPopupToggle from "../../../hocs/with-popup-toggle/with-popup-toggle";
 import Map from "../../map";
 import {connect} from "react-redux";
-import {getOffersLocationsData} from "../../../reducer/offers-data/selectors";
+import {getOffersLocationsData} from "../../../reducer/data/selectors";
 import {locationType} from "../../../prop-types";
 import PropTypes from "prop-types";
 

@@ -64,13 +64,13 @@ const Operation = {
         afterError(dispatch, err);
       });
   },
-  userLogin: (autorizationObj, history) => (dispatch, _getState, api) => {
+  userLogin: (autorizationObj, onGoLogin) => (dispatch, _getState, api) => {
     dispatch(ActionCreator.changeUserLoadStatus(true));
     return api.post(`/login`, autorizationObj)
       .then((response) => {
         if (response.status === HTML_STATUS.OK) {
           afterSuccess(dispatch, response.data);
-          history.push(`/`);
+          onGoLogin();
         }
       })
       .catch((err) => {
