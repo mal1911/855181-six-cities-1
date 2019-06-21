@@ -2,7 +2,7 @@ import MockAdapter from "axios-mock-adapter";
 import {createAPI} from "../../api";
 import {Operation, ActionType} from "./data";
 import {HTML_STATUS} from "../../constants";
-import {offersData, favoritesData} from "../../mocks/mocks";
+import {offersData} from "../../mocks/mocks";
 
 describe(`Reducer works correctly`, () => {
   it(`Testing a list of hotels`, function () {

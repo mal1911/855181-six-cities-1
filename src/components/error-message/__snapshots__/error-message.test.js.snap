@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorMessage correctly renders 1`] = `
+<div
+  className="error-message error-message--opened"
+  onClick={[Function]}
+>
+  <p
+    className="error-message__test"
+  >
+    Ошибка: Error!
+  </p>
+</div>
+`;

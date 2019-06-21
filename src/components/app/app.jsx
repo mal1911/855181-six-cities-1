@@ -5,10 +5,10 @@ import FavoritesPage from "../favorites/favorites-page";
 import OfferPage from "../offer/offer-page";
 import withCheckLogin from "../../hocs/with-check-login/with-check-login";
 import withBodyClass from "../../hocs/with-body-class/with-body-class";
-import {getAuthorizationStatus} from "../../reducer/user/selectors";
-import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import SignInPage from "../sign-in-page";
+import {connect} from "react-redux";
+import {getAuthorizationStatus} from "../../reducer/user/selectors";
 
 const App = ({isAuthorizationRequired}) => {
   const MainPageBody = withBodyClass(MainPage, [`page--gray`, `page--main`]);
@@ -32,7 +32,6 @@ App.propTypes = {
 const mapStateToProps = (state) => ({
   isAuthorizationRequired: getAuthorizationStatus(state)
 });
-
 
 export {App};
 

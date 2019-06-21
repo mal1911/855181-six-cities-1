@@ -127,7 +127,7 @@ export const getActiveMapLocation = createSelector(
       } else if (activeOfferObj) {
         return activeOfferObj.location;
       } else {
-        return 0;
+        return null;
       }
     }
 );

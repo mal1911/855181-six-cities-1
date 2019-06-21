@@ -11,7 +11,6 @@ import PropTypes from "prop-types";
 
 const PlacesWrapperData = ({offersLocationsData}) => {
   const TogglePopupSortingElement = withPopupToggle(PopupSortingElement);
-
   return <React.Fragment>
     <div className="cities__places-wrapper">
       <div className="cities__places-container container">

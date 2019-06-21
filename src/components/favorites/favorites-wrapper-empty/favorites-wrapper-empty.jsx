@@ -17,7 +17,4 @@ const FavoritesWrapperEmpty = () => {
   </React.Fragment>;
 };
 
-FavoritesWrapperEmpty.propTypes = {
-};
-
 export default FavoritesWrapperEmpty;

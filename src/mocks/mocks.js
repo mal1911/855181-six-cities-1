@@ -4456,3 +4456,555 @@ export const favoritesData = [
     },
   },
 ];
+
+export const favoritesOneData = [
+  {
+    id: 1,
+    city: {
+      name: `Paris`,
+      location: {
+        latitude: 48.85661,
+        longitude: 2.351499,
+        zoom: 13,
+      },
+    },
+    previewImage: `/img/apartment-01.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Beautiful & luxurious apartment at great location`,
+    isFavorite: true,
+    isPremium: true,
+    rating: 2.7,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 2,
+    price: 231,
+    goods: [
+      `Towels`,
+      `Dishwasher`,
+      `Breakfast`,
+      `Washer`,
+      `Laptop friendly workspace`,
+      `Air conditioning`,
+      `Fridge`,
+      `Baby seat`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
+    location: {
+      latitude: 48.87561,
+      longitude: 2.375499,
+      zoom: 16,
+    },
+  },
+  {
+    id: 2,
+    city: {
+      name: `Dusseldorf`,
+      location: {
+        latitude: 51.225402,
+        longitude: 6.776314,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-02.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Penthouse, 4-5 rooms + 5 balconies`,
+    isFavorite: false,
+    isPremium: true,
+    rating: 4.6,
+    type: `apartment`,
+    bedrooms: 3,
+    maxAdults: 9,
+    price: 309,
+    goods: [
+      `Towels`,
+      `Laptop friendly workspace`,
+      `Washer`,
+      `Baby seat`,
+      `Breakfast`,
+      `Fridge`,
+      `Dishwasher`,
+      `Air conditioning`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
+    location: {
+      latitude: 51.243402,
+      longitude: 6.791314,
+      zoom: 16,
+    },
+  },
+  {
+    id: 3,
+    city: {
+      name: `Cologne`,
+      location: {
+        latitude: 50.938361,
+        longitude: 6.959974,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-03.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `The house among olive `,
+    isFavorite: false,
+    isPremium: false,
+    rating: 3.2,
+    type: `house`,
+    bedrooms: 3,
+    maxAdults: 9,
+    price: 715,
+    goods: [
+      `Washer`,
+      `Laptop friendly workspace`,
+      `Breakfast`,
+      `Air conditioning`,
+      `Baby seat`,
+      `Towels`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
+    location: {
+      latitude: 50.945361,
+      longitude: 6.935974,
+      zoom: 16,
+    },
+  },
+  {
+    id: 4,
+    city: {
+      name: `Paris`,
+      location: {
+        latitude: 48.85661,
+        longitude: 2.351499,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-01.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Penthouse, 4-5 rooms + 5 balconies`,
+    isFavorite: true,
+    isPremium: false,
+    rating: 4.3,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 3,
+    price: 264,
+    goods: [
+      `Air conditioning`,
+      `Washer`,
+      `Breakfast`,
+      `Baby seat`,
+      `Laptop friendly workspace`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
+    location: {
+      latitude: 48.862610000000004,
+      longitude: 2.369499,
+      zoom: 16,
+    },
+  },
+  {
+    id: 5,
+    city: {
+      name: `Dusseldorf`,
+      location: {
+        latitude: 51.225402,
+        longitude: 6.776314,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-02.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Waterfront with extraordinary view`,
+    isFavorite: false,
+    isPremium: false,
+    rating: 2.5,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 1,
+    price: 156,
+    goods: [
+      `Washer`,
+      `Breakfast`,
+      `Laptop friendly workspace`,
+      `Air conditioning`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.`,
+    location: {
+      latitude: 51.225402,
+      longitude: 6.784314,
+      zoom: 16,
+    },
+  },
+  {
+    id: 6,
+    city: {
+      name: `Hamburg`,
+      location: {
+        latitude: 53.550341,
+        longitude: 10.000654,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-03.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `The house among olive `,
+    isFavorite: false,
+    isPremium: true,
+    rating: 3.5,
+    type: `apartment`,
+    bedrooms: 3,
+    maxAdults: 6,
+    price: 332,
+    goods: [
+      `Laptop friendly workspace`,
+      `Breakfast`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
+    location: {
+      latitude: 53.574341000000004,
+      longitude: 10.022654000000001,
+      zoom: 16,
+    },
+  },
+  {
+    id: 7,
+    city: {
+      name: `Amsterdam`,
+      location: {
+        latitude: 52.37454,
+        longitude: 4.897976,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-01.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `The Pondhouse - A Magical Place`,
+    isFavorite: false,
+    isPremium: true,
+    rating: 3.2,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 3,
+    price: 204,
+    goods: [
+      `Fridge`,
+      `Air conditioning`,
+      `Towels`,
+      `Washer`,
+      `Washing machine`,
+      `Dishwasher`,
+      `Breakfast`,
+      `Laptop friendly workspace`,
+      `Coffee machine`,
+      `Baby seat`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!`,
+    location: {
+      latitude: 52.37854,
+      longitude: 4.894976,
+      zoom: 16,
+    },
+  },
+  {
+    id: 8,
+    city: {
+      name: `Cologne`,
+      location: {
+        latitude: 50.938361,
+        longitude: 6.959974,
+        zoom: 13,
+      },
+    },
+    previewImage: `img/apartment-02.jpg`,
+    images: [
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+      `img/apartment-03.jpg`,
+      `img/room.jpg`,
+      `img/apartment-01.jpg`,
+      `img/apartment-02.jpg`,
+    ],
+    title: `Canal View Prinsengracht`,
+    isFavorite: false,
+    isPremium: false,
+    rating: 2.1,
+    type: `room`,
+    bedrooms: 1,
+    maxAdults: 2,
+    price: 297,
+    goods: [
+      `Towels`,
+      `Washer`,
+      `Breakfast`,
+      `Air conditioning`,
+      `Baby seat`,
+      `Laptop friendly workspace`,
+      `Fridge`,
+    ],
+    host: {
+      id: 25,
+      isPro: true,
+      name: `Angelina`,
+      avatarUrl: `img/avatar-angelina.jpg`,
+    },
+    description: `This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.`,
+    location: {
+      latitude: 50.941361,
+      longitude: 6.956974,
+      zoom: 16,
+    },
+  },
+];
+
+export const offersLocationsData = [
+  {
+    "location": {
+      "latitude": 50.945361,
+      "longitude": 6.962974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.947361,
+      "longitude": 6.9799739999999995,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.932361,
+      "longitude": 6.937974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.918461,
+      "longitude": 6.969974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.934361,
+      "longitude": 6.943974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.960361,
+      "longitude": 6.967974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.951361,
+      "longitude": 6.944974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.930361,
+      "longitude": 6.937974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.917361,
+      "longitude": 6.977974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.950361,
+      "longitude": 6.961974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.959361,
+      "longitude": 6.978974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.954361,
+      "longitude": 6.982974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.957361,
+      "longitude": 6.9509739999999995,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.913361,
+      "longitude": 6.9509739999999995,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.941361,
+      "longitude": 6.956974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.945361,
+      "longitude": 6.935974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.916361,
+      "longitude": 6.944974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.960361,
+      "longitude": 6.9509739999999995,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.932361,
+      "longitude": 6.960974,
+      "zoom": 16
+    },
+    "isActive": false
+  },
+  {
+    "location": {
+      "latitude": 50.949361,
+      "longitude": 6.976974,
+      "zoom": 16
+    },
+    "isActive": false
+  }
+];
