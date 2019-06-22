@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import {Redirect} from "react-router-dom";
 import {compose} from "recompose";
 import {connect} from "react-redux";
-import {getAuthorizationStatus} from "../../reducer/user-data/selectors";
+import {getAuthorizationStatus, getUserLoadStatus, getUserError} from "../../reducer/user/selectors";
 
 const withCheckLogin = (Component) => {
   const WithCheckLogin = (props) => {
-    return props.isAuthorizationRequired
+    return props.isAuthorizationRequired && !props.loadStatus
       ?
       <Redirect to="/login"/>
       :
@@ -16,13 +16,17 @@ const withCheckLogin = (Component) => {
 
   WithCheckLogin.propTypes = {
     isAuthorizationRequired: PropTypes.bool,
+    loadStatus: PropTypes.bool,
+    error: PropTypes.object,
   };
 
   return WithCheckLogin;
 };
 
 const mapStateToProps = (state) => ({
-  isAuthorizationRequired: getAuthorizationStatus(state)
+  isAuthorizationRequired: getAuthorizationStatus(state),
+  loadStatus: getUserLoadStatus(state),
+  error: getUserError(state),
 });
 
 export {withCheckLogin};

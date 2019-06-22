@@ -1,11 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {offerType} from "../../../prop-types";
-import FavoritesCard from "../favorites-card/index";
+import Card from "../../card";
+import {Operation} from "../../../reducer/data/data";
+import {connect} from "react-redux";
+import {withRouter} from "react-router";
+import {ActionCreator} from "../../../reducer/data/data";
+import {getFavoritesData, getOffersData} from "../../../reducer/data/selectors";
 
 const FavoritesItem = (props) => {
-  const favoritesCards = props.favoritesOneData.map((favoritesObj, index) =>
-    <FavoritesCard key={index} favoritesObj={favoritesObj}/>);
+
+  const onButtonClick = (offerObj) => {
+    if (onButtonClick) {
+      props.onChangeFavoriteStatus(offerObj.id, offerObj.isFavorite ? 0 : 1, props.offersData, props.favoritesData);
+    }
+  };
+
+  const handleChange = (cardObj) => {
+    props.onChangeActiveCard(cardObj.id);
+  };
+
+
+  const favoritesCards = props.favoritesOneData.map((offerObj, index) =>
+    <Card
+      key={index}
+      offerObj={offerObj}
+      cardClassName={`favorites`}
+      onButtonClick={onButtonClick}
+      onChange={handleChange}
+    />);
+
 
   return <li className="favorites__locations-items">
     <div className="favorites__locations locations locations--current">
@@ -21,6 +45,27 @@ const FavoritesItem = (props) => {
 
 FavoritesItem.propTypes = {
   favoritesOneData: PropTypes.arrayOf(offerType),
+  offersData: PropTypes.arrayOf(offerType),
+  favoritesData: PropTypes.arrayOf(offerType),
+  onChangeFavoriteStatus: PropTypes.func,
+  onChangeActiveCard: PropTypes.func,
 };
 
-export default FavoritesItem;
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  offersData: getOffersData(state),
+  favoritesData: getFavoritesData(state),
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onChangeFavoriteStatus: (id, status, offersData, favoritesData) => {
+    dispatch(Operation.changeFavoriteStatus(id, status, offersData,
+        favoritesData, () => ownProps.history.push(`/login`)));
+  },
+  onChangeActiveCard: (id) => {
+    dispatch(ActionCreator.changeActiveOfferId(id));
+  },
+});
+
+export {FavoritesItem};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FavoritesItem));

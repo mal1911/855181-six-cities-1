@@ -2,11 +2,12 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {offerType, commentType} from "../../../prop-types";
 import {connect} from "react-redux";
-import {Operation} from "../../../reducer/comments-data/comments-data";
-import {getCommentsData} from "../../../reducer/comments-data/selectors";
-import {getAuthorizationStatus} from "../../../reducer/user-data/selectors";
+import {Operation} from "../../../reducer/data/data";
+import {getCommentsData} from "../../../reducer/data/selectors";
+import {getAuthorizationStatus} from "../../../reducer/user/selectors";
 import OfferComment from "../offer-comment";
 import OfferForm from "../offer-form";
+import {MAX_COMMENTS} from "../../../constants";
 
 class OfferComments extends PureComponent {
   constructor(props) {
@@ -14,15 +15,13 @@ class OfferComments extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.onDidMountComponent(this.props.offerObj.id);
-  }
-
-  componentWillUnmount() {
+    this.props.onLoaded(this.props.offerObj.id);
   }
 
   render() {
+
     const {commentsData, isAuthorizationRequired, offerObj} = this.props;
-    const comments = commentsData.map((commentObj, index) =>
+    const comments = commentsData.slice(0, MAX_COMMENTS).map((commentObj, index) =>
       <OfferComment key={index} commentObj={commentObj}/>);
 
     const withOfferForm = !isAuthorizationRequired ? <OfferForm offerId={offerObj.id}/> : null;
@@ -40,7 +39,7 @@ class OfferComments extends PureComponent {
 OfferComments.propTypes = {
   commentsData: PropTypes.arrayOf(commentType),
   offerObj: offerType,
-  onDidMountComponent: PropTypes.func,
+  onLoaded: PropTypes.func,
   isAuthorizationRequired: PropTypes.bool,
 };
 
@@ -50,7 +49,7 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onDidMountComponent: (id) => {
+  onLoaded: (id) => {
     dispatch(Operation.loadCommentsData(id));
   },
 });

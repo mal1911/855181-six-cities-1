@@ -18,7 +18,7 @@ const OfferComment = ({commentObj}) => {
         </div>
       </div>
       <p className="reviews__text">{commentObj.comment}</p>
-      <time className="reviews__time" dateTime="2019-04-24">{moment(commentObj.date).format(`DD MMMM`)}</time>
+      <time className="reviews__time" dateTime="2019-04-24">{moment(commentObj.date).format(`MMMM YYYY`)}</time>
     </div>
   </li>;
 };

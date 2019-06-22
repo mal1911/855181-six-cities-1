@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardsHeader correctly renders 1`] = `
+Array [
+  <h2
+    className="visually-hidden"
+  >
+    Places
+  </h2>,
+  <b
+    className="places__found"
+  >
+    10
+     places to stay in 
+    Paris
+  </b>,
+]
+`;
