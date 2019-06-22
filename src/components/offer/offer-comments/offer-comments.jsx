@@ -19,6 +19,7 @@ class OfferComments extends PureComponent {
   }
 
   render() {
+
     const {commentsData, isAuthorizationRequired, offerObj} = this.props;
     const comments = commentsData.slice(0, MAX_COMMENTS).map((commentObj, index) =>
       <OfferComment key={index} commentObj={commentObj}/>);

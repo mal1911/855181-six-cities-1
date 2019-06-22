@@ -1,6 +1,6 @@
 import MockAdapter from "axios-mock-adapter";
 import {createAPI} from "../../api";
-import {Operation, ActionType} from "./user";
+import {Operation, ActionType, ActionCreator, reducer} from "./user";
 import {HTML_STATUS} from "../../constants";
 
 describe(`Reducer user works correctly`, () => {
@@ -36,7 +36,6 @@ describe(`Reducer user works correctly`, () => {
       });
   });
 
-  /*
   it(`User authorization testing FORBIDDEN`, function () {
     const dispatch = jest.fn();
     const api = createAPI(dispatch);
@@ -60,7 +59,6 @@ describe(`Reducer user works correctly`, () => {
         });
       });
   });
-*/
 
   it(`User login testing OK`, function () {
     const dispatch = jest.fn();
@@ -94,3 +92,58 @@ describe(`Reducer user works correctly`, () => {
   });
 
 });
+
+describe(`Test action creator User`, () => {
+  it(`requireAuthorization`, () => {
+    expect(ActionCreator.requireAuthorization(true)).toEqual({
+      type: ActionType.REQUIRED_AUTHORIZATION,
+      payload: true,
+    });
+  });
+  it(`userLogin`, () => {
+    expect(ActionCreator.userLogin({})).toEqual({
+      type: ActionType.USER_LOGIN,
+      payload: {},
+    });
+  });
+  it(`changeUserLoadStatus`, () => {
+    expect(ActionCreator.changeUserLoadStatus(false)).toEqual({
+      type: ActionType.CHANGE_USER_LOAD_STATUS,
+      payload: false,
+    });
+  });
+  it(`changeUserErrorStatus`, () => {
+    expect(ActionCreator.changeUserErrorStatus(null)).toEqual({
+      type: ActionType.CHANGE_USER_ERROR_STATUS,
+      payload: null,
+    });
+  });
+});
+
+describe(`Test reducer User`, () => {
+  it(`REQUIRED_AUTHORIZATION`, () => {
+    expect(reducer({isAuthorizationRequired: false}, {
+      type: ActionType.REQUIRED_AUTHORIZATION,
+      payload: false
+    })).toEqual({isAuthorizationRequired: false});
+  });
+  it(`USER_LOGIN`, () => {
+    expect(reducer({userObj: {}}, {
+      type: ActionType.USER_LOGIN,
+      payload: {}
+    })).toEqual({userObj: {}});
+  });
+  it(`CHANGE_USER_LOAD_STATUS`, () => {
+    expect(reducer({isUserLoading: false}, {
+      type: ActionType.CHANGE_USER_LOAD_STATUS,
+      payload: false
+    })).toEqual({isUserLoading: false});
+  });
+  it(`CHANGE_USER_ERROR_STATUS`, () => {
+    expect(reducer({userError: null}, {
+      type: ActionType.CHANGE_USER_ERROR_STATUS,
+      payload: null
+    })).toEqual({userError: null});
+  });
+});
+

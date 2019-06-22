@@ -38,8 +38,8 @@ const PopupSortingElement = (props) => {
 PopupSortingElement.propTypes = {
   opened: PropTypes.bool.isRequired,
   onToggle: PropTypes.func.isRequired,
-  activeOrderIndex: PropTypes.number.isRequired,
-  onOrderClick: PropTypes.func.isRequired,
+  activeOrderIndex: PropTypes.number,
+  onOrderClick: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {

@@ -1,30 +1,30 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {PlacesWrapperData} from "./places-wrapper-data";
+import MainPage from "../../components/main/main-page";
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
-import {offersLocationsData, initialState} from "../../../mocks/mocks";
+import {initialState} from "../../mocks/mocks";
+import withBodyClass from "./with-body-class";
 
-describe(`PlacesWrapperData correctly renders`, () => {
+describe(`withBodyClass correctly renders`, () => {
   const mockStore = configureStore();
   let store;
   let tree;
+  const MainPageBody = withBodyClass(MainPage, [`page--gray`, `page--main`]);
 
   beforeEach(() => {
     store = mockStore(initialState);
     tree = renderer.create(
         <Provider store={store}>
           <BrowserRouter>
-            <PlacesWrapperData
-              offersLocationsData={offersLocationsData}
-            />
+            <MainPageBody/>
           </BrowserRouter>
         </Provider>
     ).toJSON();
   });
 
-  it(`PlacesWrapperData correctly renders`, () => {
+  it(`MainPage correctly renders`, () => {
     expect(tree).toMatchSnapshot();
   });
 });

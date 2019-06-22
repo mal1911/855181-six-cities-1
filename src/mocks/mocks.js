@@ -1,3 +1,5 @@
+import NameSpace from "../reducer/name-spaces";
+
 export const offersData = [
   {
     id: 1,
@@ -4851,160 +4853,222 @@ export const offersLocationsData = [
     "location": {
       "latitude": 50.945361,
       "longitude": 6.962974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.947361,
       "longitude": 6.9799739999999995,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.932361,
       "longitude": 6.937974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.918461,
       "longitude": 6.969974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.934361,
       "longitude": 6.943974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.960361,
       "longitude": 6.967974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.951361,
       "longitude": 6.944974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.930361,
       "longitude": 6.937974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.917361,
       "longitude": 6.977974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.950361,
       "longitude": 6.961974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.959361,
       "longitude": 6.978974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.954361,
       "longitude": 6.982974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.957361,
       "longitude": 6.9509739999999995,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.913361,
       "longitude": 6.9509739999999995,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.941361,
       "longitude": 6.956974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.945361,
       "longitude": 6.935974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.916361,
       "longitude": 6.944974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.960361,
       "longitude": 6.9509739999999995,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.932361,
       "longitude": 6.960974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
+    "isActive": false,
   },
   {
     "location": {
       "latitude": 50.949361,
       "longitude": 6.976974,
-      "zoom": 16
+      "zoom": 16,
     },
-    "isActive": false
-  }
+    "isActive": false,
+  },
 ];
+
+export const commentsData = [
+  {
+    id: 1,
+    user: {
+      id: 15,
+      isPro: false,
+      name: `Kendall`,
+      avatarUrl: `https://es31-server.appspot.com/six-cities/static/avatar/6.jpg`,
+    },
+    rating: 5,
+    comment: `The deluxe room was a quite comfortable one with all the adequate facilities. The only thing that made me feel uncomfortable was the rude behavior of an impolite staff at the reception desk.`,
+    date: `2019-06-09T08:10:37.126Z`,
+  },
+  {
+    id: 2,
+    user: {
+      id: 14,
+      isPro: true,
+      name: `Corey`,
+      avatarUrl: `https://es31-server.appspot.com/six-cities/static/avatar/5.jpg`,
+    },
+    rating: 4,
+    comment: `Home is amazing. It's like staying in a museum. The rooms, furnishings and artworks are incredible. The views of My Vesuvius`,
+    date: `2019-06-09T08:10:37.126Z`,
+  },
+  {
+    id: 3,
+    user: {
+      id: 16,
+      isPro: true,
+      name: `Mollie`,
+      avatarUrl: `https://es31-server.appspot.com/six-cities/static/avatar/7.jpg`,
+    },
+    rating: 2,
+    comment: `Beautiful space, fantastic location and atmosphere, really a wonderful place to spend a few days. Will be back.`,
+    date: `2019-06-09T08:10:37.126Z`,
+  },
+];
+
+export const initialState = {};
+
+initialState[NameSpace.USER] = {
+  isAuthorizationRequired: true,
+  userObj: null,
+  isUserLoading: true,
+  userError: null,
+};
+
+initialState[NameSpace.DATA] = {
+  activeCityIndex: 0,
+  activeOrderIndex: 0,
+  activeOfferId: 0,
+  offersData: [],
+  favoritesData: [],
+  commentsData: [],
+  offersError: null,
+  favoritesError: null,
+  commentsError: null,
+  isLoading: true,
+};
+

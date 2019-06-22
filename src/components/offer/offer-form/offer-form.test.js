@@ -1,12 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {PlacesWrapperData} from "./places-wrapper-data";
+import {OfferForm} from "./offer-form";
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
-import {offersLocationsData, initialState} from "../../../mocks/mocks";
+import {offersData, initialState} from "../../../mocks/mocks";
 
-describe(`PlacesWrapperData correctly renders`, () => {
+describe(`OfferForm correctly renders`, () => {
   const mockStore = configureStore();
   let store;
   let tree;
@@ -16,15 +16,18 @@ describe(`PlacesWrapperData correctly renders`, () => {
     tree = renderer.create(
         <Provider store={store}>
           <BrowserRouter>
-            <PlacesWrapperData
-              offersLocationsData={offersLocationsData}
+            <OfferForm
+              offerId={offersData[0].id}
+              onSendForm={jest.fn()}
+              error={null}
+              loadStatus={false}
             />
           </BrowserRouter>
         </Provider>
     ).toJSON();
   });
 
-  it(`PlacesWrapperData correctly renders`, () => {
+  it(`OfferForm correctly renders`, () => {
     expect(tree).toMatchSnapshot();
   });
 });

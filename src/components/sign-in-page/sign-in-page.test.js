@@ -1,12 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {PlacesWrapperData} from "./places-wrapper-data";
+import SingInPage from "./sign-in-page";
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
-import {offersLocationsData, initialState} from "../../../mocks/mocks";
+import {initialState} from "../../mocks/mocks";
 
-describe(`PlacesWrapperData correctly renders`, () => {
+describe(`SingInPage correctly renders`, () => {
   const mockStore = configureStore();
   let store;
   let tree;
@@ -16,15 +16,17 @@ describe(`PlacesWrapperData correctly renders`, () => {
     tree = renderer.create(
         <Provider store={store}>
           <BrowserRouter>
-            <PlacesWrapperData
-              offersLocationsData={offersLocationsData}
+            <SingInPage
+              userInfo={{email: ``, password: ``}}
+              isAuthorizationRequired={true}
+              onUserLogin={jest.fn()}
             />
           </BrowserRouter>
         </Provider>
     ).toJSON();
   });
 
-  it(`PlacesWrapperData correctly renders`, () => {
+  it(`SingInPage correctly renders`, () => {
     expect(tree).toMatchSnapshot();
   });
 });

@@ -13,7 +13,7 @@ class SignInPage extends PureComponent {
 
     this.state = {
       email: `Oliver.conner@gmail.com`,
-      password: ``
+      password: `12345`
     };
 
     this._handleSendForm = this._handleSendForm.bind(this);
@@ -81,8 +81,8 @@ class SignInPage extends PureComponent {
   }
 
   _handleSendForm(evt) {
-    evt.preventDefault();
     this.props.onUserLogin(this.state);
+    evt.preventDefault();
   }
 
   _handleChangeEmail(evt) {
