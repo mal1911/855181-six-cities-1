@@ -144,7 +144,7 @@ export const getNearData = createSelector(
       return offersData.map(
           (offerObj) => Object.assign({}, offerObj, {distance: getDistance(offerObj.location)})
       ).sort(
-          (a, b) => a.distance > b.distance
+          (a, b) => a.distance - b.distance
       );
     }
 );
